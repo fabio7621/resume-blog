@@ -33,6 +33,11 @@
 @layer base {
   html {
     color-scheme: light dark;
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 4rem;
   }
 
   body {
@@ -92,15 +97,5 @@
     max-width: 64rem;
     margin: 0 auto;
     padding-inline: 1.5rem;
-  }
-
-  .page-fade-enter-active,
-  .page-fade-leave-active {
-    transition: opacity 0.2s ease;
-  }
-
-  .page-fade-enter-from,
-  .page-fade-leave-to {
-    opacity: 0;
   }
 }

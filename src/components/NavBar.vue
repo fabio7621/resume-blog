@@ -1,13 +1,12 @@
 <script setup>
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
 import ThemeToggle from './ThemeToggle.vue'
 
 const links = [
-  { to: '/', label: 'home' },
-  { to: '/about', label: 'about' },
-  { to: '/skills', label: 'skills' },
-  { to: '/portfolio', label: 'portfolio' },
+  { href: '#home', label: 'home' },
+  { href: '#about', label: 'about' },
+  { href: '#skills', label: 'skills' },
+  { href: '#portfolio', label: 'portfolio' },
 ]
 
 const menuOpen = ref(false)
@@ -25,29 +24,26 @@ function closeMenu() {
       backgroundColor: 'color-mix(in srgb, var(--color-bg) 85%, transparent)',
     }"
   >
-    <div
-      class="page-container flex h-14 items-center justify-between gap-4"
-    >
-      <RouterLink
-        to="/"
+    <div class="page-container flex h-14 items-center justify-between gap-4">
+      <a
+        href="#home"
         class="font-mono text-sm font-semibold"
         :style="{ color: 'var(--color-text)' }"
         @click="closeMenu"
       >
         <span :style="{ color: 'var(--color-accent)' }">~/</span>fabio
-      </RouterLink>
+      </a>
 
       <nav class="hidden items-center gap-1 md:flex">
-        <RouterLink
+        <a
           v-for="link in links"
-          :key="link.to"
-          :to="link.to"
-          class="rounded-md px-3 py-1.5 font-mono text-sm transition-colors"
+          :key="link.href"
+          :href="link.href"
+          class="nav-link rounded-md px-3 py-1.5 font-mono text-sm transition-colors"
           :style="{ color: 'var(--color-muted)' }"
-          active-class="nav-link-active"
         >
           <span aria-hidden="true">&gt; </span>{{ link.label }}
-        </RouterLink>
+        </a>
       </nav>
 
       <div class="flex items-center gap-2">
@@ -75,25 +71,23 @@ function closeMenu() {
       :style="{ borderTop: '1px solid var(--color-border)' }"
     >
       <div class="page-container flex flex-col py-2">
-        <RouterLink
+        <a
           v-for="link in links"
-          :key="link.to"
-          :to="link.to"
-          class="rounded-md px-3 py-2 font-mono text-sm"
+          :key="link.href"
+          :href="link.href"
+          class="nav-link rounded-md px-3 py-2 font-mono text-sm"
           :style="{ color: 'var(--color-muted)' }"
-          active-class="nav-link-active"
           @click="closeMenu"
         >
           <span aria-hidden="true">&gt; </span>{{ link.label }}
-        </RouterLink>
+        </a>
       </div>
     </nav>
   </header>
 </template>
 
 <style scoped>
-.nav-link-active {
+.nav-link:hover {
   color: var(--color-accent) !important;
-  background-color: var(--color-accent-soft);
 }
 </style>
