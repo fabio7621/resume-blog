@@ -1,109 +1,105 @@
 <script setup>
-import SectionHeading from '../components/SectionHeading.vue'
-import TagBadge from '../components/TagBadge.vue'
-import ProjectCard from '../components/ProjectCard.vue'
-// 之後想換照片，把 avatar.svg 換成 avatar.jpg / .png 即可
-import avatarUrl from '../assets/avatar.svg'
+import SectionHeading from "../components/SectionHeading.vue";
+import TagBadge from "../components/TagBadge.vue";
+import ProjectCard from "../components/ProjectCard.vue";
+import avatarUrl from "../assets/avatar.jpg";
 
-const topSkills = ['Vue 3', 'React', 'SCSS', 'Tailwind', 'Bootstrap 5']
+const topSkills = ["Vue 3", "React", "SCSS", "Tailwind", "Bootstrap 5"];
 
 const timeline = [
   {
-    year: '2023 – 2025.12',
-    title: '前端工程師 / 設計師',
-    org: '佑新行銷股份有限公司',
+    year: "2023 – 2025.12",
+    title: "前端工程師 / 設計師",
+    org: "佑新行銷股份有限公司",
     details: [
-      '使用 Bootstrap 5 完成多個響應式企業網頁切版',
-      '維護與救援公司舊專案',
-      '擔任產品 PM 與外包後端之間的溝通橋樑',
+      "使用 Bootstrap 5 完成多個響應式企業網頁切版",
+      "維護與救援公司舊專案",
+      "擔任產品 PM 與外包後端之間的溝通橋樑",
     ],
   },
   {
-    year: '2019 – 2023',
-    title: '行銷美編',
-    org: '格力得企業有限公司',
-    details: ['網拍美編設計', '公司庶務管理'],
+    year: "2019 – 2023",
+    title: "行銷美編",
+    org: "格力得企業有限公司",
+    details: ["網拍美編設計", "公司庶務管理"],
   },
-]
+];
 
 const currentlyLearning = [
-  '在好想工作室加強 JavaScript 與前端框架',
-  '學習 3A Pattern、測試寫法、I/O 設計觀念',
-  '研究 SOLID 原則並閱讀《Code Complete》',
-  '練習 AI-assisted development：先寫規格再實作',
-]
+  "在好想工作室加強 JavaScript 與前端框架",
+  "學習 3A Pattern、測試寫法、I/O 設計觀念",
+  "研究 SOLID 原則並閱讀《Code Complete》",
+  "練習 AI-assisted development：先寫規格再實作",
+];
 
 const skillGroups = [
   {
-    title: 'frontend',
-    desc: '我的主場',
+    title: "frontend",
+    desc: "我的主場",
     items: [
-      'Vue 3 (Composition API / script setup / Pinia)',
-      'React',
-      'HTML5',
-      'CSS3 / SCSS',
-      'Tailwind CSS',
-      'Bootstrap 5',
+      "Vue 3 (Composition API / script setup / Pinia)",
+      "React",
+      "HTML5",
+      "CSS3 / SCSS",
+      "Tailwind CSS",
+      "Bootstrap 5",
     ],
   },
   {
-    title: 'backend',
-    desc: '略懂、能配合溝通',
-    items: ['Node.js / Express', 'RESTful API 設計', 'MongoDB / Mongoose'],
+    title: "backend",
+    desc: "略懂、能配合溝通",
+    items: ["Node.js / Express", "RESTful API 設計", "MongoDB / Mongoose"],
   },
   {
-    title: 'tools',
-    desc: '日常工具',
-    items: ['Git / GitHub', 'Vite', 'Claude Code', 'AI-assisted development'],
+    title: "tools",
+    desc: "日常工具",
+    items: ["Git / GitHub", "Vite", "Claude Code", "AI-assisted development"],
   },
-]
+];
 
 const projects = [
   {
-    name: 'HelmentShop',
+    name: "HelmentShop",
     description:
-      '安全帽電商網站前後台，Vue 3 Options API + Vite + Pinia + Router，串接 RESTful API。',
-    tags: ['Vue 3', 'Vite', 'Pinia', 'RESTful API'],
-    repo: 'https://github.com/fabio7621/HelmentShop',
-    link: 'https://fabio7621.github.io/HelmentShop/#/',
+      "安全帽電商網站前後台，Vue 3 Options API + Vite + Pinia + Router，串接 RESTful API。",
+    tags: ["Vue 3", "Vite", "Pinia", "RESTful API"],
+    repo: "https://github.com/fabio7621/HelmentShop",
+    link: "https://fabio7621.github.io/HelmentShop/#/",
   },
   {
-    name: 'MusicShop',
+    name: "MusicShop",
     description:
-      'React.js + Vite + chart.js 打造的音樂商店與儀錶板，練習資料視覺化與商品列表互動。',
-    tags: ['React', 'Vite', 'chart.js'],
-    repo: 'https://github.com/fabio7621/musicstore-react',
-    link: 'https://fabio7621.github.io/musicstore-react/',
+      "React.js + Vite + chart.js 打造的音樂商店與儀錶板，練習資料視覺化與商品列表互動。",
+    tags: ["React", "Vite", "chart.js"],
+    repo: "https://github.com/fabio7621/musicstore-react",
+    link: "https://fabio7621.github.io/musicstore-react/",
   },
   {
-    name: '大東洋（靜態切版）',
-    description: '服務案例 — 企業官網靜態切版，著重 RWD 與版面細節處理。',
-    tags: ['HTML', 'CSS'],
-    repo: '',
-    link: 'https://www.freshlife.com.tw/',
+    name: "大東洋（靜態切版）",
+    description: "服務案例 — 企業官網靜態切版，著重 RWD 與版面細節處理。",
+    tags: ["HTML", "CSS"],
+    repo: "",
+    link: "https://www.freshlife.com.tw/",
   },
   {
-    name: '蔡教練',
-    description: '服務案例 — 教練個人形象網站靜態切版，含 RWD 排版。',
-    tags: ['HTML', 'CSS'],
-    repo: 'https://github.com/fabio7621/tsai-coach',
-    link: 'https://fabio7621.github.io/tsai-coach/',
+    name: "蔡教練",
+    description: "服務案例 — 教練個人形象網站靜態切版，含 RWD 排版。",
+    tags: ["HTML", "CSS"],
+    repo: "https://github.com/fabio7621/tsai-coach",
+    link: "https://fabio7621.github.io/tsai-coach/",
   },
-]
+];
 </script>
 
 <template>
   <!-- Hero -->
-  <section
-    id="home"
-    class="page-container py-16 md:py-24"
-  >
+  <section id="home" class="page-container py-16 md:py-24">
     <div class="grid items-center gap-8 md:grid-cols-[200px_1fr]">
       <!-- 大頭貼 -->
       <div class="flex justify-center md:justify-start">
         <img
           :src="avatarUrl"
-          alt="Fabio 李承哲"
+          alt="李承哲"
           class="h-40 w-40 rounded-full object-cover md:h-48 md:w-48"
           :style="{ border: '2px solid var(--color-border)' }"
         />
@@ -111,20 +107,15 @@ const projects = [
 
       <!-- 文字資訊 -->
       <div>
-        <p
-          class="font-mono text-sm"
-          :style="{ color: 'var(--color-muted)' }"
-        >
+        <p class="font-mono text-sm" :style="{ color: 'var(--color-muted)' }">
           <span :style="{ color: 'var(--color-accent)' }">$</span> whoami
         </p>
-        <h1 class="mt-3 text-4xl leading-tight sm:text-5xl">
-          Fabio · 李承哲
-        </h1>
+        <h1 class="mt-3 text-4xl leading-tight sm:text-5xl">李承哲</h1>
         <p
           class="mt-3 font-mono text-sm"
           :style="{ color: 'var(--color-accent)' }"
         >
-          前端開發者 · 台灣
+          前端開發
         </p>
         <p
           class="mt-4 max-w-2xl text-lg italic leading-relaxed"
@@ -162,10 +153,7 @@ const projects = [
 
     <!-- 近況狀態 -->
     <div class="mt-16">
-      <SectionHeading
-        title="status"
-        subtitle="近況更新"
-      />
+      <SectionHeading title="status" subtitle="近況更新" />
       <div
         class="overflow-hidden rounded-xl font-mono text-sm"
         :style="{
@@ -221,28 +209,16 @@ const projects = [
 
     <!-- 常用 stack -->
     <div class="mt-12">
-      <SectionHeading
-        title="stack"
-        subtitle="常用工具"
-      />
+      <SectionHeading title="stack" subtitle="常用工具" />
       <div class="flex flex-wrap gap-2">
-        <TagBadge
-          v-for="skill in topSkills"
-          :key="skill"
-          :label="skill"
-        />
+        <TagBadge v-for="skill in topSkills" :key="skill" :label="skill" />
       </div>
       <p
         class="mt-4 font-mono text-xs"
         :style="{ color: 'var(--color-muted)' }"
       >
         &gt; 完整技能列表請見
-        <a
-          href="#skills"
-          class="font-mono"
-        >
-          #skills
-        </a>
+        <a href="#skills" class="font-mono"> #skills </a>
       </p>
     </div>
   </section>
@@ -253,10 +229,7 @@ const projects = [
     class="page-container py-16 md:py-24"
     :style="{ borderTop: '1px solid var(--color-border)' }"
   >
-    <p
-      class="font-mono text-sm"
-      :style="{ color: 'var(--color-muted)' }"
-    >
+    <p class="font-mono text-sm" :style="{ color: 'var(--color-muted)' }">
       <span :style="{ color: 'var(--color-accent)' }">$</span> cat about.md
     </p>
     <h2 class="mt-3 text-4xl">About me</h2>
@@ -280,20 +253,14 @@ const projects = [
     </div>
 
     <div class="mt-16">
-      <SectionHeading
-        title="experience"
-        subtitle="工作經歷"
-      />
+      <SectionHeading title="experience" subtitle="工作經歷" />
       <ol class="space-y-8">
         <li
           v-for="item in timeline"
           :key="item.year"
           class="grid gap-2 sm:grid-cols-[180px_1fr] sm:gap-6"
         >
-          <p
-            class="font-mono text-sm"
-            :style="{ color: 'var(--color-muted)' }"
-          >
+          <p class="font-mono text-sm" :style="{ color: 'var(--color-muted)' }">
             {{ item.year }}
           </p>
           <div>
@@ -309,12 +276,7 @@ const projects = [
               class="mt-2 space-y-1 text-sm leading-relaxed"
               :style="{ color: 'var(--color-muted)' }"
             >
-              <li
-                v-for="d in item.details"
-                :key="d"
-              >
-                · {{ d }}
-              </li>
+              <li v-for="d in item.details" :key="d">· {{ d }}</li>
             </ul>
           </div>
         </li>
@@ -322,20 +284,12 @@ const projects = [
     </div>
 
     <div class="mt-12">
-      <SectionHeading
-        title="currently"
-        subtitle="目前在做的事"
-      />
+      <SectionHeading title="currently" subtitle="目前在做的事" />
       <ul
         class="space-y-1 text-base leading-relaxed"
         :style="{ color: 'var(--color-muted)' }"
       >
-        <li
-          v-for="item in currentlyLearning"
-          :key="item"
-        >
-          · {{ item }}
-        </li>
+        <li v-for="item in currentlyLearning" :key="item">· {{ item }}</li>
       </ul>
     </div>
   </section>
@@ -346,10 +300,7 @@ const projects = [
     class="page-container py-16 md:py-24"
     :style="{ borderTop: '1px solid var(--color-border)' }"
   >
-    <p
-      class="font-mono text-sm"
-      :style="{ color: 'var(--color-muted)' }"
-    >
+    <p class="font-mono text-sm" :style="{ color: 'var(--color-muted)' }">
       <span :style="{ color: 'var(--color-accent)' }">$</span> ls ./skills
     </p>
     <h2 class="mt-3 text-4xl">Skills</h2>
@@ -361,20 +312,10 @@ const projects = [
     </p>
 
     <div class="mt-12 space-y-12">
-      <div
-        v-for="group in skillGroups"
-        :key="group.title"
-      >
-        <SectionHeading
-          :title="group.title"
-          :subtitle="group.desc"
-        />
+      <div v-for="group in skillGroups" :key="group.title">
+        <SectionHeading :title="group.title" :subtitle="group.desc" />
         <div class="flex flex-wrap gap-2">
-          <TagBadge
-            v-for="item in group.items"
-            :key="item"
-            :label="item"
-          />
+          <TagBadge v-for="item in group.items" :key="item" :label="item" />
         </div>
       </div>
     </div>
@@ -386,10 +327,7 @@ const projects = [
     class="page-container py-16 md:py-24"
     :style="{ borderTop: '1px solid var(--color-border)' }"
   >
-    <p
-      class="font-mono text-sm"
-      :style="{ color: 'var(--color-muted)' }"
-    >
+    <p class="font-mono text-sm" :style="{ color: 'var(--color-muted)' }">
       <span :style="{ color: 'var(--color-accent)' }">$</span> ls ./projects
     </p>
     <h2 class="mt-3 text-4xl">Portfolio</h2>
@@ -402,10 +340,7 @@ const projects = [
     </p>
 
     <div class="mt-12">
-      <SectionHeading
-        title="works"
-        subtitle="精選專案"
-      />
+      <SectionHeading title="works" subtitle="精選專案" />
       <div class="grid gap-6 md:grid-cols-2">
         <ProjectCard
           v-for="project in projects"
