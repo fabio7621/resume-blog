@@ -191,10 +191,12 @@ const projects = [
             · 您好，我是承哲，曾在行銷公司擔任前端切版工作兩年半
           </p>
           <p :style="{ color: 'var(--color-muted)' }">
-            · 參與多項企業官網專案，熟悉 HTML、CSS、Bootstrap，並具備 Vue 與 React 基礎應用能力
+            · 參與多項企業官網專案，熟悉 HTML、CSS、Bootstrap，並具備 Vue 與
+            React 基礎應用能力
           </p>
           <p :style="{ color: 'var(--color-muted)' }">
-            · 目前是好想工作室 Web Camp 進駐學員，持續練習程式、解決問題與學習方法
+            · 目前是好想工作室 Web Camp
+            進駐學員，持續練習程式、解決問題與學習方法
           </p>
           <p>
             <span :style="{ color: 'var(--color-accent)' }">$</span>
@@ -243,9 +245,11 @@ const projects = [
       <p>
         在大大小小的學習過程中，我從 Amos（CSScoke）老師的網頁切版班開始打基礎，
         學會必須理解每個 CSS 屬性的特性，才能在實作中真正知道自己在做什麼。
-        雖然現在 Claude Design 等 AI 工具已經很強，但遇到細節複雜的網頁時，
+        雖然現在 Claude Design 等 AI
+        工具已經很強，但遇到細節複雜的網頁時還不能做到最完美，
         過去兩年半的切版與實務經驗，讓我更能判斷如何駕馭 AI，而不是被 AI 駕馭。
-        從去年 12 月到現在，我也在好想工作室 Web Camp 持續學習。即使很多內容曾經接觸過，
+        從去年 12 月到現在，我也在好想工作室 Web Camp
+        持續學習。即使很多內容曾經接觸過，
         我仍選擇重新來過，學的不只是程式本身，也包括學習方式與解決問題的流程。
       </p>
       <p>
