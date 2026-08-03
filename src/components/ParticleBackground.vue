@@ -23,9 +23,9 @@ const MAX_RADIUS = 28
 const GRAVITY_RANGE = 160
 const GRAVITY_PULL = 0.03
 const BLUR_BASE = 3
-const DENSITY_DIVISOR = 42000
-const MIN_COUNT = 16
-const MAX_COUNT = 46
+const DENSITY_DIVISOR = 20000
+const MIN_COUNT = 24
+const MAX_COUNT = 90
 const MIN_LINE_WIDTH = 0.35
 // 全螢幕畫布在 DPR 3 的螢幕上像素量是 DPR 2 的 2.25 倍，收益卻看不太出來
 const MAX_DPR = 2
