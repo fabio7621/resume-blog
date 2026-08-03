@@ -15,16 +15,16 @@
       (function () {
         try {
           var saved = localStorage.getItem('resume-blog-theme')
-          if (saved !== 'light') {
+          if (saved === 'dark') {
             document.documentElement.classList.add('dark')
           }
         } catch (e) {
-          document.documentElement.classList.add('dark')
+          /* 讀不到偏好就維持預設的 light */
         }
       })()
     </script>
-    <script type="module" crossorigin src="/resume-blog/assets/index-DXD-48Ak.js"></script>
-    <link rel="stylesheet" crossorigin href="/resume-blog/assets/index-CqJOYXT2.css">
+    <script type="module" crossorigin src="/resume-blog/assets/index-BYZIXMFW.js"></script>
+    <link rel="stylesheet" crossorigin href="/resume-blog/assets/index-CenPdktR.css">
   </head>
   <body>
     <div id="app"></div>
