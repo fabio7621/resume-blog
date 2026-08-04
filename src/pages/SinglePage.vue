@@ -117,12 +117,12 @@ const projects = [
         >
           前端開發
         </p>
-        <p
+        <!-- <p
           class="mt-4 max-w-2xl text-lg italic leading-relaxed"
           :style="{ color: 'var(--color-muted)' }"
         >
-          「我用程式碼打造網頁體驗，偶爾也擲個骰子。」
-        </p>
+          「。」
+        </p> -->
 
         <div class="mt-8 flex flex-wrap gap-3">
           <a
