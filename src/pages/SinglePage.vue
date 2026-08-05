@@ -1,8 +1,39 @@
 <script setup>
+import { onBeforeUnmount, onMounted } from "vue";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import SectionHeading from "../components/SectionHeading.vue";
 import TagBadge from "../components/TagBadge.vue";
 import ProjectCard from "../components/ProjectCard.vue";
 import avatarUrl from "../assets/avatar.jpg";
+
+const FANCYBOX_SELECTOR = "[data-fancybox='portfolio']";
+
+onMounted(() => {
+  Fancybox.bind(FANCYBOX_SELECTOR, {
+    // 跟著站上的 light / dark 切換走
+    theme: () =>
+      document.documentElement.classList.contains("dark") ? "dark" : "light",
+    Carousel: { infinite: false },
+  });
+});
+
+onBeforeUnmount(() => {
+  Fancybox.unbind(FANCYBOX_SELECTOR);
+  Fancybox.close();
+});
+
+// 專案預覽圖：把圖片丟進 src/assets/projects/，再把檔名填到下面 projects 的 image 欄位
+const projectImages = import.meta.glob(
+  "../assets/projects/*.{png,jpg,jpeg,webp,avif}",
+  {
+    eager: true,
+    import: "default",
+  },
+);
+
+const getProjectImage = (fileName) =>
+  fileName ? (projectImages[`../assets/projects/${fileName}`] ?? "") : "";
 
 const topSkills = ["Vue 3", "React", "SCSS", "Tailwind", "Bootstrap 5"];
 
@@ -65,6 +96,7 @@ const projects = [
     tags: ["Vue 3", "Vite", "Pinia", "RESTful API"],
     repo: "https://github.com/fabio7621/HelmentShop",
     link: "https://fabio7621.github.io/HelmentShop/#/",
+    image: "helment.png",
   },
   {
     name: "MusicShop",
@@ -73,6 +105,7 @@ const projects = [
     tags: ["React", "Vite", "chart.js"],
     repo: "https://github.com/fabio7621/musicstore-react",
     link: "https://fabio7621.github.io/musicstore-react/",
+    image: "music.png",
   },
   {
     name: "大東洋（靜態切版）",
@@ -80,6 +113,7 @@ const projects = [
     tags: ["HTML", "CSS"],
     repo: "",
     link: "https://www.freshlife.com.tw/",
+    image: "don.png",
   },
   {
     name: "蔡教練",
@@ -87,6 +121,7 @@ const projects = [
     tags: ["HTML", "CSS"],
     repo: "https://github.com/fabio7621/tsai-coach",
     link: "https://fabio7621.github.io/tsai-coach/",
+    image: "ten.png",
   },
 ];
 </script>
@@ -360,6 +395,7 @@ const projects = [
           :tags="project.tags"
           :repo="project.repo"
           :link="project.link"
+          :image="getProjectImage(project.image)"
         />
       </div>
     </div>
