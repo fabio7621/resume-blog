@@ -35,32 +35,55 @@ const projectImages = import.meta.glob(
 const getProjectImage = (fileName) =>
   fileName ? (projectImages[`../assets/projects/${fileName}`] ?? "") : "";
 
-const topSkills = ["Vue 3", "React", "SCSS", "Tailwind", "Bootstrap 5"];
+const topSkills = [
+  "JavaScript (ES6+)",
+  "Vue 3",
+  "React",
+  "SCSS",
+  "Tailwind",
+  "Bootstrap 5",
+];
+
+// 求職狀態：職位 / 到職時間 / 地點 / 想找的團隊，四行以內講完
+const jobStatus = [
+  "目前開放前端工程師職缺（Vue 3 / React）",
+  "可到職時間：隨時",
+  "工作地點：台南／可遠端",
+  "有興趣的方向：產品型前端、需要設計與實作整合的團隊",
+];
 
 const timeline = [
+  {
+    year: "2025.12 – 至今",
+    title: "Web Camp 進駐學員",
+    org: "好想工作室",
+    details: [
+      "調整學習方式，建立「觀察 → 假設 → 驗證」的解題流程",
+      "學習 3A Pattern、測試撰寫與 I/O 設計觀念",
+      "研讀 SOLID 原則與《Code Complete》，並實踐於個人專案重構",
+      "建立 AI-assisted development 流程：先寫規格再實作",
+    ],
+  },
   {
     year: "2023 – 2025.12",
     title: "前端工程師 / 設計師",
     org: "佑新行銷股份有限公司",
     details: [
-      "使用 Bootstrap 5 完成多個響應式企業網頁切版",
-      "維護與救援公司舊專案",
-      "擔任產品 PM 與外包後端之間的溝通橋樑",
+      // TODO：把「多個」換成實際數字（例：獨立負責 12 個官網、平均 2 週交付）
+      "獨立負責多個企業官網前端切版，從設計稿到上線全流程，與 PM、後端協作交付",
+      "接手無文件的舊專案進行維護與修復，梳理既有結構並補上可維護的樣式架構，降低後續改版成本",
+      "擔任產品 PM 與外包後端之間的技術窗口，協助釐清 API 規格與需求變更，減少需求來回確認的次數",
     ],
   },
   {
     year: "2019 – 2023",
     title: "行銷美編",
     org: "格力得企業有限公司",
-    details: ["網拍美編設計", "公司庶務管理"],
+    details: [
+      "負責網拍商品主視覺與行銷素材設計，產出可直接上架的版面",
+      "商品頁面版面規劃與影像處理（Photoshop / Illustrator）",
+    ],
   },
-];
-
-const currentlyLearning = [
-  "在好想工作室加強 JavaScript 與前端框架",
-  "學習 3A Pattern、測試寫法、I/O 設計觀念",
-  "研究 SOLID 原則並閱讀《Code Complete》",
-  "練習 AI-assisted development：先寫規格再實作",
 ];
 
 const skillGroups = [
@@ -68,6 +91,7 @@ const skillGroups = [
     title: "frontend",
     desc: "我的主場",
     items: [
+      "JavaScript (ES6+)",
       "Vue 3 (Composition API / script setup / Pinia)",
       "React",
       "HTML5",
@@ -78,8 +102,13 @@ const skillGroups = [
   },
   {
     title: "backend",
-    desc: "略懂、能配合溝通",
+    desc: "協作範圍",
     items: ["Node.js / Express", "RESTful API 設計", "MongoDB / Mongoose"],
+  },
+  {
+    title: "design",
+    desc: "設計背景延伸",
+    items: ["Figma", "Photoshop", "Illustrator", "RWD 版面規劃"],
   },
   {
     title: "tools",
@@ -88,11 +117,71 @@ const skillGroups = [
   },
 ];
 
+// TODO：若有 LinkedIn / CakeResume，補進這個陣列即可
+const contactChannels = [
+  {
+    label: "email",
+    value: "d6200121a@gmail.com",
+    href: "mailto:d6200121a@gmail.com",
+    external: false,
+  },
+  {
+    label: "github",
+    value: "github.com/fabio7621",
+    href: "https://github.com/fabio7621",
+    external: true,
+  },
+];
+
+// 排序原則：實務性質的專案在前，課程作業型往後
+// TODO：duration 請填上實際起訖月份；highlight 請確認與當時的技術決策相符
 const projects = [
+  {
+    name: "衛生局稽查流程優化（提案專案）",
+    description:
+      "實地訪談台南市衛生局菸酒業務單位，釐清現行紙本派案流程的痛點，" +
+      "產出流程圖與可操作 prototype 並參與提案，將使用者需求轉譯為系統設計方向。",
+    role: "需求訪談 / 流程設計 / 原型製作",
+    duration: "",
+    highlight:
+      "使用單位講的是「表單很難填」，實際卡點是派案與回報分屬兩套流程；先畫流程圖對齊認知，再用 prototype 讓對方在畫面上確認，需求才收斂得下來。",
+    tags: ["需求訪談", "流程設計", "Prototype", "Vue 3"],
+    repo: "",
+    link: "https://fabio7621.github.io/tabacoco/#/",
+    image: "tabacoco.png",
+  },
+  {
+    name: "大東洋（企業官網切版）",
+    description: "服務案例 — 企業官網靜態切版，著重 RWD 與版面細節處理。",
+    role: "獨立負責前端切版",
+    duration: "",
+    highlight:
+      "首頁的鮮活報報,不使用JS利用CSS的position的z-index前後圖層關係，讓每個選單在hover時能顯示各自相對應的圖片。",
+    tags: ["HTML", "CSS", "RWD"],
+    repo: "",
+    link: "https://www.freshlife.com.tw/",
+    image: "don.png",
+  },
+  {
+    name: "蔡教練",
+    description: "服務案例 — 教練個人形象網站靜態切版，含 RWD 排版。",
+    role: "獨立負責前端切版",
+    duration: "",
+    highlight:
+      "以形象頁為主的單頁結構，把版面拆成可重複套用的區塊，讓後續增減段落不用重寫樣式。",
+    tags: ["HTML", "CSS", "RWD"],
+    repo: "https://github.com/fabio7621/tsai-coach",
+    link: "https://fabio7621.github.io/tsai-coach/",
+    image: "ten.png",
+  },
   {
     name: "HelmentShop",
     description:
       "安全帽電商網站前後台，Vue 3 Options API + Vite + Pinia + Router，串接 RESTful API。",
+    role: "獨立開發",
+    duration: "",
+    highlight:
+      "購物車狀態要在商品頁、結帳頁與後台之間同步，用 props 傳遞會讓路由層層耦合，改以 Pinia 集中管理並統一處理 API 失敗時的回滾。",
     tags: ["Vue 3", "Vite", "Pinia", "RESTful API"],
     repo: "https://github.com/fabio7621/HelmentShop",
     link: "https://fabio7621.github.io/HelmentShop/#/",
@@ -102,26 +191,14 @@ const projects = [
     name: "MusicShop",
     description:
       "React.js + Vite + chart.js 打造的音樂商店與儀錶板，練習資料視覺化與商品列表互動。",
+    role: "獨立開發",
+    duration: "",
+    highlight:
+      "chart.js 在資料更新時會整張重繪，改為只更新 dataset 並控制重新渲染的時機，避免切換分類時畫面卡頓。",
     tags: ["React", "Vite", "chart.js"],
     repo: "https://github.com/fabio7621/musicstore-react",
     link: "https://fabio7621.github.io/musicstore-react/",
     image: "music.png",
-  },
-  {
-    name: "大東洋（靜態切版）",
-    description: "服務案例 — 企業官網靜態切版，著重 RWD 與版面細節處理。",
-    tags: ["HTML", "CSS"],
-    repo: "",
-    link: "https://www.freshlife.com.tw/",
-    image: "don.png",
-  },
-  {
-    name: "蔡教練",
-    description: "服務案例 — 教練個人形象網站靜態切版，含 RWD 排版。",
-    tags: ["HTML", "CSS"],
-    repo: "https://github.com/fabio7621/tsai-coach",
-    link: "https://fabio7621.github.io/tsai-coach/",
-    image: "ten.png",
   },
 ];
 </script>
@@ -150,7 +227,13 @@ const projects = [
           class="mt-3 font-mono text-sm"
           :style="{ color: 'var(--color-accent)' }"
         >
-          前端開發
+          前端工程師 · Vue 3 / React · 設計背景轉職
+        </p>
+        <p
+          class="mt-4 max-w-2xl text-base leading-relaxed"
+          :style="{ color: 'var(--color-muted)' }"
+        >
+          兩年半企業官網切版實務，能從設計稿一路做到上線；現正尋找前端工程師職缺。
         </p>
         <!-- <p
           class="mt-4 max-w-2xl text-lg italic leading-relaxed"
@@ -181,6 +264,17 @@ const projects = [
             }"
           >
             <span aria-hidden="true">&gt;</span> about me
+          </a>
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-2 rounded-md px-4 py-2 font-mono text-sm transition-colors"
+            :style="{
+              border: '1px solid var(--color-border)',
+              color: 'var(--color-text)',
+              backgroundColor: 'var(--color-surface)',
+            }"
+          >
+            <span aria-hidden="true">@</span> contact
           </a>
         </div>
       </div>
@@ -237,8 +331,12 @@ const projects = [
             <span :style="{ color: 'var(--color-accent)' }">$</span>
             cat job-status.txt
           </p>
-          <p :style="{ color: 'var(--color-muted)' }">
-            · 相信在 AI 高速發展的時代，除了寫程式，更重要的是找到痛點並解決問題
+          <p
+            v-for="line in jobStatus"
+            :key="line"
+            :style="{ color: 'var(--color-muted)' }"
+          >
+            · {{ line }}
           </p>
         </div>
       </div>
@@ -273,27 +371,22 @@ const projects = [
 
     <div class="mt-8 space-y-4 text-base leading-relaxed">
       <p>
-        我畢業於設計相關科系，過去曾在不同領域工作，之後決定轉職投入前端開發。
-        因為弟弟本身是後端工程師，他建議我可以從 UI 相關方向開始嘗試前端，
-        也讓我有機會延續原本的設計背景，把視覺設計與網頁實作結合起來。
+        我畢業於設計相關科系，轉職投入前端開發。設計背景讓我拿到設計稿時，
+        能直接判斷間距、層級與斷點該怎麼落地；在還沒有設計稿的階段，
+        也能自己把版面規劃出來，減少與設計端來回確認的成本。
       </p>
       <p>
-        在大大小小的學習過程中，我從 Amos（CSScoke）老師的網頁切版班開始打基礎，
-        學會必須理解每個 CSS 屬性的特性，才能在實作中真正知道自己在做什麼。
-        雖然現在 Claude Design 等 AI
-        工具已經很強，但遇到細節複雜的網頁時還不能做到最完美，
-        過去兩年半的切版與實務經驗，讓我更能判斷如何駕馭 AI，而不是被 AI 駕馭。
-        從去年 12 月到現在，我也在好想工作室 Web Camp
-        持續學習。即使很多內容曾經接觸過，
-        我仍選擇重新來過，學的不只是程式本身，也包括學習方式與解決問題的流程。
+        我從 Amos（CSScoke）老師的網頁切版班開始打基礎， 養成理解每個 CSS
+        屬性特性再下手的習慣。過去兩年半的切版實務， 讓我在使用 AI
+        工具時能判斷哪些產出可以直接用、哪些必須自己重寫——
+        現在的做法是先把需求與資料流寫成規格，再依規格實作與審查，
+        讓問題停在規格階段，而不是等到程式碼裡才發現。 從 2025 年 12
+        月起，我在好想工作室 Web Camp
+        補上過去實務中沒機會深入的工程觀念與測試方法。
       </p>
       <p>
-        最近我也嘗試把 AI 工具加入自己的開發流程。過去閱讀《Code Complete》時，
-        我開始注意程式的內聚力、命名與可維護性，也寫了一套自己的 skill，
-        幫助未來不論是學習或實作，都能更有條理地拆解問題。
-        先前也曾參與台南市衛生局菸酒單位的流程優化專案，
-        透過親訪使用單位了解痛點、製作 prototype 並參與提案，
-        協助將使用者需求轉化為具體的系統設計方向。
+        閱讀《Code Complete》後，我開始留意程式的內聚力、命名與可維護性，
+        也寫了一套自己的 skill，讓學習或實作時都能更有條理地拆解問題。
       </p>
     </div>
 
@@ -327,16 +420,6 @@ const projects = [
         </li>
       </ol>
     </div>
-
-    <div class="mt-12">
-      <SectionHeading title="currently" subtitle="目前在做的事" />
-      <ul
-        class="space-y-1 text-base leading-relaxed"
-        :style="{ color: 'var(--color-muted)' }"
-      >
-        <li v-for="item in currentlyLearning" :key="item">· {{ item }}</li>
-      </ul>
-    </div>
   </section>
 
   <!-- Skills -->
@@ -353,7 +436,7 @@ const projects = [
       class="mt-3 max-w-2xl text-base"
       :style="{ color: 'var(--color-muted)' }"
     >
-      把目前最常使用、最有信心的技能整理在這。沒列的不代表沒用過，只是還在練。
+      以下為目前實際使用於專案的技術。
     </p>
 
     <div class="mt-12 space-y-12">
@@ -380,8 +463,7 @@ const projects = [
       class="mt-3 max-w-2xl text-base"
       :style="{ color: 'var(--color-muted)' }"
     >
-      把做過、正在做的專案放在這。每張卡可以連到 repo 或 live demo。
-      日後會持續更新，希望越來越有工程師的味道。
+      持續更新中，每張卡皆可連至 repo 或 live demo。
     </p>
 
     <div class="mt-12">
@@ -392,6 +474,9 @@ const projects = [
           :key="project.name"
           :name="project.name"
           :description="project.description"
+          :role="project.role"
+          :duration="project.duration"
+          :highlight="project.highlight"
           :tags="project.tags"
           :repo="project.repo"
           :link="project.link"
@@ -400,4 +485,53 @@ const projects = [
       </div>
     </div>
   </section>
+
+  <!-- Contact -->
+  <section
+    id="contact"
+    class="page-container py-16 md:py-24"
+    :style="{ borderTop: '1px solid var(--color-border)' }"
+  >
+    <p class="font-mono text-sm" :style="{ color: 'var(--color-muted)' }">
+      <span :style="{ color: 'var(--color-accent)' }">$</span> cat contact.txt
+    </p>
+    <h2 class="mt-3 text-4xl">Contact</h2>
+    <p
+      class="mt-3 max-w-2xl text-base"
+      :style="{ color: 'var(--color-muted)' }"
+    >
+      目前開放前端工程師職缺，履歷、作品細節或合作邀約都歡迎直接來信。
+    </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <a
+        v-for="channel in contactChannels"
+        :key="channel.label"
+        :href="channel.href"
+        :target="channel.external ? '_blank' : undefined"
+        :rel="channel.external ? 'noopener noreferrer' : undefined"
+        class="contact-card flex flex-col gap-1 rounded-xl p-5 transition-colors"
+        :style="{
+          border: '1px solid var(--color-border)',
+          backgroundColor: 'var(--color-surface)',
+        }"
+      >
+        <span
+          class="font-mono text-xs"
+          :style="{ color: 'var(--color-muted)' }"
+        >
+          {{ channel.label }}
+        </span>
+        <span class="font-mono text-sm" :style="{ color: 'var(--color-text)' }">
+          {{ channel.value }}
+        </span>
+      </a>
+    </div>
+  </section>
 </template>
+
+<style scoped>
+.contact-card:hover {
+  border-color: var(--color-accent) !important;
+}
+</style>

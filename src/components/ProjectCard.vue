@@ -4,6 +4,10 @@ import TagBadge from './TagBadge.vue'
 defineProps({
   name: { type: String, required: true },
   description: { type: String, required: true },
+  role: { type: String, default: '' },
+  duration: { type: String, default: '' },
+  // 這個專案最難的技術決策 + 解法，一句話
+  highlight: { type: String, default: '' },
   tags: { type: Array, default: () => [] },
   repo: { type: String, default: '' },
   link: { type: String, default: '' },
@@ -88,10 +92,36 @@ defineProps({
         </div>
       </header>
       <p
+        v-if="role || duration"
+        class="-mt-2 font-mono text-xs"
+        :style="{ color: 'var(--color-muted)' }"
+      >
+        <span v-if="role">{{ role }}</span>
+        <span v-if="role && duration" aria-hidden="true"> · </span>
+        <span v-if="duration">{{ duration }}</span>
+      </p>
+      <p
         class="text-sm leading-relaxed"
         :style="{ color: 'var(--color-muted)' }"
       >
         {{ description }}
+      </p>
+      <p
+        v-if="highlight"
+        class="rounded-md p-3 text-sm leading-relaxed"
+        :style="{
+          borderLeft: '2px solid var(--color-accent)',
+          backgroundColor: 'var(--color-code-bg)',
+          color: 'var(--color-text)',
+        }"
+      >
+        <span
+          class="font-mono text-xs"
+          :style="{ color: 'var(--color-accent)' }"
+          >// highlight</span
+        >
+        <br />
+        {{ highlight }}
       </p>
       <footer
         v-if="tags.length"
