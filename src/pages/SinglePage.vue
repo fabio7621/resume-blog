@@ -117,6 +117,17 @@ const skillGroups = [
   },
 ];
 
+// 自己寫的 Claude Code Skill
+const authoredSkill = {
+  name: "code-complete-design",
+  tagline: "寫給 AI 的 JavaScript 程式碼設計規範",
+  repo: "https://github.com/fabio7621/code-complete-design",
+  reason:
+    "AI 產出的程式碼常常「能跑，但讀起來很差」。我把《Code Complete》第 7、10、14 章的" +
+    "命名、函式職責、變數與程式碼組織原則整理成 Claude Code 的 Skill，" +
+    "讓它在動手前先讀規範，而不是產出之後再靠 review 補救。",
+};
+
 // TODO：若有 LinkedIn / CakeResume，補進這個陣列即可
 const contactChannels = [
   {
@@ -237,6 +248,19 @@ const projects = [
     repo: "https://fabio7621.github.io/goddid/",
     link: "https://fabio7621.github.io/goddid/",
     image: "goddid.png",
+  },
+  {
+    name: "小遊艇港灣God did(AI-assisted development)",
+    description:
+      "原生 JavaScript(ES Modules)· Three.js / WebGL · Canvas 2D · 零建置(importmap + CDN)",
+    role: "AI協作開發",
+    duration: "2026.08",
+    highlight:
+      "開著小遊艇在港灣航行的互動作品集 —— 靠上碼頭光圈自動停靠、上岸瀏覽履歷／作品／部落格／聯絡。 海面波高由單一純函式供給,海浪、船身浮沉與浮標共用同一組浪; 碰撞為不依賴 Three.js 的純幾何解算,碼頭與小島擋得住,船會靠上去而不是穿過去; 小地圖用 Canvas 2D 手繪,不額外開第二顆相機。",
+    tags: ["JavaScript", "Three.js 渲染技術", "物理運動模擬", "Canvas 2D"],
+    repo: "https://github.com/fabio7621/harbor-portfolio",
+    link: "https://fabio7621.github.io/harbor-portfolio/",
+    image: "boat.png",
   },
 ];
 </script>
@@ -497,6 +521,42 @@ const projects = [
         </div>
       </div>
     </div>
+
+    <div class="mt-12">
+      <SectionHeading
+        title="authored skill"
+        subtitle="我寫的 Claude Code Skill"
+      />
+      <a
+        :href="authoredSkill.repo"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="skill-card block rounded-xl p-5 transition-colors"
+        :style="{
+          border: '1px solid var(--color-border)',
+          backgroundColor: 'var(--color-surface)',
+        }"
+      >
+        <p class="font-mono text-sm">
+          <span :style="{ color: 'var(--color-accent)' }"
+            >~/.claude/skills/</span
+          >{{ authoredSkill.name }}
+        </p>
+        <p class="mt-2 text-base">{{ authoredSkill.tagline }}</p>
+        <p
+          class="mt-3 text-sm leading-relaxed"
+          :style="{ color: 'var(--color-muted)' }"
+        >
+          {{ authoredSkill.reason }}
+        </p>
+        <p
+          class="mt-4 font-mono text-xs"
+          :style="{ color: 'var(--color-muted)' }"
+        >
+          &gt; view on github
+        </p>
+      </a>
+    </div>
   </section>
 
   <!-- Portfolio -->
@@ -582,6 +642,10 @@ const projects = [
 
 <style scoped>
 .contact-card:hover {
+  border-color: var(--color-accent) !important;
+}
+
+.skill-card:hover {
   border-color: var(--color-accent) !important;
 }
 </style>
