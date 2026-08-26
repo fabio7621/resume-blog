@@ -200,6 +200,44 @@ const projects = [
     link: "https://fabio7621.github.io/musicstore-react/",
     image: "music.png",
   },
+  {
+    name: "F-16 OVER TAIPEI(AI-assisted development)",
+    description:
+      "HTML5 + CSS3 + Vanilla JavaScript(ES6+) — 單檔架構,零建置工具、零框架依賴",
+    role: "AI協作開發",
+    duration: "",
+    highlight:
+      "點陣風格飛行模擬，使用飛行模擬物理結合協調轉彎:轉彎率 ω = g·tanφ / V,必須壓坡度(bank)才會轉彎,能量管理:爬升損失空速,升力分量:大坡度轉彎時垂直升力減少,會自然掉高度等等",
+    tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Three.js 渲染技術"],
+    repo: "https://github.com/fabio7621/voxel-f16-taipei",
+    link: "https://fabio7621.github.io/voxel-f16-taipei/",
+    image: "jet.png",
+  },
+  {
+    name: "浮水染工坊 · Suminagashi Lab(AI-assisted development)",
+    description: "Vue 3(組合式 API)· Vite · Pinia · WebGL2 / GLSL",
+    role: "AI協作開發",
+    duration: "",
+    highlight:
+      "A4 水盤上的即時 GPU 流體墨流模擬 —— 滴墨、排水、梳針,蓋下朱印做成拓印帖。 以 WebGL2 在著色器中求解 Navier–Stokes(Stable Fluids)與 Marangoni 界面張力, 重現日本浮水染(墨流し / suminagashi)的同心圓與羽狀紋路",
+    tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Three.js 渲染技術"],
+    repo: "https://github.com/fabio7621/suminagashi",
+    link: "https://fabio7621.github.io/suminagashi/",
+    image: "water.png",
+  },
+  {
+    name: "擲筊God did(AI-assisted development)",
+    description:
+      "Vue 3(組合式 API)· Vite · Pinia · Three.js / WebGL · TypeScript",
+    role: "AI協作開發",
+    duration: "",
+    highlight:
+      "長按抓起筊杯、向上甩出的 3D 擲筊 —— 聖筊、笑筊、陰筊、立筊即時判定,落定後顯示筊象與解說。 自寫剛體解算器以半隱式尤拉積分推進位置、四元數一階近似積分姿態, 取凸包最低點做地面穿透修正並分離法向與切向(庫倫摩擦)衝量, 對近乎側立的姿態施加傾倒力矩,讓立筊維持應有的罕見程度",
+    tags: ["Vue 3", "TypeScript", "Three.js 渲染技術", "剛體物理模擬"],
+    repo: "https://fabio7621.github.io/goddid/",
+    link: "https://fabio7621.github.io/goddid/",
+    image: "goddid.png",
+  },
 ];
 </script>
 
