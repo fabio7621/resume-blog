@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:ithelp.ithome.com.tw)",
+      "Bash(curl -sL 'https://ithelp.ithome.com.tw/users/20184288/ironman/9801' -H 'User-Agent: Mozilla/5.0 \\(Macintosh; Intel Mac OS X 10_15_7\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/128.0 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml' -H 'Accept-Language: zh-TW,zh;q=0.9' -w '\\\\n%{http_code}\\\\n')",
+      "Bash(curl -s -o /dev/null -w '%{http_code} %{content_type}\\\\n' 'https://ithelp.ithome.com.tw/upload/images/20260915/20184288bllKzUmCIj.png' -A 'Mozilla/5.0')",
+      "Bash(curl -sL -o /dev/null -w '%{http_code} %{content_type} %{url_effective}\\\\n' 'https://ithelp.ithome.com.tw/upload/images/20260915/20184288bllKzUmCIj.png' -A 'Mozilla/5.0')",
+      "Bash(pkill -f 'vite preview --port 4179')",
+      "Bash(curl -sL \"https://ithelp.ithome.com.tw/rss/series/9801?t=$\\(date +%s\\)\" -A 'Mozilla/5.0' -H 'Cache-Control: no-cache')",
+      "Bash(curl -sI \"https://ithelp.ithome.com.tw/rss/series/9801\" -A 'Mozilla/5.0')"
+    ]
+  }
+}

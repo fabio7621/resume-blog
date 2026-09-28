@@ -16,6 +16,13 @@
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
   --color-accent-soft: rgba(37, 99, 235, 0.1);
+
+  --color-code-keyword: #a626a4;
+  --color-code-string: #50a14f;
+  --color-code-number: #986801;
+  --color-code-title: #4078f2;
+  --color-code-tag: #e45649;
+  --color-code-comment: #8b95a5;
 }
 
 .dark {
@@ -28,6 +35,13 @@
   --color-accent: #3b82f6;
   --color-accent-hover: #60a5fa;
   --color-accent-soft: rgba(59, 130, 246, 0.15);
+
+  --color-code-keyword: #c678dd;
+  --color-code-string: #98c379;
+  --color-code-number: #d19a66;
+  --color-code-title: #61afef;
+  --color-code-tag: #e06c75;
+  --color-code-comment: #7f848e;
 }
 
 @layer base {
@@ -97,5 +111,153 @@
     max-width: 64rem;
     margin: 0 auto;
     padding-inline: 1.5rem;
+  }
+
+  /* 部落格文章內文（Markdown 轉出的 HTML） */
+  .post-content {
+    max-width: 48rem;
+    font-size: 1rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+
+    & > * + * {
+      margin-top: 1.1em;
+    }
+
+    & h2 {
+      margin-top: 2.2em;
+      font-size: 1.4rem;
+    }
+
+    & h3 {
+      margin-top: 1.8em;
+      font-size: 1.15rem;
+    }
+
+    & h4 {
+      margin-top: 1.5em;
+      font-size: 1rem;
+    }
+
+    & ul,
+    & ol {
+      padding-left: 1.5em;
+    }
+
+    & ul {
+      list-style: disc;
+    }
+
+    & ol {
+      list-style: decimal;
+    }
+
+    & li + li {
+      margin-top: 0.35em;
+    }
+
+    & strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    & a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    & hr {
+      margin-block: 2.5em;
+      border: 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    & blockquote {
+      padding: 0.5em 1em;
+      border-left: 3px solid var(--color-accent);
+      background-color: var(--color-accent-soft);
+      border-radius: 0 6px 6px 0;
+      color: var(--color-muted);
+    }
+
+    & img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+
+    & pre {
+      overflow-x: auto;
+      padding: 1em 1.25em;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      line-height: 1.65;
+    }
+
+    & pre code {
+      padding: 0;
+      background: none;
+      font-size: inherit;
+    }
+
+    & table {
+      display: block;
+      overflow-x: auto;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    & th,
+    & td {
+      padding: 0.5em 0.9em;
+      border: 1px solid var(--color-border);
+      text-align: left;
+    }
+
+    & th {
+      background-color: var(--color-surface);
+    }
+  }
+
+  /* highlight.js token 顏色，跟著 light / dark token 切換 */
+  .hljs-keyword,
+  .hljs-built_in,
+  .hljs-literal,
+  .hljs-selector-tag {
+    color: var(--color-code-keyword);
+  }
+
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-attr,
+  .hljs-attribute {
+    color: var(--color-code-string);
+  }
+
+  .hljs-number,
+  .hljs-variable,
+  .hljs-template-variable {
+    color: var(--color-code-number);
+  }
+
+  .hljs-title,
+  .hljs-title.function_,
+  .hljs-property {
+    color: var(--color-code-title);
+  }
+
+  .hljs-tag,
+  .hljs-name,
+  .hljs-selector-class,
+  .hljs-selector-id {
+    color: var(--color-code-tag);
+  }
+
+  .hljs-comment,
+  .hljs-meta {
+    color: var(--color-code-comment);
+    font-style: italic;
   }
 }

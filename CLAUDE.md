@@ -7,7 +7,8 @@
 - **狀態管理**：Pinia
 - **樣式**：Tailwind CSS
 - **文章管理**：Markdown 檔案（放在 `src/content/posts/` 目錄下）
-- **Markdown 解析**：待選用（如 markdown-it 或 marked）
+- **Markdown 解析**：markdown-it + highlight.js（`src/composables/useMarkdown.js`）
+- **iThome 鐵人賽同步**：`npm run sync:ithome` 沿著 iThome 文章頁的「下一篇」連結抓文章，轉成 `src/content/posts/<文章id>.md`（頁面被 Cloudflare 擋時才退回 RSS，RSS 會吃掉「」、等標點）；預設只新增，加 `-- --force` 從第一篇重抓並覆蓋
 
 ## 頁面規劃
 
