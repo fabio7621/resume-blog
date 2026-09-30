@@ -41,7 +41,7 @@ Vue的作者尤雨溪以前在Google Creative Lab工作，常常需要快速做�
 -   官方生態系：Router、Pinia、Vite、Nuxt 都幫你準備好了
 
 不過也要記得，這些「自動」的背後其實都是 JavaScript 在運作。JS 基礎越穩，Vue 就越好懂，這也是接下來這個系列會從 Proxy 這些基礎開始聊的原因。
-`,c=`---
+`,u=`---
 title: "Vue 走過路過不要錯過 Day02 - Vue 可以只是一個 script 標籤：從 CDN 到 Vite，看懂 .vue 檔背後的轉換"
 subtitle: "Vue 可以只是一個 script 標籤：從 CDN 到 Vite，看懂 .vue 檔背後的轉換"
 day: 2
@@ -261,7 +261,7 @@ function render(_ctx, _cache, $props, $setup) {
 但還有一件事沒解釋：按下按鈕、\`count++\` 之後，畫面就自動更新了。**Vue 是怎麼知道資料變了？**
 
 明天就從 Vue 3 響應式系統的底層，JavaScript 的 \`Proxy\` 開始說起。
-`,u=`---
+`,c=`---
 title: "Vue 走過路過不要錯過 Day03 -為什麼改資料畫面就會動？從 JS 的 Proxy 說起"
 subtitle: "為什麼改資料畫面就會動？從 JS 的 Proxy 說起"
 day: 3
@@ -1160,7 +1160,7 @@ const { foo } = defineProps(['foo'])
 Day 4 結尾還留了一個洞：我們的迷你 reactive 只能處理單層物件，\`state.nested.count++\` 是不會觸發更新的。下一篇就來補這個洞。
 
 ---
-`,f=`---
+`,m=`---
 title: "Vue 走過路過不要錯過 Day06 - computed：不只是「快取」這麼簡單"
 subtitle: "computed：不只是「快取」這麼簡單"
 day: 6
@@ -1523,7 +1523,7 @@ computed 的結果是衍生出來的快照，改它沒有意義。要改就改�
 -   getter 要保持純粹：不寫副作用、不修改原始資料、不做非同步。
 
 記住「dirty flag + track / trigger」這個模型，大部分 computed 的行為都能自己推導出來。
-`,v=`---
+`,f=`---
 title: "Vue 走過路過不要錯過 Day07 - watch 與 watchEffect：什麼時候該用哪一個"
 subtitle: "watch 與 watchEffect：什麼時候該用哪一個"
 day: 7
@@ -1745,7 +1745,7 @@ stop()
 | 適合情境 | 只想對特定資料反應、需要前後比較、不想一開始就執行 | 依賴很多、只在乎最新狀態、一開始就要執行 |
 
 一句話收尾：**watch 是「我告訴你看誰」，watchEffect 是「你自己看我用了誰」。**
-`,m=`---
+`,v=`---
 title: "Vue 走過路過不要錯過 Day08 - 改完資料，DOM 為什麼還是舊的？認識 nextTick"
 subtitle: "改完資料，DOM 為什麼還是舊的？認識 nextTick"
 day: 8
@@ -4208,4 +4208,624 @@ onMounted(() => {
 -   能用資料描述的事就交給響應式，ref 留給 Vue 管不到的部分。
 
 ---
-`,x=Object.assign({"../content/posts/10410930.md":i,"../content/posts/10411646.md":c,"../content/posts/10412683.md":u,"../content/posts/10413220.md":p,"../content/posts/10413838.md":d,"../content/posts/10414399.md":f,"../content/posts/10414857.md":v,"../content/posts/10415533.md":m,"../content/posts/10416002.md":y,"../content/posts/10416006.md":h,"../content/posts/10417078.md":g,"../content/posts/10417556.md":b,"../content/posts/10417957.md":k,"../content/posts/10418397.md":w}),V=/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/,j=n=>{try{return JSON.parse(n)}catch{return n}},M=(n,e)=>{const[,o="",r=e]=e.match(V)??[],l=Object.fromEntries(o.split(/\r?\n/).filter(t=>t.includes(":")).map(t=>{const a=t.indexOf(":");return[t.slice(0,a).trim(),j(t.slice(a+1).trim())]}));return{slug:n.split("/").pop().replace(/\.md$/,""),...l,body:r}},s=Object.entries(x).map(([n,e])=>M(n,e)).sort((n,e)=>n.date.localeCompare(e.date)||(n.day??0)-(e.day??0));function E(){return{posts:s,getPostIndex:e=>s.findIndex(o=>o.slug===e)}}export{E as u};
+`,x=`---
+title: "Vue 走過路過不要錯過 Day15 - 組件拆分與生命週期：setup、onMounted、onUnmounted"
+subtitle: "組件拆分與生命週期：setup、onMounted、onUnmounted"
+day: 15
+date: "2026-09-29"
+excerpt: "寫專案寫到一半，常常會有一個瞬間：打開 App.vue ，捲軸拉了半天還到不了底。上面是 header，中間有搜尋框和商品列表，旁邊塞了一個計時器，最下面還有一個彈窗。每次要改東西，都要先花時間找「這段在哪裡」。 這時候就會開始想兩件事： …"
+source: "https://ithelp.ithome.com.tw/articles/10418840"
+series: "ithome-ironman-2026"
+---
+
+寫專案寫到一半，常常會有一個瞬間：打開 \`App.vue\`，捲軸拉了半天還到不了底。上面是 header，中間有搜尋框和商品列表，旁邊塞了一個計時器，最下面還有一個彈窗。每次要改東西，都要先花時間找「這段在哪裡」。
+
+這時候就會開始想兩件事：
+
+1.  這個檔案該怎麼拆？
+2.  拆出去之後，每一塊「什麼時候出生、什麼時候消失」？  
+    今天就把這兩件事放在一起聊，因為它們其實是同一件事的兩面：**組件拆得越多，越需要清楚每個組件自己的一生。**
+
+---
+
+## 一、組件拆分：拆的是「職責」，不是「行數」
+
+先看一個拆分前的樣子：
+
+\`\`\`js
+<!-- App.vue：什麼都有 -->
+<template>
+  <header>...</header>
+ 
+  <input v-model="keyword" placeholder="搜尋商品" />
+ 
+  <ul>
+    <li v-for="item in filteredList" :key="item.id">
+      {{ item.name }} - {{ item.price }}
+    </li>
+  </ul>
+ 
+  <div class="timer">已經專注 {{ seconds }} 秒</div>
+ 
+  <div class="modal">...</div>
+</template>
+\`\`\`
+
+拆分之後：
+
+\`\`\`js
+<!-- App.vue：只負責組裝 -->
+<template>
+  <AppHeader />
+  <SearchBar v-model="keyword" />
+  <ProductList :items="filteredList" />
+  <FocusTimer />
+  <ProductModal />
+</template>
+\`\`\`
+
+光看 template 就知道這個頁面由哪幾塊組成，這就是拆分最直接的好處。
+
+### 為什麼要拆？
+
+-   **重複使用**：\`SearchBar\` 在商品頁用得到，在訂單頁可能也用得到
+-   **單一職責**：每個組件只做一件事，出問題時知道要去哪裡找
+-   **好讀好維護**：一個檔案幾十行，比一個檔案幾百行好理解太多
+
+### 什麼時候該拆？
+
+我自己的判斷方式是：**這一塊能不能用一句話說清楚它在做什麼？**
+
+-   「顯示商品列表」→ 可以，這是一個組件
+-   「顯示商品列表，然後可以搜尋，然後計時，然後彈窗」→ 說不清楚，代表還能拆  
+    不是寫超過一百行就一定要拆，而是當一個組件開始「身兼多職」時，就是該拆的訊號。
+
+### 組件和 composable 的差別
+
+拆分的時候常會卡在一個問題：這段要拆成組件，還是抽成 composable？
+
+-   要重用的是**畫面**（有 template）→ 拆成組件
+-   要重用的是**邏輯**（沒有 template，只有資料和行為）→ 抽成 composable，也就是 \`useXxx\` 函式  
+    這個差別等等講到生命週期時會再回來用到。
+
+至於拆開之後資料怎麼傳，簡單說就是 props 往下傳、emit 往上通知，這裡先不展開。
+
+---
+
+## 二、每個組件實例都有自己的一生
+
+組件拆開之後，有一個很重要的觀念：**每一個組件實例，都有一條獨立的生命週期。**
+
+\`App.vue\` 裡用了五個子組件，就有五條各自的生命週期，加上 \`App\` 自己總共六條。它們各自出生、各自更新、各自消失。
+
+一個組件的一生大致是這樣：
+
+\`\`\`js
+setup（建立）
+  ↓
+onBeforeMount → onMounted（掛載到畫面上）
+  ↓
+onBeforeUpdate → onUpdated（資料變動、畫面重新渲染，可能發生很多次）
+  ↓
+onBeforeUnmount → onUnmounted（從畫面上移除）
+\`\`\`
+
+這些 \`onXxx\` 就是生命週期鉤子（lifecycle hooks），意思是「在某個時間點，讓我插一段程式碼進去執行」。
+
+鉤子很多，但日常開發最常用的其實就三個：**setup、onMounted、onUnmounted**。下面一個一個看。
+
+---
+
+## 三、setup：組件的出生證明
+
+在 \`<script setup>\` 裡寫的程式碼，本身就是在 setup 階段執行的。組件被建立時，這段程式碼會**從上到下跑一次**。
+
+\`\`\`js
+<script setup>
+import { ref, useTemplateRef } from 'vue'
+ 
+console.log('setup 執行了')
+ 
+const count = ref(0)
+const inputEl = useTemplateRef('input')
+ 
+console.log(inputEl.value) // null
+<\/script>
+ 
+<template>
+  <input ref="input" />
+</template>
+\`\`\`
+
+為什麼 \`inputEl.value\` 是 \`null\`？因為 setup 執行的時候，Vue 還在「準備資料」，template 還沒被渲染成真正的 DOM。這也接回 Day 14 講模板 ref 時提到的：**DOM 要等掛載之後才拿得到。**
+
+如果寫過 Vue 2，會記得有 \`beforeCreate\` 和 \`created\` 兩個鉤子。在 Vue 3 的 Composition API 裡不需要它們了，原本寫在那裡的東西，直接寫在 setup 裡就好。
+
+| Vue 2（Options API） | Vue 3（Composition API） |
+| --- | --- |
+| beforeCreate / created | 直接寫在 setup 裡 |
+| mounted | onMounted |
+| beforeDestroy | onBeforeUnmount |
+| destroyed | onUnmounted |
+
+---
+
+## 四、onMounted：DOM 準備好了
+
+onMounted 的時機是：\\*\\*組件的 DOM 已經產生，而且放進頁面了。\\*\\*所以凡是需要碰到 DOM 的事情，都放這裡。
+
+\`\`\`js
+<script setup>
+import { useTemplateRef, onMounted } from 'vue'
+ 
+const inputEl = useTemplateRef('input')
+ 
+onMounted(() => {
+  inputEl.value.focus() // 這時候拿得到了
+})
+<\/script>
+ 
+<template>
+  <input ref="input" />
+</template>
+\`\`\`
+
+適合放在 onMounted 的事情：
+
+-   操作 DOM：focus、捲動、量元素寬高
+-   初始化需要 DOM 的第三方套件：Bootstrap Modal、Chart.js、Swiper 這類  
+    延續 Day 14 的 Bootstrap Modal 例子，\`new Modal()\` 需要傳入一個真實的 DOM 元素，所以一定要等到 onMounted：
+
+\`\`\`js
+<script setup>
+import { useTemplateRef, onMounted } from 'vue'
+import { Modal } from 'bootstrap'
+ 
+const modalEl = useTemplateRef('modal')
+let modal = null
+ 
+onMounted(() => {
+  modal = new Modal(modalEl.value)
+})
+<\/script>
+ 
+<template>
+  <div ref="modal" class="modal">...</div>
+</template>
+\`\`\`
+
+如果把 \`new Modal()\` 寫在 setup 最外層，拿到的會是 \`null\`，套件就會報錯。
+
+### 打 API 要放 setup 還是 onMounted？
+
+這是很常被問的問題，兩種寫法都看得到：
+
+\`\`\`js
+// 寫法 A：直接在 setup 裡呼叫
+fetchProducts()
+ 
+// 寫法 B：等掛載完再呼叫
+onMounted(() => {
+  fetchProducts()
+})
+\`\`\`
+
+單純抓資料的話兩種都可以，差別只在時機：寫法 A 比較早發出請求，寫法 B 會等畫面出來之後才發。如果抓資料這件事跟 DOM 無關，放在 setup 裡就夠了。
+
+另外補充一點：如果是用 Nuxt 這類 SSR 框架，onMounted 只會在瀏覽器端執行，伺服器端不會跑，所以那邊抓資料通常會改用框架提供的方法（像 \`useFetch\`）。
+
+---
+
+## 五、onUnmounted：記得收拾善後
+
+onUnmounted 的時機是：**組件從畫面上被移除之後。**
+
+它最重要的用途只有一個：**清理**。這個鉤子最容易被忽略，因為忘了寫，畫面看起來也完全正常。直接看例子。
+
+### 一個忘記清理的計時器
+
+\`\`\`js
+<!-- FocusTimer.vue -->
+<script setup>
+import { ref } from 'vue'
+ 
+const seconds = ref(0)
+ 
+setInterval(() => {
+  seconds.value++
+  console.log('計時中', seconds.value)
+}, 1000)
+<\/script>
+ 
+<template>
+  <p>已經專注 {{ seconds }} 秒</p>
+</template>
+\`\`\`
+
+在父組件用 \`v-if\` 控制它的顯示：
+
+\`\`\`js
+<!-- App.vue -->
+<script setup>
+import { ref } from 'vue'
+import FocusTimer from './FocusTimer.vue'
+ 
+const showTimer = ref(true)
+<\/script>
+ 
+<template>
+  <button @click="showTimer = !showTimer">切換計時器</button>
+  <FocusTimer v-if="showTimer" />
+</template>
+\`\`\`
+
+打開 console，連續按幾次切換按鈕，會看到：
+
+-   計時器已經從畫面上消失了，console 還在一直印「計時中」
+-   每按一次顯示，就多一組新的計時在跑，log 越印越快  
+    原因是：組件被移除了，但 \`setInterval\` 是瀏覽器的東西，Vue 不會幫你關掉它。而且計時器的 callback 還抓著 \`seconds\`，這些資料也沒辦法被回收，這就是記憶體洩漏（memory leak）。
+
+### 加上 onUnmounted
+
+\`\`\`js
+<!-- FocusTimer.vue -->
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+ 
+const seconds = ref(0)
+let timerId = null
+ 
+onMounted(() => {
+  timerId = setInterval(() => {
+    seconds.value++
+    console.log('計時中', seconds.value)
+  }, 1000)
+})
+ 
+onUnmounted(() => {
+  clearInterval(timerId)
+})
+<\/script>
+\`\`\`
+
+再切換一次，這次組件一消失，console 就安靜了。
+
+這裡我把 \`setInterval\` 也移到了 onMounted 裡，養成一個習慣：\\*\\*在 onMounted 開始的東西，就在 onUnmounted 結束。\\*\\*兩個鉤子成對出現，比較不容易漏。
+
+### 常見需要清理的東西
+
+-   計時器：\`setInterval\`、\`setTimeout\`
+-   綁在組件外面的事件監聽：\`window\`、\`document\` 上的 \`addEventListener\`
+-   觀察器：\`IntersectionObserver\`、\`ResizeObserver\`
+-   第三方套件的實例：例如 Bootstrap Modal 的 \`dispose()\`、Chart.js 的 \`destroy()\`
+-   WebSocket 連線  
+    判斷方式很簡單：\\*\\*這個東西是不是 Vue 以外的人在管？\\*\\*如果是，Vue 就不會幫你收，要自己收。
+
+至於寫在 template 上的 \`@click\` 這種事件，Vue 會自己處理，不用手動移除。
+
+### onBeforeUnmount 什麼時候用？
+
+onBeforeUnmount 在「準備移除、但 DOM 還在」的時候執行。如果清理的時候還需要讀 DOM，例如要記下使用者捲到哪裡，就放在 onBeforeUnmount；單純關計時器、移除監聽，用 onUnmounted 就好。
+
+---
+
+## 六、把出生到死亡打包成 composable
+
+回到第一段講的：邏輯要重用，就抽成 composable。
+
+「在 onMounted 綁定、在 onUnmounted 解除」這件事每次都要寫一次，很適合包起來：
+
+\`\`\`js
+// composables/useEventListener.js
+import { onMounted, onUnmounted } from 'vue'
+ 
+export function useEventListener(target, event, handler) {
+  onMounted(() => {
+    target.addEventListener(event, handler)
+  })
+ 
+  onUnmounted(() => {
+    target.removeEventListener(event, handler)
+  })
+}
+\`\`\`
+
+有了它，要監聽視窗寬度就變得很乾淨：
+
+\`\`\`js
+// composables/useWindowWidth.js
+import { ref } from 'vue'
+import { useEventListener } from './useEventListener'
+ 
+export function useWindowWidth() {
+  const width = ref(window.innerWidth)
+ 
+  useEventListener(window, 'resize', () => {
+    width.value = window.innerWidth
+  })
+ 
+  return { width }
+}
+\`\`\`
+
+\`\`\`js
+<!-- 任何組件裡 -->
+<script setup>
+import { useWindowWidth } from './composables/useWindowWidth'
+ 
+const { width } = useWindowWidth()
+<\/script>
+ 
+<template>
+  <p>目前視窗寬度：{{ width }}px</p>
+</template>
+\`\`\`
+
+這裡有一個很關鍵的觀念：**composable 裡的生命週期鉤子，會綁在「呼叫它的那個組件」身上。**
+
+A 組件呼叫 \`useWindowWidth()\`，監聽就跟著 A 的一生走，A 被移除時監聽就解除；B 組件也呼叫的話，B 會有自己一份，互不影響。使用的人完全不用記得要清理，因為清理已經寫在 composable 裡了。
+
+Day 14 的 \`useModal\` 也可以用同樣的思路補上清理：
+
+\`\`\`js
+// composables/useModal.js
+import { useTemplateRef, onMounted, onUnmounted } from 'vue'
+import { Modal } from 'bootstrap'
+ 
+export function useModal(refName) {
+  const modalEl = useTemplateRef(refName)
+  let modal = null
+ 
+  onMounted(() => {
+    modal = new Modal(modalEl.value)
+  })
+ 
+  onUnmounted(() => {
+    modal?.dispose()
+  })
+ 
+  const open = () => modal?.show()
+  const close = () => modal?.hide()
+ 
+  return { open, close }
+}
+\`\`\`
+
+順帶一提，[VueUse](https://vueuse.org/) 已經把很多這類 composable 寫好了，像 \`useEventListener\`、\`useWindowSize\`、\`useIntervalFn\`，實務上可以直接用。不過自己寫過一次，會更清楚它們背後在做什麼。
+
+---
+
+## 七、容易踩到的坑
+
+### 1\\. 鉤子要在 setup 裡同步註冊
+
+\`\`\`js
+// ❌ 不會執行
+setTimeout(() => {
+  onMounted(() => {
+    console.log('我不會被印出來')
+  })
+}, 0)
+\`\`\`
+
+生命週期鉤子在註冊時，需要知道「現在是哪個組件在執行 setup」。放進 \`setTimeout\` 或 \`.then()\` 這類非同步 callback 裡，Vue 已經不知道它屬於誰了，console 會出現警告，鉤子也不會執行。
+
+最保險的做法：**鉤子一律寫在 setup 的最外層，由上往下同步註冊。**
+
+### 2\\. v-if 會觸發掛載和卸載，v-show 不會
+
+-   \`v-if\` 為 \`false\`：組件真的被移除，會觸發 onUnmounted；變回 \`true\` 是一個全新的組件，會重新跑 setup 和 onMounted
+-   \`v-show\` 為 \`false\`：組件還在，只是被加上 \`display: none\`，生命週期不會變化  
+    所以前面計時器的例子，如果把 \`v-if\` 換成 \`v-show\`，計時器會一直跑下去，這通常是符合預期的，因為組件本來就還活著。選哪一個，要看你希望組件「藏起來」還是「消失」。
+
+### 3\\. 父子組件的掛載順序
+
+在父子組件裡各自印出 log：
+
+\`\`\`js
+Parent setup
+Parent onBeforeMount
+Child setup
+Child onBeforeMount
+Child onMounted
+Parent onMounted
+\`\`\`
+
+子組件的 onMounted 會比父組件先執行。原因是父組件要等底下所有子組件都掛載完成，自己才算完整地掛上去。
+
+所以在父組件的 onMounted 裡，可以放心地存取子組件的 DOM。
+
+### 4\\. KeepAlive 裡的組件不會 unmount
+
+如果組件被 \`<KeepAlive>\` 包起來，切換時不會被移除，而是被暫存起來，所以 onUnmounted 不會觸發。這種情況要改用 \`onActivated\`（重新顯示時）和 \`onDeactivated\`（被暫存時）。這裡先知道有這件事就好。
+
+---
+
+## 八、整理
+
+| 鉤子 | 什麼時候執行 | 適合做什麼 | 常見錯誤 |
+| --- | --- | --- | --- |
+| setup | 組件建立時，最先執行 | 宣告資料、computed、watch，發 API 請求 | 在這裡操作 DOM，拿到 null |
+| onMounted | DOM 產生並放進頁面後 | 操作 DOM、初始化第三方套件、開計時器與監聽 | 忘記開了的東西要關 |
+| onBeforeUnmount | 準備移除，DOM 還在 | 需要讀 DOM 的清理，例如記錄捲動位置 | 和 onUnmounted 分不清楚 |
+| onUnmounted | 組件移除後 | 清計時器、移除監聽、銷毀套件實例 | 忘了寫，造成記憶體洩漏 |
+
+回到開頭那個越寫越長的 \`App.vue\`：拆分讓每個組件只做一件事，生命週期讓每個組件把自己開的東西自己收好。兩件事都做到，組件才能放心地搬到別的頁面重複使用，不會拖著一堆沒關掉的計時器跟著走。
+
+---
+`,V=`---
+title: "Vue 走過路過不要錯過 Day16 - props：defineProps 與單向資料流的規矩"
+subtitle: "props：defineProps 與單向資料流的規矩"
+day: 16
+date: "2026-09-30"
+excerpt: "假設你在做一個商品列表頁，每個商品都要顯示名稱、價格。最直覺的做法是把卡片的 HTML 直接複製貼上，再一張張改文字。商品只有三個的時候還撐得住，等到變成三十個，改一個樣式就要改三十個地方。 Day 15 我們已經學會把畫面拆成組件。拆出來…"
+source: "https://ithelp.ithome.com.tw/articles/10419275"
+series: "ithome-ironman-2026"
+---
+
+# Day16 - props：defineProps 與單向資料流的規矩
+
+## 前言：同一張商品卡片，為什麼不能寫死？
+
+假設你在做一個商品列表頁，每個商品都要顯示名稱、價格。最直覺的做法是把卡片的 HTML 直接複製貼上，再一張張改文字。商品只有三個的時候還撐得住，等到變成三十個，改一個樣式就要改三十個地方。
+
+Day 15 我們已經學會把畫面拆成組件。拆出來的卡片組件只負責「長什麼樣子」，至於「顯示哪一個商品」，應該交給使用它的人決定。這個「由外面把資料傳進來」的機制，就是 props。
+
+## 為什麼需要 props
+
+如果一份資料不是全域都需要，只有某一塊畫面用得到，最自然的做法是由**父組件**握有這份資料，需要的時候再傳給**子組件**。子組件不用知道資料從哪來，只管拿到什麼就顯示什麼。這樣同一個組件餵不同的資料，就能長出不同的內容，復用起來也很輕鬆。
+
+相對地，像是登入狀態、購物車這類很多頁面都要讀寫的資料，就不適合一層一層傳下去，那是全域狀態要處理的事（Pinia 之後會談到）。判斷的方式很簡單：**只有這個組件和它的上下層用得到，就用 props；很多地方都要用，再考慮全域**。
+
+## defineProps 的基本寫法
+
+在 \`<script setup>\` 裡，用 \`defineProps\` 宣告這個組件接受哪些 props。它是編譯巨集，不需要 import 就能直接使用。
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  title: { type: String, required: true },
+  price: { type: Number, default: 0 },
+  tags: { type: Array, default: () => [] }
+})
+<\/script>
+
+<template>
+  <div class="card">
+    <h3>{{ title }}</h3>
+    <p>NT$ {{ price }}</p>
+  </div>
+</template>
+\`\`\`
+
+幾個常見的重點：
+
+-   模板裡可以直接用 \`title\`，不用寫 \`props.title\`；在 script 裡則要透過 \`props.title\` 存取。
+-   \`type\` 讓 Vue 在開發模式下幫你檢查型別，傳錯會在 console 出現警告。
+-   \`required: true\` 代表一定要傳，\`default\` 是沒傳時的預設值。
+-   物件與陣列的預設值要寫成函式（\`() => []\`），避免多個組件實例共用同一個參考。
+
+父組件這邊這樣使用：
+
+\`\`\`js
+<script setup>
+import { ref } from 'vue'
+import ProductCard from './ProductCard.vue'
+
+const products = ref([
+  { id: 1, title: '安全帽 A 款', price: 1200 },
+  { id: 2, title: '安全帽 B 款', price: 1500 }
+])
+<\/script>
+
+<template>
+  <ProductCard
+    v-for="item in products"
+    :key="item.id"
+    :title="item.title"
+    :price="item.price"
+  />
+</template>
+\`\`\`
+
+這裡有個新手常踩的小地方：如果寫成 \`price="1200"\`（沒有冒號），傳進去的是字串 \`"1200"\`，會和 \`Number\` 型別對不上而出現警告。要傳「JS 的值」而不是純文字，記得加上 \`:\`（也就是 \`v-bind\`）。
+
+## 單向資料流：資料只能由上往下
+
+Vue 對 props 訂了一條規矩：**資料由父組件流向子組件，子組件不應該反過來修改它**。
+
+先看最直接的違規寫法：
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  count: Number
+})
+
+function add() {
+  props.count++ // 直接改 props
+}
+<\/script>
+\`\`\`
+
+這樣寫，開發模式下 Vue 會在 console 警告 props 是唯讀的，值也不會被改掉。
+
+但事情沒有這麼單純。如果傳進來的是物件呢？
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  product: { type: Object, required: true }
+})
+
+function toggleFavorite() {
+  props.product.isFavorite = true // 改的是物件內部的屬性
+}
+<\/script>
+\`\`\`
+
+這一次 Vue **不會警告**，而且畫面還真的會更新。原因是 props 的唯讀只擋「整個 prop 被重新賦值」這一層，物件內部的屬性並沒有被凍結。子組件拿到的其實是父組件那個物件的同一個參考，所以這一行改到的是**父組件的資料**。
+
+看起來能動，為什麼還是不好？
+
+-   **資料來源變得不明確**：想知道 \`isFavorite\` 是誰改的，你得翻遍所有拿到這個物件的子組件。
+-   **一份資料被多處修改，除錯困難**：如果同一個物件同時傳給好幾個子組件，任何一個都能偷偷改它，畫面出現異常時很難追查。
+-   **組件失去獨立性**：子組件悄悄依賴「父組件的資料可以被我改」，換個地方使用就可能出問題。
+
+單向資料流的意義就在這裡：資料的修改權集中在擁有它的那一層，任何變動都能循著同一條路徑追蹤。
+
+## 子組件真的需要「改」的時候怎麼辦
+
+實務上常見的情況大致有三種，各有各的處理方式。
+
+**1\\. 只是把 props 當作初始值**
+
+例如傳進來一個初始數量，子組件之後自己管理。這時候複製一份到本地的 ref：
+
+\`\`\`js
+<script setup>
+import { ref } from 'vue'
+
+const props = defineProps({
+  initialCount: { type: Number, default: 0 }
+})
+
+const count = ref(props.initialCount)
+<\/script>
+\`\`\`
+
+要注意這只會在建立時複製一次，之後父組件再改 \`initialCount\`，本地的 \`count\` 不會跟著變。
+
+**2\\. 需要根據 props 算出另一個值**
+
+例如傳進來原價，卡片要顯示打折後的價格。這種情況用 computed，會跟著 props 的變化自動更新：
+
+\`\`\`js
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  price: { type: Number, default: 0 }
+})
+
+const salePrice = computed(() => Math.round(props.price * 0.8))
+<\/script>
+\`\`\`
+
+**3\\. 子組件想「請父組件」修改資料**
+
+像前面的收藏按鈕，子組件不自己改資料，而是通知父組件「使用者按了收藏」，由父組件決定要不要改、怎麼改。這正是 \`emit\` 的工作，下一篇會詳細介紹。這邊先記住核心觀念：**props 往下傳，事件往上報**。
+
+## 補充：解構 props 的注意事項
+
+Day 5 我們談過，一般的 reactive 物件解構後會失去響應式。props 也有類似的情況：如果在 script 裡用 \`const { title } = props\` 這種寫法取值，之後 \`title\` 就只是一個普通變數，不會再跟著更新。
+
+Vue 3.5 之後，直接在 \`defineProps\` 上解構（\`const { title } = defineProps(...)\`）會由編譯器幫你保持響應式。但如果你的專案版本較舊，或是在其他地方解構，就要改用 \`toRefs(props)\` 或直接使用 \`props.title\`。
+
+## 小結
+
+-   props 讓父組件決定資料，子組件專心負責呈現，同一個組件可以輕鬆復用。
+-   \`defineProps\` 是編譯巨集，不需要 import，可以搭配 \`type\`、\`required\`、\`default\` 做基本驗證。
+-   資料只能由上往下流。整個 prop 重新賦值會被 Vue 警告，但修改物件內部屬性不會，這是最容易忽略的陷阱。
+-   子組件需要「改」資料時：初始值用本地 ref、衍生值用 computed、要通知父組件則用 emit。
+`,j=Object.assign({"../content/posts/10410930.md":i,"../content/posts/10411646.md":u,"../content/posts/10412683.md":c,"../content/posts/10413220.md":p,"../content/posts/10413838.md":d,"../content/posts/10414399.md":m,"../content/posts/10414857.md":f,"../content/posts/10415533.md":v,"../content/posts/10416002.md":y,"../content/posts/10416006.md":h,"../content/posts/10417078.md":g,"../content/posts/10417556.md":b,"../content/posts/10417957.md":k,"../content/posts/10418397.md":w,"../content/posts/10418840.md":x,"../content/posts/10419275.md":V}),M=/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/,E=n=>{try{return JSON.parse(n)}catch{return n}},P=(n,e)=>{const[,o="",a=e]=e.match(M)??[],l=Object.fromEntries(o.split(/\r?\n/).filter(t=>t.includes(":")).map(t=>{const s=t.indexOf(":");return[t.slice(0,s).trim(),E(t.slice(s+1).trim())]}));return{slug:n.split("/").pop().replace(/\.md$/,""),...l,body:a}},r=Object.entries(j).map(([n,e])=>P(n,e)).sort((n,e)=>n.date.localeCompare(e.date)||(n.day??0)-(e.day??0));function D(){return{posts:r,getPostIndex:e=>r.findIndex(o=>o.slug===e)}}export{D as u};
