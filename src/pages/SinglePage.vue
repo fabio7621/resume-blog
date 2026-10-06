@@ -212,6 +212,60 @@ const projects = [
     image: "music.png",
   },
   {
+    name: "冰箱貼任務板-動畫版本(AI-assisted development)",
+    description:
+      "原生 JavaScript(ES Modules)· Three.js / WebGL · Canvas 2D · 零建置(importmap + CDN)",
+    role: "AI協作開發",
+    duration: "2026.09",
+    highlight:
+      "由冰箱上面會有的便簽紙來當作團隊中交付任務以及領取獎賞概唸所做出的動畫頁面demo",
+    tags: [
+      "JavaScript (ES6+)",
+      "Three.js 渲染技術",
+      "後製光暈 (Bloom)",
+      "Canvas 2D 貼圖",
+      "Web Audio API",
+    ],
+
+    repo: "https://github.com/fabio7621/group-tesk",
+    link: "https://fabio7621.github.io/group-tesk/",
+    image: "taskdemo.png",
+  },
+  {
+    name: "冰箱貼任務板完成版(AI-assisted development)",
+    description:
+      "Vue 3 + Vite · Node.js / Express · MongoDB · Socket.IO · Docker Compose 一行啟動",
+    role: "AI協作開發",
+    duration: "2026.09 - 2026.10",
+    highlight:
+      "以冰箱便利貼為靈感的全端任務板：組員發布任務、自由認領，完成後賺取發布者的點數再兌換獎品。 先寫規格文件再交給 AI 開發，規則沒寫到的不讓 AI 自行決定; 搶單與兌換的「只有一人成功」靠 MongoDB 交易在後端保證,不依賴前端狀態; 同組操作經 Socket.IO 依組別房間即時廣播,先寫入資料庫成功才推送,斷線重連後重新同步整個任務板。",
+    tags: [
+      "Vue 3",
+      "Pinia",
+      "Node.js / Express",
+      "MongoDB 交易",
+      "Socket.IO 即時同步",
+      "JWT 驗證",
+      "Docker Compose",
+    ],
+    repo: "https://github.com/fabio7621/group-task-bord",
+    link: "",
+    image: "taskbordf.png",
+  },
+  {
+    name: "小遊艇港灣God did(AI-assisted development)",
+    description:
+      "原生 JavaScript(ES Modules)· Three.js / WebGL · Canvas 2D · 零建置(importmap + CDN)",
+    role: "AI協作開發",
+    duration: "2026.08",
+    highlight:
+      "開著小遊艇在港灣航行的互動作品集 —— 靠上碼頭光圈自動停靠、上岸瀏覽履歷／作品／部落格／聯絡。 海面波高由單一純函式供給,海浪、船身浮沉與浮標共用同一組浪; 碰撞為不依賴 Three.js 的純幾何解算,碼頭與小島擋得住,船會靠上去而不是穿過去; 小地圖用 Canvas 2D 手繪,不額外開第二顆相機。",
+    tags: ["JavaScript", "Three.js 渲染技術", "物理運動模擬", "Canvas 2D"],
+    repo: "https://github.com/fabio7621/harbor-portfolio",
+    link: "https://fabio7621.github.io/harbor-portfolio/",
+    image: "boat.png",
+  },
+  {
     name: "F-16 OVER TAIPEI(AI-assisted development)",
     description:
       "HTML5 + CSS3 + Vanilla JavaScript(ES6+) — 單檔架構,零建置工具、零框架依賴",
@@ -248,19 +302,6 @@ const projects = [
     repo: "https://fabio7621.github.io/goddid/",
     link: "https://fabio7621.github.io/goddid/",
     image: "goddid.png",
-  },
-  {
-    name: "小遊艇港灣God did(AI-assisted development)",
-    description:
-      "原生 JavaScript(ES Modules)· Three.js / WebGL · Canvas 2D · 零建置(importmap + CDN)",
-    role: "AI協作開發",
-    duration: "2026.08",
-    highlight:
-      "開著小遊艇在港灣航行的互動作品集 —— 靠上碼頭光圈自動停靠、上岸瀏覽履歷／作品／部落格／聯絡。 海面波高由單一純函式供給,海浪、船身浮沉與浮標共用同一組浪; 碰撞為不依賴 Three.js 的純幾何解算,碼頭與小島擋得住,船會靠上去而不是穿過去; 小地圖用 Canvas 2D 手繪,不額外開第二顆相機。",
-    tags: ["JavaScript", "Three.js 渲染技術", "物理運動模擬", "Canvas 2D"],
-    repo: "https://github.com/fabio7621/harbor-portfolio",
-    link: "https://fabio7621.github.io/harbor-portfolio/",
-    image: "boat.png",
   },
 ];
 </script>
