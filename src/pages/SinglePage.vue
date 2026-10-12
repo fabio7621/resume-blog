@@ -212,6 +212,25 @@ const projects = [
     image: "music.png",
   },
   {
+    name: "升空計畫 Ascent(AI-assisted development)",
+    description:
+      "Vue 3 + Vite · Three.js / WebGL · GLSL · Web Audio API · 捲動驅動動畫",
+    role: "AI協作開發",
+    duration: "2026.10",
+    highlight:
+      "捲動驅動的火箭升空動畫：發射台 → 穿越大氣 → 衝出卡門線。 畫面與所有遙測數字都來自頁面載入時跑的一次兩級火箭飛行模擬(重力轉彎、指數大氣、Max-Q、熱分離); three.js 物件不放進 Vue 響應式系統,只把要顯示的數字抄給 HUD,每幀更新成本很低; 結尾可自由觀察 360° 旋轉,並藏有黑騎士衛星彩蛋。",
+    tags: [
+      "Vue 3",
+      "Three.js 渲染技術",
+      "GLSL Shader",
+      "物理運動模擬",
+      "Web Audio API",
+    ],
+    repo: "https://github.com/fabio7621/ascent-launch",
+    link: "https://fabio7621.github.io/ascent-launch/",
+    image: "ascent.png",
+  },
+  {
     name: "冰箱貼任務板-動畫版本(AI-assisted development)",
     description:
       "原生 JavaScript(ES Modules)· Three.js / WebGL · Canvas 2D · 零建置(importmap + CDN)",
