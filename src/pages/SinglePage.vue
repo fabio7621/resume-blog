@@ -159,7 +159,7 @@ const projects = [
     tags: ["需求訪談", "流程設計", "Prototype", "Vue 3"],
     repo: "",
     link: "https://fabio7621.github.io/tabacoco/#/",
-    image: "tabacoco.png",
+    image: "tabacoco.jpg",
   },
   {
     name: "大東洋（企業官網切版）",
@@ -171,7 +171,7 @@ const projects = [
     tags: ["HTML", "CSS", "RWD"],
     repo: "",
     link: "https://www.freshlife.com.tw/",
-    image: "don.png",
+    image: "don.jpg",
   },
   {
     name: "蔡教練",
@@ -183,7 +183,7 @@ const projects = [
     tags: ["HTML", "CSS", "RWD"],
     repo: "https://github.com/fabio7621/tsai-coach",
     link: "https://fabio7621.github.io/tsai-coach/",
-    image: "ten.png",
+    image: "ten.jpg",
   },
   {
     name: "HelmentShop",
@@ -196,7 +196,7 @@ const projects = [
     tags: ["Vue 3", "Vite", "Pinia", "RESTful API"],
     repo: "https://github.com/fabio7621/HelmentShop",
     link: "https://fabio7621.github.io/HelmentShop/#/",
-    image: "helment.png",
+    image: "helment.jpg",
   },
   {
     name: "MusicShop",
@@ -209,7 +209,7 @@ const projects = [
     tags: ["React", "Vite", "chart.js"],
     repo: "https://github.com/fabio7621/musicstore-react",
     link: "https://fabio7621.github.io/musicstore-react/",
-    image: "music.png",
+    image: "music.jpg",
   },
   {
     name: "升空計畫 Ascent(AI-assisted development)",
@@ -228,7 +228,7 @@ const projects = [
     ],
     repo: "https://github.com/fabio7621/ascent-launch",
     link: "https://fabio7621.github.io/ascent-launch/",
-    image: "ascent.png",
+    image: "ascent.jpg",
   },
   {
     name: "冰箱貼任務板-動畫版本(AI-assisted development)",
@@ -248,7 +248,7 @@ const projects = [
 
     repo: "https://github.com/fabio7621/group-tesk",
     link: "https://fabio7621.github.io/group-tesk/",
-    image: "taskdemo.png",
+    image: "taskdemo.jpg",
   },
   {
     name: "冰箱貼任務板完成版(AI-assisted development)",
@@ -269,7 +269,7 @@ const projects = [
     ],
     repo: "https://github.com/fabio7621/group-task-bord",
     link: "",
-    image: "taskbordf.png",
+    image: "taskbordf.jpg",
   },
   {
     name: "小遊艇港灣God did(AI-assisted development)",
@@ -282,7 +282,7 @@ const projects = [
     tags: ["JavaScript", "Three.js 渲染技術", "物理運動模擬", "Canvas 2D"],
     repo: "https://github.com/fabio7621/harbor-portfolio",
     link: "https://fabio7621.github.io/harbor-portfolio/",
-    image: "boat.png",
+    image: "boat.jpg",
   },
   {
     name: "F-16 OVER TAIPEI(AI-assisted development)",
@@ -295,7 +295,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Three.js 渲染技術"],
     repo: "https://github.com/fabio7621/voxel-f16-taipei",
     link: "https://fabio7621.github.io/voxel-f16-taipei/",
-    image: "jet.png",
+    image: "jet.jpg",
   },
   {
     name: "浮水染工坊 · Suminagashi Lab(AI-assisted development)",
@@ -307,7 +307,7 @@ const projects = [
     tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Three.js 渲染技術"],
     repo: "https://github.com/fabio7621/suminagashi",
     link: "https://fabio7621.github.io/suminagashi/",
-    image: "water.png",
+    image: "water.jpg",
   },
   {
     name: "擲筊God did(AI-assisted development)",
@@ -320,7 +320,7 @@ const projects = [
     tags: ["Vue 3", "TypeScript", "Three.js 渲染技術", "剛體物理模擬"],
     repo: "https://fabio7621.github.io/goddid/",
     link: "https://fabio7621.github.io/goddid/",
-    image: "goddid.png",
+    image: "goddid.jpg",
   },
 ];
 </script>
