@@ -1,4 +1,4 @@
-const i=`---
+const u=`---
 title: "Vue 走過路過不要錯過 Day01 - Vue 是怎麼來的?框架又是什麼？"
 subtitle: "Vue 是怎麼來的?框架又是什麼？"
 day: 1
@@ -41,7 +41,7 @@ Vue的作者尤雨溪以前在Google Creative Lab工作，常常需要快速做�
 -   官方生態系：Router、Pinia、Vite、Nuxt 都幫你準備好了
 
 不過也要記得，這些「自動」的背後其實都是 JavaScript 在運作。JS 基礎越穩，Vue 就越好懂，這也是接下來這個系列會從 Proxy 這些基礎開始聊的原因。
-`,c=`---
+`,l=`---
 title: "Vue 走過路過不要錯過 Day02 - Vue 可以只是一個 script 標籤：從 CDN 到 Vite，看懂 .vue 檔背後的轉換"
 subtitle: "Vue 可以只是一個 script 標籤：從 CDN 到 Vite，看懂 .vue 檔背後的轉換"
 day: 2
@@ -261,7 +261,7 @@ function render(_ctx, _cache, $props, $setup) {
 但還有一件事沒解釋：按下按鈕、\`count++\` 之後，畫面就自動更新了。**Vue 是怎麼知道資料變了？**
 
 明天就從 Vue 3 響應式系統的底層，JavaScript 的 \`Proxy\` 開始說起。
-`,u=`---
+`,c=`---
 title: "Vue 走過路過不要錯過 Day03 -為什麼改資料畫面就會動？從 JS 的 Proxy 說起"
 subtitle: "為什麼改資料畫面就會動？從 JS 的 Proxy 說起"
 day: 3
@@ -1160,7 +1160,7 @@ const { foo } = defineProps(['foo'])
 Day 4 結尾還留了一個洞：我們的迷你 reactive 只能處理單層物件，\`state.nested.count++\` 是不會觸發更新的。下一篇就來補這個洞。
 
 ---
-`,f=`---
+`,m=`---
 title: "Vue 走過路過不要錯過 Day06 - computed：不只是「快取」這麼簡單"
 subtitle: "computed：不只是「快取」這麼簡單"
 day: 6
@@ -1745,7 +1745,7 @@ stop()
 | 適合情境 | 只想對特定資料反應、需要前後比較、不想一開始就執行 | 依賴很多、只在乎最新狀態、一開始就要執行 |
 
 一句話收尾：**watch 是「我告訴你看誰」，watchEffect 是「你自己看我用了誰」。**
-`,m=`---
+`,f=`---
 title: "Vue 走過路過不要錯過 Day08 - 改完資料，DOM 為什麼還是舊的？認識 nextTick"
 subtitle: "改完資料，DOM 為什麼還是舊的？認識 nextTick"
 day: 8
@@ -1953,7 +1953,7 @@ async function addMessage(text) {
 明天會繼續往下走，我們下一篇見。
 
 ---
-`,y=`---
+`,h=`---
 title: "Vue 走過路過不要錯過 Day09 - 從 {{ }} 到 v-bind：動態綁定 class 與 style"
 subtitle: "從 {{ }} 到 v-bind：動態綁定 class 與 style"
 day: 9
@@ -2185,7 +2185,7 @@ _createElementVNode("div", {
 -   \`:class\` 和 \`:style\` 支援物件與陣列，條件一多就搬進 computed
 -   動態值可以透過 CSS 變數，或 \`<style>\` 裡的 \`v-bind()\` 交給 CSS 處理
 -   編譯器會用 patchFlag 標記動態部分，讓更新只做必要的事
-`,h=`---
+`,y=`---
 title: "Vue 走過路過不要錯過 Day10 - v-if 與 v-show：一個拆掉，一個只是藏起來"
 subtitle: "v-if 與 v-show：一個拆掉，一個只是藏起來"
 day: 10
@@ -3385,7 +3385,7 @@ function withModifiers(fn, modifiers) {
 -   \`.stop\` 用太多會讓外層的監聽收不到
 -   修飾符背後就是 \`withModifiers\` 包的一層高階函式  
     明天見！
-`,k=`---
+`,j=`---
 title: "Vue 走過路過不要錯過 Day13 -v-model 表單綁定：input、checkbox、select 與修飾符"
 subtitle: "v-model 表單綁定：input、checkbox、select 與修飾符"
 day: 13
@@ -4208,4 +4208,3147 @@ onMounted(() => {
 -   能用資料描述的事就交給響應式，ref 留給 Vue 管不到的部分。
 
 ---
-`,x=Object.assign({"../content/posts/10410930.md":i,"../content/posts/10411646.md":c,"../content/posts/10412683.md":u,"../content/posts/10413220.md":p,"../content/posts/10413838.md":d,"../content/posts/10414399.md":f,"../content/posts/10414857.md":v,"../content/posts/10415533.md":m,"../content/posts/10416002.md":y,"../content/posts/10416006.md":h,"../content/posts/10417078.md":g,"../content/posts/10417556.md":b,"../content/posts/10417957.md":k,"../content/posts/10418397.md":w}),V=/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/,j=n=>{try{return JSON.parse(n)}catch{return n}},M=(n,e)=>{const[,o="",r=e]=e.match(V)??[],l=Object.fromEntries(o.split(/\r?\n/).filter(t=>t.includes(":")).map(t=>{const a=t.indexOf(":");return[t.slice(0,a).trim(),j(t.slice(a+1).trim())]}));return{slug:n.split("/").pop().replace(/\.md$/,""),...l,body:r}},s=Object.entries(x).map(([n,e])=>M(n,e)).sort((n,e)=>n.date.localeCompare(e.date)||(n.day??0)-(e.day??0));function E(){return{posts:s,getPostIndex:e=>s.findIndex(o=>o.slug===e)}}export{E as u};
+`,k=`---
+title: "Vue 走過路過不要錯過 Day15 - 組件拆分與生命週期：setup、onMounted、onUnmounted"
+subtitle: "組件拆分與生命週期：setup、onMounted、onUnmounted"
+day: 15
+date: "2026-09-29"
+excerpt: "寫專案寫到一半，常常會有一個瞬間：打開 App.vue ，捲軸拉了半天還到不了底。上面是 header，中間有搜尋框和商品列表，旁邊塞了一個計時器，最下面還有一個彈窗。每次要改東西，都要先花時間找「這段在哪裡」。 這時候就會開始想兩件事： …"
+source: "https://ithelp.ithome.com.tw/articles/10418840"
+series: "ithome-ironman-2026"
+---
+
+寫專案寫到一半，常常會有一個瞬間：打開 \`App.vue\`，捲軸拉了半天還到不了底。上面是 header，中間有搜尋框和商品列表，旁邊塞了一個計時器，最下面還有一個彈窗。每次要改東西，都要先花時間找「這段在哪裡」。
+
+這時候就會開始想兩件事：
+
+1.  這個檔案該怎麼拆？
+2.  拆出去之後，每一塊「什麼時候出生、什麼時候消失」？  
+    今天就把這兩件事放在一起聊，因為它們其實是同一件事的兩面：**組件拆得越多，越需要清楚每個組件自己的一生。**
+
+---
+
+## 一、組件拆分：拆的是「職責」，不是「行數」
+
+先看一個拆分前的樣子：
+
+\`\`\`js
+<!-- App.vue：什麼都有 -->
+<template>
+  <header>...</header>
+ 
+  <input v-model="keyword" placeholder="搜尋商品" />
+ 
+  <ul>
+    <li v-for="item in filteredList" :key="item.id">
+      {{ item.name }} - {{ item.price }}
+    </li>
+  </ul>
+ 
+  <div class="timer">已經專注 {{ seconds }} 秒</div>
+ 
+  <div class="modal">...</div>
+</template>
+\`\`\`
+
+拆分之後：
+
+\`\`\`js
+<!-- App.vue：只負責組裝 -->
+<template>
+  <AppHeader />
+  <SearchBar v-model="keyword" />
+  <ProductList :items="filteredList" />
+  <FocusTimer />
+  <ProductModal />
+</template>
+\`\`\`
+
+光看 template 就知道這個頁面由哪幾塊組成，這就是拆分最直接的好處。
+
+### 為什麼要拆？
+
+-   **重複使用**：\`SearchBar\` 在商品頁用得到，在訂單頁可能也用得到
+-   **單一職責**：每個組件只做一件事，出問題時知道要去哪裡找
+-   **好讀好維護**：一個檔案幾十行，比一個檔案幾百行好理解太多
+
+### 什麼時候該拆？
+
+我自己的判斷方式是：**這一塊能不能用一句話說清楚它在做什麼？**
+
+-   「顯示商品列表」→ 可以，這是一個組件
+-   「顯示商品列表，然後可以搜尋，然後計時，然後彈窗」→ 說不清楚，代表還能拆  
+    不是寫超過一百行就一定要拆，而是當一個組件開始「身兼多職」時，就是該拆的訊號。
+
+### 組件和 composable 的差別
+
+拆分的時候常會卡在一個問題：這段要拆成組件，還是抽成 composable？
+
+-   要重用的是**畫面**（有 template）→ 拆成組件
+-   要重用的是**邏輯**（沒有 template，只有資料和行為）→ 抽成 composable，也就是 \`useXxx\` 函式  
+    這個差別等等講到生命週期時會再回來用到。
+
+至於拆開之後資料怎麼傳，簡單說就是 props 往下傳、emit 往上通知，這裡先不展開。
+
+---
+
+## 二、每個組件實例都有自己的一生
+
+組件拆開之後，有一個很重要的觀念：**每一個組件實例，都有一條獨立的生命週期。**
+
+\`App.vue\` 裡用了五個子組件，就有五條各自的生命週期，加上 \`App\` 自己總共六條。它們各自出生、各自更新、各自消失。
+
+一個組件的一生大致是這樣：
+
+\`\`\`js
+setup（建立）
+  ↓
+onBeforeMount → onMounted（掛載到畫面上）
+  ↓
+onBeforeUpdate → onUpdated（資料變動、畫面重新渲染，可能發生很多次）
+  ↓
+onBeforeUnmount → onUnmounted（從畫面上移除）
+\`\`\`
+
+這些 \`onXxx\` 就是生命週期鉤子（lifecycle hooks），意思是「在某個時間點，讓我插一段程式碼進去執行」。
+
+鉤子很多，但日常開發最常用的其實就三個：**setup、onMounted、onUnmounted**。下面一個一個看。
+
+---
+
+## 三、setup：組件的出生證明
+
+在 \`<script setup>\` 裡寫的程式碼，本身就是在 setup 階段執行的。組件被建立時，這段程式碼會**從上到下跑一次**。
+
+\`\`\`js
+<script setup>
+import { ref, useTemplateRef } from 'vue'
+ 
+console.log('setup 執行了')
+ 
+const count = ref(0)
+const inputEl = useTemplateRef('input')
+ 
+console.log(inputEl.value) // null
+<\/script>
+ 
+<template>
+  <input ref="input" />
+</template>
+\`\`\`
+
+為什麼 \`inputEl.value\` 是 \`null\`？因為 setup 執行的時候，Vue 還在「準備資料」，template 還沒被渲染成真正的 DOM。這也接回 Day 14 講模板 ref 時提到的：**DOM 要等掛載之後才拿得到。**
+
+如果寫過 Vue 2，會記得有 \`beforeCreate\` 和 \`created\` 兩個鉤子。在 Vue 3 的 Composition API 裡不需要它們了，原本寫在那裡的東西，直接寫在 setup 裡就好。
+
+| Vue 2（Options API） | Vue 3（Composition API） |
+| --- | --- |
+| beforeCreate / created | 直接寫在 setup 裡 |
+| mounted | onMounted |
+| beforeDestroy | onBeforeUnmount |
+| destroyed | onUnmounted |
+
+---
+
+## 四、onMounted：DOM 準備好了
+
+onMounted 的時機是：\\*\\*組件的 DOM 已經產生，而且放進頁面了。\\*\\*所以凡是需要碰到 DOM 的事情，都放這裡。
+
+\`\`\`js
+<script setup>
+import { useTemplateRef, onMounted } from 'vue'
+ 
+const inputEl = useTemplateRef('input')
+ 
+onMounted(() => {
+  inputEl.value.focus() // 這時候拿得到了
+})
+<\/script>
+ 
+<template>
+  <input ref="input" />
+</template>
+\`\`\`
+
+適合放在 onMounted 的事情：
+
+-   操作 DOM：focus、捲動、量元素寬高
+-   初始化需要 DOM 的第三方套件：Bootstrap Modal、Chart.js、Swiper 這類  
+    延續 Day 14 的 Bootstrap Modal 例子，\`new Modal()\` 需要傳入一個真實的 DOM 元素，所以一定要等到 onMounted：
+
+\`\`\`js
+<script setup>
+import { useTemplateRef, onMounted } from 'vue'
+import { Modal } from 'bootstrap'
+ 
+const modalEl = useTemplateRef('modal')
+let modal = null
+ 
+onMounted(() => {
+  modal = new Modal(modalEl.value)
+})
+<\/script>
+ 
+<template>
+  <div ref="modal" class="modal">...</div>
+</template>
+\`\`\`
+
+如果把 \`new Modal()\` 寫在 setup 最外層，拿到的會是 \`null\`，套件就會報錯。
+
+### 打 API 要放 setup 還是 onMounted？
+
+這是很常被問的問題，兩種寫法都看得到：
+
+\`\`\`js
+// 寫法 A：直接在 setup 裡呼叫
+fetchProducts()
+ 
+// 寫法 B：等掛載完再呼叫
+onMounted(() => {
+  fetchProducts()
+})
+\`\`\`
+
+單純抓資料的話兩種都可以，差別只在時機：寫法 A 比較早發出請求，寫法 B 會等畫面出來之後才發。如果抓資料這件事跟 DOM 無關，放在 setup 裡就夠了。
+
+另外補充一點：如果是用 Nuxt 這類 SSR 框架，onMounted 只會在瀏覽器端執行，伺服器端不會跑，所以那邊抓資料通常會改用框架提供的方法（像 \`useFetch\`）。
+
+---
+
+## 五、onUnmounted：記得收拾善後
+
+onUnmounted 的時機是：**組件從畫面上被移除之後。**
+
+它最重要的用途只有一個：**清理**。這個鉤子最容易被忽略，因為忘了寫，畫面看起來也完全正常。直接看例子。
+
+### 一個忘記清理的計時器
+
+\`\`\`js
+<!-- FocusTimer.vue -->
+<script setup>
+import { ref } from 'vue'
+ 
+const seconds = ref(0)
+ 
+setInterval(() => {
+  seconds.value++
+  console.log('計時中', seconds.value)
+}, 1000)
+<\/script>
+ 
+<template>
+  <p>已經專注 {{ seconds }} 秒</p>
+</template>
+\`\`\`
+
+在父組件用 \`v-if\` 控制它的顯示：
+
+\`\`\`js
+<!-- App.vue -->
+<script setup>
+import { ref } from 'vue'
+import FocusTimer from './FocusTimer.vue'
+ 
+const showTimer = ref(true)
+<\/script>
+ 
+<template>
+  <button @click="showTimer = !showTimer">切換計時器</button>
+  <FocusTimer v-if="showTimer" />
+</template>
+\`\`\`
+
+打開 console，連續按幾次切換按鈕，會看到：
+
+-   計時器已經從畫面上消失了，console 還在一直印「計時中」
+-   每按一次顯示，就多一組新的計時在跑，log 越印越快  
+    原因是：組件被移除了，但 \`setInterval\` 是瀏覽器的東西，Vue 不會幫你關掉它。而且計時器的 callback 還抓著 \`seconds\`，這些資料也沒辦法被回收，這就是記憶體洩漏（memory leak）。
+
+### 加上 onUnmounted
+
+\`\`\`js
+<!-- FocusTimer.vue -->
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+ 
+const seconds = ref(0)
+let timerId = null
+ 
+onMounted(() => {
+  timerId = setInterval(() => {
+    seconds.value++
+    console.log('計時中', seconds.value)
+  }, 1000)
+})
+ 
+onUnmounted(() => {
+  clearInterval(timerId)
+})
+<\/script>
+\`\`\`
+
+再切換一次，這次組件一消失，console 就安靜了。
+
+這裡我把 \`setInterval\` 也移到了 onMounted 裡，養成一個習慣：\\*\\*在 onMounted 開始的東西，就在 onUnmounted 結束。\\*\\*兩個鉤子成對出現，比較不容易漏。
+
+### 常見需要清理的東西
+
+-   計時器：\`setInterval\`、\`setTimeout\`
+-   綁在組件外面的事件監聽：\`window\`、\`document\` 上的 \`addEventListener\`
+-   觀察器：\`IntersectionObserver\`、\`ResizeObserver\`
+-   第三方套件的實例：例如 Bootstrap Modal 的 \`dispose()\`、Chart.js 的 \`destroy()\`
+-   WebSocket 連線  
+    判斷方式很簡單：\\*\\*這個東西是不是 Vue 以外的人在管？\\*\\*如果是，Vue 就不會幫你收，要自己收。
+
+至於寫在 template 上的 \`@click\` 這種事件，Vue 會自己處理，不用手動移除。
+
+### onBeforeUnmount 什麼時候用？
+
+onBeforeUnmount 在「準備移除、但 DOM 還在」的時候執行。如果清理的時候還需要讀 DOM，例如要記下使用者捲到哪裡，就放在 onBeforeUnmount；單純關計時器、移除監聽，用 onUnmounted 就好。
+
+---
+
+## 六、把出生到死亡打包成 composable
+
+回到第一段講的：邏輯要重用，就抽成 composable。
+
+「在 onMounted 綁定、在 onUnmounted 解除」這件事每次都要寫一次，很適合包起來：
+
+\`\`\`js
+// composables/useEventListener.js
+import { onMounted, onUnmounted } from 'vue'
+ 
+export function useEventListener(target, event, handler) {
+  onMounted(() => {
+    target.addEventListener(event, handler)
+  })
+ 
+  onUnmounted(() => {
+    target.removeEventListener(event, handler)
+  })
+}
+\`\`\`
+
+有了它，要監聽視窗寬度就變得很乾淨：
+
+\`\`\`js
+// composables/useWindowWidth.js
+import { ref } from 'vue'
+import { useEventListener } from './useEventListener'
+ 
+export function useWindowWidth() {
+  const width = ref(window.innerWidth)
+ 
+  useEventListener(window, 'resize', () => {
+    width.value = window.innerWidth
+  })
+ 
+  return { width }
+}
+\`\`\`
+
+\`\`\`js
+<!-- 任何組件裡 -->
+<script setup>
+import { useWindowWidth } from './composables/useWindowWidth'
+ 
+const { width } = useWindowWidth()
+<\/script>
+ 
+<template>
+  <p>目前視窗寬度：{{ width }}px</p>
+</template>
+\`\`\`
+
+這裡有一個很關鍵的觀念：**composable 裡的生命週期鉤子，會綁在「呼叫它的那個組件」身上。**
+
+A 組件呼叫 \`useWindowWidth()\`，監聽就跟著 A 的一生走，A 被移除時監聽就解除；B 組件也呼叫的話，B 會有自己一份，互不影響。使用的人完全不用記得要清理，因為清理已經寫在 composable 裡了。
+
+Day 14 的 \`useModal\` 也可以用同樣的思路補上清理：
+
+\`\`\`js
+// composables/useModal.js
+import { useTemplateRef, onMounted, onUnmounted } from 'vue'
+import { Modal } from 'bootstrap'
+ 
+export function useModal(refName) {
+  const modalEl = useTemplateRef(refName)
+  let modal = null
+ 
+  onMounted(() => {
+    modal = new Modal(modalEl.value)
+  })
+ 
+  onUnmounted(() => {
+    modal?.dispose()
+  })
+ 
+  const open = () => modal?.show()
+  const close = () => modal?.hide()
+ 
+  return { open, close }
+}
+\`\`\`
+
+順帶一提，[VueUse](https://vueuse.org/) 已經把很多這類 composable 寫好了，像 \`useEventListener\`、\`useWindowSize\`、\`useIntervalFn\`，實務上可以直接用。不過自己寫過一次，會更清楚它們背後在做什麼。
+
+---
+
+## 七、容易踩到的坑
+
+### 1\\. 鉤子要在 setup 裡同步註冊
+
+\`\`\`js
+// ❌ 不會執行
+setTimeout(() => {
+  onMounted(() => {
+    console.log('我不會被印出來')
+  })
+}, 0)
+\`\`\`
+
+生命週期鉤子在註冊時，需要知道「現在是哪個組件在執行 setup」。放進 \`setTimeout\` 或 \`.then()\` 這類非同步 callback 裡，Vue 已經不知道它屬於誰了，console 會出現警告，鉤子也不會執行。
+
+最保險的做法：**鉤子一律寫在 setup 的最外層，由上往下同步註冊。**
+
+### 2\\. v-if 會觸發掛載和卸載，v-show 不會
+
+-   \`v-if\` 為 \`false\`：組件真的被移除，會觸發 onUnmounted；變回 \`true\` 是一個全新的組件，會重新跑 setup 和 onMounted
+-   \`v-show\` 為 \`false\`：組件還在，只是被加上 \`display: none\`，生命週期不會變化  
+    所以前面計時器的例子，如果把 \`v-if\` 換成 \`v-show\`，計時器會一直跑下去，這通常是符合預期的，因為組件本來就還活著。選哪一個，要看你希望組件「藏起來」還是「消失」。
+
+### 3\\. 父子組件的掛載順序
+
+在父子組件裡各自印出 log：
+
+\`\`\`js
+Parent setup
+Parent onBeforeMount
+Child setup
+Child onBeforeMount
+Child onMounted
+Parent onMounted
+\`\`\`
+
+子組件的 onMounted 會比父組件先執行。原因是父組件要等底下所有子組件都掛載完成，自己才算完整地掛上去。
+
+所以在父組件的 onMounted 裡，可以放心地存取子組件的 DOM。
+
+### 4\\. KeepAlive 裡的組件不會 unmount
+
+如果組件被 \`<KeepAlive>\` 包起來，切換時不會被移除，而是被暫存起來，所以 onUnmounted 不會觸發。這種情況要改用 \`onActivated\`（重新顯示時）和 \`onDeactivated\`（被暫存時）。這裡先知道有這件事就好。
+
+---
+
+## 八、整理
+
+| 鉤子 | 什麼時候執行 | 適合做什麼 | 常見錯誤 |
+| --- | --- | --- | --- |
+| setup | 組件建立時，最先執行 | 宣告資料、computed、watch，發 API 請求 | 在這裡操作 DOM，拿到 null |
+| onMounted | DOM 產生並放進頁面後 | 操作 DOM、初始化第三方套件、開計時器與監聽 | 忘記開了的東西要關 |
+| onBeforeUnmount | 準備移除，DOM 還在 | 需要讀 DOM 的清理，例如記錄捲動位置 | 和 onUnmounted 分不清楚 |
+| onUnmounted | 組件移除後 | 清計時器、移除監聽、銷毀套件實例 | 忘了寫，造成記憶體洩漏 |
+
+回到開頭那個越寫越長的 \`App.vue\`：拆分讓每個組件只做一件事，生命週期讓每個組件把自己開的東西自己收好。兩件事都做到，組件才能放心地搬到別的頁面重複使用，不會拖著一堆沒關掉的計時器跟著走。
+
+---
+`,x=`---
+title: "Vue 走過路過不要錯過 Day16 - props：defineProps 與單向資料流的規矩"
+subtitle: "props：defineProps 與單向資料流的規矩"
+day: 16
+date: "2026-09-30"
+excerpt: "假設你在做一個商品列表頁，每個商品都要顯示名稱、價格。最直覺的做法是把卡片的 HTML 直接複製貼上，再一張張改文字。商品只有三個的時候還撐得住，等到變成三十個，改一個樣式就要改三十個地方。 Day 15 我們已經學會把畫面拆成組件。拆出來…"
+source: "https://ithelp.ithome.com.tw/articles/10419275"
+series: "ithome-ironman-2026"
+---
+
+# Day16 - props：defineProps 與單向資料流的規矩
+
+## 前言：同一張商品卡片，為什麼不能寫死？
+
+假設你在做一個商品列表頁，每個商品都要顯示名稱、價格。最直覺的做法是把卡片的 HTML 直接複製貼上，再一張張改文字。商品只有三個的時候還撐得住，等到變成三十個，改一個樣式就要改三十個地方。
+
+Day 15 我們已經學會把畫面拆成組件。拆出來的卡片組件只負責「長什麼樣子」，至於「顯示哪一個商品」，應該交給使用它的人決定。這個「由外面把資料傳進來」的機制，就是 props。
+
+## 為什麼需要 props
+
+如果一份資料不是全域都需要，只有某一塊畫面用得到，最自然的做法是由**父組件**握有這份資料，需要的時候再傳給**子組件**。子組件不用知道資料從哪來，只管拿到什麼就顯示什麼。這樣同一個組件餵不同的資料，就能長出不同的內容，復用起來也很輕鬆。
+
+相對地，像是登入狀態、購物車這類很多頁面都要讀寫的資料，就不適合一層一層傳下去，那是全域狀態要處理的事（Pinia 之後會談到）。判斷的方式很簡單：**只有這個組件和它的上下層用得到，就用 props；很多地方都要用，再考慮全域**。
+
+## defineProps 的基本寫法
+
+在 \`<script setup>\` 裡，用 \`defineProps\` 宣告這個組件接受哪些 props。它是編譯巨集，不需要 import 就能直接使用。
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  title: { type: String, required: true },
+  price: { type: Number, default: 0 },
+  tags: { type: Array, default: () => [] }
+})
+<\/script>
+
+<template>
+  <div class="card">
+    <h3>{{ title }}</h3>
+    <p>NT$ {{ price }}</p>
+  </div>
+</template>
+\`\`\`
+
+幾個常見的重點：
+
+-   模板裡可以直接用 \`title\`，不用寫 \`props.title\`；在 script 裡則要透過 \`props.title\` 存取。
+-   \`type\` 讓 Vue 在開發模式下幫你檢查型別，傳錯會在 console 出現警告。
+-   \`required: true\` 代表一定要傳，\`default\` 是沒傳時的預設值。
+-   物件與陣列的預設值要寫成函式（\`() => []\`），避免多個組件實例共用同一個參考。
+
+父組件這邊這樣使用：
+
+\`\`\`js
+<script setup>
+import { ref } from 'vue'
+import ProductCard from './ProductCard.vue'
+
+const products = ref([
+  { id: 1, title: '安全帽 A 款', price: 1200 },
+  { id: 2, title: '安全帽 B 款', price: 1500 }
+])
+<\/script>
+
+<template>
+  <ProductCard
+    v-for="item in products"
+    :key="item.id"
+    :title="item.title"
+    :price="item.price"
+  />
+</template>
+\`\`\`
+
+這裡有個新手常踩的小地方：如果寫成 \`price="1200"\`（沒有冒號），傳進去的是字串 \`"1200"\`，會和 \`Number\` 型別對不上而出現警告。要傳「JS 的值」而不是純文字，記得加上 \`:\`（也就是 \`v-bind\`）。
+
+## 單向資料流：資料只能由上往下
+
+Vue 對 props 訂了一條規矩：**資料由父組件流向子組件，子組件不應該反過來修改它**。
+
+先看最直接的違規寫法：
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  count: Number
+})
+
+function add() {
+  props.count++ // 直接改 props
+}
+<\/script>
+\`\`\`
+
+這樣寫，開發模式下 Vue 會在 console 警告 props 是唯讀的，值也不會被改掉。
+
+但事情沒有這麼單純。如果傳進來的是物件呢？
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  product: { type: Object, required: true }
+})
+
+function toggleFavorite() {
+  props.product.isFavorite = true // 改的是物件內部的屬性
+}
+<\/script>
+\`\`\`
+
+這一次 Vue **不會警告**，而且畫面還真的會更新。原因是 props 的唯讀只擋「整個 prop 被重新賦值」這一層，物件內部的屬性並沒有被凍結。子組件拿到的其實是父組件那個物件的同一個參考，所以這一行改到的是**父組件的資料**。
+
+看起來能動，為什麼還是不好？
+
+-   **資料來源變得不明確**：想知道 \`isFavorite\` 是誰改的，你得翻遍所有拿到這個物件的子組件。
+-   **一份資料被多處修改，除錯困難**：如果同一個物件同時傳給好幾個子組件，任何一個都能偷偷改它，畫面出現異常時很難追查。
+-   **組件失去獨立性**：子組件悄悄依賴「父組件的資料可以被我改」，換個地方使用就可能出問題。
+
+單向資料流的意義就在這裡：資料的修改權集中在擁有它的那一層，任何變動都能循著同一條路徑追蹤。
+
+## 子組件真的需要「改」的時候怎麼辦
+
+實務上常見的情況大致有三種，各有各的處理方式。
+
+**1\\. 只是把 props 當作初始值**
+
+例如傳進來一個初始數量，子組件之後自己管理。這時候複製一份到本地的 ref：
+
+\`\`\`js
+<script setup>
+import { ref } from 'vue'
+
+const props = defineProps({
+  initialCount: { type: Number, default: 0 }
+})
+
+const count = ref(props.initialCount)
+<\/script>
+\`\`\`
+
+要注意這只會在建立時複製一次，之後父組件再改 \`initialCount\`，本地的 \`count\` 不會跟著變。
+
+**2\\. 需要根據 props 算出另一個值**
+
+例如傳進來原價，卡片要顯示打折後的價格。這種情況用 computed，會跟著 props 的變化自動更新：
+
+\`\`\`js
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  price: { type: Number, default: 0 }
+})
+
+const salePrice = computed(() => Math.round(props.price * 0.8))
+<\/script>
+\`\`\`
+
+**3\\. 子組件想「請父組件」修改資料**
+
+像前面的收藏按鈕，子組件不自己改資料，而是通知父組件「使用者按了收藏」，由父組件決定要不要改、怎麼改。這正是 \`emit\` 的工作，下一篇會詳細介紹。這邊先記住核心觀念：**props 往下傳，事件往上報**。
+
+## 補充：解構 props 的注意事項
+
+Day 5 我們談過，一般的 reactive 物件解構後會失去響應式。props 也有類似的情況：如果在 script 裡用 \`const { title } = props\` 這種寫法取值，之後 \`title\` 就只是一個普通變數，不會再跟著更新。
+
+Vue 3.5 之後，直接在 \`defineProps\` 上解構（\`const { title } = defineProps(...)\`）會由編譯器幫你保持響應式。但如果你的專案版本較舊，或是在其他地方解構，就要改用 \`toRefs(props)\` 或直接使用 \`props.title\`。
+
+## 小結
+
+-   props 讓父組件決定資料，子組件專心負責呈現，同一個組件可以輕鬆復用。
+-   \`defineProps\` 是編譯巨集，不需要 import，可以搭配 \`type\`、\`required\`、\`default\` 做基本驗證。
+-   資料只能由上往下流。整個 prop 重新賦值會被 Vue 警告，但修改物件內部屬性不會，這是最容易忽略的陷阱。
+-   子組件需要「改」資料時：初始值用本地 ref、衍生值用 computed、要通知父組件則用 emit。
+`,V=`---
+title: "Vue 走過路過不要錯過 Day17 - emits：子組件怎麼把事情告訴父組件"
+subtitle: "emits：子組件怎麼把事情告訴父組件"
+day: 17
+date: "2026-10-01"
+excerpt: "上一篇講 props 的時候，留了一個很常見的情境：商品卡片上有個「收藏」按鈕，卡片手上的 product 是父組件給的，照單向資料流的規矩，子組件不該直接去改它。 那按鈕按下去之後，到底該怎麼辦？ 做法其實上一篇稍微提過：子組件不自己動手…"
+source: "https://ithelp.ithome.com.tw/articles/10419711"
+series: "ithome-ironman-2026"
+---
+
+上一篇講 props 的時候，留了一個很常見的情境：商品卡片上有個「收藏」按鈕，卡片手上的 \`product\` 是父組件給的，照單向資料流的規矩，子組件不該直接去改它。
+
+那按鈕按下去之後，到底該怎麼辦？
+
+做法其實上一篇稍微提過：子組件不自己動手，而是「說一聲」，讓真正擁有資料的父組件去改。這個「說一聲」的機制，就是今天的主角 emits。
+
+## 最基本的寫法
+
+先看子組件 \`ProductCard.vue\`：
+
+\`\`\`js
+<script setup>
+const props = defineProps({
+  product: { type: Object, required: true }
+})
+ 
+const emit = defineEmits(['toggleFavorite'])
+ 
+function onClickFavorite() {
+  emit('toggleFavorite', props.product.id)
+}
+<\/script>
+ 
+<template>
+  <div class="card">
+    <h3>{{ product.name }}</h3>
+    <p>NT$ {{ product.price }}</p>
+    <button @click="onClickFavorite">
+      {{ product.isFavorite ? '已收藏' : '收藏' }}
+    </button>
+  </div>
+</template>
+\`\`\`
+
+再看父組件 \`ProductList.vue\`：
+
+\`\`\`js
+<script setup>
+import { ref } from 'vue'
+import ProductCard from './ProductCard.vue'
+ 
+const products = ref([
+  { id: 1, name: '全罩式安全帽', price: 3200, isFavorite: false },
+  { id: 2, name: '3/4 罩安全帽', price: 2400, isFavorite: false }
+])
+ 
+function handleToggleFavorite(id) {
+  const target = products.value.find(item => item.id === id)
+  if (target) target.isFavorite = !target.isFavorite
+}
+<\/script>
+ 
+<template>
+  <ProductCard
+    v-for="item in products"
+    :key="item.id"
+    :product="item"
+    @toggle-favorite="handleToggleFavorite"
+  />
+</template>
+\`\`\`
+
+整個流程拆開來看是這樣：
+
+1.  使用者按下收藏按鈕，子組件呼叫 \`emit('toggleFavorite', id)\`
+2.  父組件用 \`@toggle-favorite\` 監聽到這個事件，\`handleToggleFavorite\` 收到 \`id\`
+3.  父組件改了自己的 \`products\`
+4.  新的 \`product\` 透過 props 流回子組件，畫面更新  
+    資料還是只從上往下流，往上走的只有「發生了什麼事」這個通知。
+
+事件名稱的部分，\`emit\` 裡習慣寫 camelCase（\`toggleFavorite\`），模板上監聽習慣寫 kebab-case（\`@toggle-favorite\`），Vue 會自動幫你轉換，兩邊對得起來。
+
+## 子組件只回報，父組件做決定
+
+這樣拆有一個很實際的好處。
+
+同一張 \`ProductCard\`，放在「商品列表頁」時，按收藏就是切換愛心狀態；但放到「我的收藏」頁面時，你可能希望取消收藏之後，這張卡片直接從列表裡消失。
+
+如果收藏的邏輯寫死在子組件裡，你就得幫卡片加一堆判斷：「我現在在哪一頁？」。但用 emit 的話，卡片完全不用改，它永遠只負責喊一聲「有人按了收藏」，至於要怎麼處理，交給各自的父組件決定：
+
+\`\`\`js
+// 收藏頁的父組件
+function handleToggleFavorite(id) {
+  favorites.value = favorites.value.filter(item => item.id !== id)
+}
+\`\`\`
+
+這也呼應上一篇講 props 的初衷：組件不去管外面的事，才能被重複使用。props 讓組件不用自己找資料，emits 讓組件不用自己決定後果。
+
+## 帶多個參數
+
+\`emit\` 第一個參數是事件名稱，後面可以接任意數量的參數，父組件的處理函式會依序收到：
+
+\`\`\`js
+// 子組件：加入購物車，帶商品 id 和數量
+emit('addToCart', props.product.id, quantity.value)
+\`\`\`
+
+\`\`\`js
+// 父組件
+function handleAddToCart(id, quantity) {
+  cart.value.push({ id, quantity })
+}
+\`\`\`
+
+\`\`\`js
+<ProductCard @add-to-cart="handleAddToCart" />
+\`\`\`
+
+如果在模板裡寫行內表達式，要注意 \`$event\` 只會拿到第一個參數。需要多個參數的話，改用箭頭函式比較清楚：
+
+\`\`\`js
+<ProductCard @add-to-cart="(id, qty) => handleAddToCart(id, qty)" />
+\`\`\`
+
+## 為什麼要寫 defineEmits？
+
+在模板裡其實可以直接用 \`$emit\`，不宣告也能動。那為什麼還要特地寫 \`defineEmits\`？
+
+### 一看就知道這個組件會發出哪些事件
+
+這是最直接的理由。打開一個組件，看到 \`defineProps\` 就知道它吃什麼資料，看到 \`defineEmits\` 就知道它會回報哪些事。不用翻遍整個模板去找 \`$emit\`。
+
+### 避免事件被觸發兩次
+
+這個坑比較隱密。假設我們包了一個自己的按鈕組件：
+
+\`\`\`js
+<!-- BaseButton.vue，沒有宣告 emits -->
+<template>
+  <button class="btn" @click="$emit('click')">
+    <slot />
+  </button>
+</template>
+\`\`\`
+
+父組件這樣用：
+
+\`\`\`js
+<BaseButton @click="save">儲存</BaseButton>
+\`\`\`
+
+結果按一下，\`save\` 跑了兩次。
+
+原因是 Vue 有「屬性透傳」（fallthrough attributes）的機制：父組件傳給子組件、但子組件沒有宣告接收的東西，會自動掛到子組件的根元素上。\`@click\` 沒被宣告成 emits，所以它被當成一般屬性，直接掛到了 \`<button>\` 上，變成原生的 click 監聽。
+
+於是按一下會發生兩件事：原生 click 觸發一次 \`save\`，\`$emit('click')\` 又觸發一次 \`save\`。
+
+只要宣告一下就解決了：
+
+\`\`\`js
+<script setup>
+defineEmits(['click'])
+<\/script>
+\`\`\`
+
+宣告過的事件會從透傳屬性裡排除，\`@click\` 就只會由 emit 觸發。
+
+### 可以做驗證
+
+\`defineEmits\` 也可以寫成物件，對每個事件的參數做檢查：
+
+\`\`\`js
+const emit = defineEmits({
+  addToCart: (id, quantity) => {
+    if (quantity > 0) return true
+    console.warn('數量必須大於 0')
+    return false
+  }
+})
+\`\`\`
+
+要注意的是，驗證失敗只會在開發環境跳警告，事件還是會照樣發出去。它比較像是提醒開發者「你傳錯東西了」，不是攔截機制，真正的防呆還是要寫在邏輯裡。
+
+## emit 不是 DOM 事件，它不會冒泡
+
+看到「事件」兩個字，很容易聯想到原生 DOM 的 click：在子元素觸發，會一路往上冒泡，祖先元素都聽得到。
+
+組件的 emit 不一樣，它只會傳一層，只有直接使用這個組件的父組件聽得到。
+
+假設結構變成三層：
+
+\`\`\`
+ProductList
+└── ProductCard
+    └── FavoriteButton
+\`\`\`
+
+\`FavoriteButton\` 發出的事件，\`ProductList\` 是聽不到的。\`ProductCard\` 必須接住，再自己發一次：
+
+\`\`\`js
+<!-- ProductCard.vue -->
+<FavoriteButton @toggle="emit('toggleFavorite', product.id)" />
+\`\`\`
+
+兩三層還好，如果要穿過很多層，一層一層轉發會很痛苦。這時候通常會改用 provide / inject 或 Pinia，那是之後的主題了。
+
+## emit 背後其實就是呼叫一個函式
+
+為什麼 emit 不會冒泡？打開 [Vue SFC Playground](https://play.vuejs.org/) 看編譯結果就懂了。
+
+\`\`\`js
+<ProductCard :product="item" @toggle-favorite="handleToggleFavorite" />
+\`\`\`
+
+編譯後大概長這樣（簡化過）：
+
+\`\`\`js
+_createVNode(ProductCard, {
+  product: item,
+  onToggleFavorite: handleToggleFavorite
+})
+\`\`\`
+
+注意 \`onToggleFavorite\`。父組件監聽的事件，其實是被轉成一個 \`on\` 開頭的屬性，跟 \`product\` 一起傳進了子組件。
+
+而子組件呼叫 \`emit\` 時做的事，概念上就是這樣：
+
+\`\`\`js
+// 概念版，省略了 kebab-case 轉換、once 修飾符等細節
+function emit(event, ...args) {
+  const handlerName = 'on' + event[0].toUpperCase() + event.slice(1)
+  const handler = instance.vnode.props[handlerName]
+  if (handler) handler(...args)
+}
+\`\`\`
+
+去父組件傳進來的屬性裡找 \`onToggleFavorite\`，找到就把參數丟進去呼叫。
+
+所以 emit 本質上就是 JavaScript 最基本的 callback：父組件把一個函式交給子組件，子組件在適當的時機呼叫它。它從頭到尾沒有經過 DOM 事件系統，自然也就沒有冒泡這回事。
+
+有寫過 React 的話應該很眼熟，React 就是直接把 \`onXxx\` 函式當 props 傳下去。Vue 只是把這件事包裝成「事件」的寫法，再多給了宣告、驗證、\`.once\` 修飾符和透傳排除這些功能。
+
+## 小結
+
+|  | props | emits |
+| --- | --- | --- |
+| 方向 | 父 → 子 | 子 → 父 |
+| 傳的是什麼 | 資料 | 「發生了什麼事」的通知 |
+| 誰擁有資料 | 父組件 | 父組件 |
+| 誰決定怎麼改 | 父組件 | 父組件 |
+
+props 和 emits 是一組的：資料往下流，事件往上報，改資料的權力始終留在擁有資料的那一層。
+
+子組件想改 props 的時候，與其想辦法繞過規矩，不如問自己一句：「這件事應該由我決定，還是我只要回報就好？」大部分的時候，答案都是後者。
+`,M=`---
+title: "Vue 走過路過不要錯過 Day18 - 組件的 v-model：defineModel 讓雙向綁定變簡單"
+subtitle: "組件的 v-model：defineModel 讓雙向綁定變簡單"
+day: 18
+date: "2026-10-02"
+excerpt: "Day 13 我們把 v-model 綁在 input 、 checkbox 、 select 這些原生表單元素上，打字、勾選、下拉，資料就自動同步。 今天的問題是： 如果要綁定的不是原生 input，而是我們自己寫的組件呢？ 例如你做了一…"
+source: "https://ithelp.ithome.com.tw/articles/10420134"
+series: "ithome-ironman-2026"
+---
+
+Day 13 我們把 \`v-model\` 綁在 \`input\`、\`checkbox\`、\`select\` 這些原生表單元素上，打字、勾選、下拉，資料就自動同步。
+
+今天的問題是：**如果要綁定的不是原生 input，而是我們自己寫的組件呢？**
+
+例如你做了一個好看的輸入框組件 \`MyInput\`，你會很自然地想這樣寫：
+
+\`\`\`js
+<MyInput v-model="keyword" />
+\`\`\`
+
+這是可以的。不過要讓它動起來，子組件裡面得做一些事。這件事在 Vue 3.4 以前有點囉嗦，3.4 之後多了一個叫 \`defineModel\` 的東西，讓它變得非常簡單。
+
+如果你還不太確定「3.4 更新了什麼」，沒關係，這篇會從頭講起。
+
+---
+
+## v-model 到底幫我們做了什麼？
+
+先回顧 Day 13。在原生 input 上，\`v-model\` 其實是一個「語法糖」，也就是 Vue 幫你把兩件事合成一個寫法：
+
+\`\`\`js
+<input v-model="text" />
+ 
+<!-- 實際上等於 -->
+<input
+  :value="text"
+  @input="text = $event.target.value"
+/>
+\`\`\`
+
+1.  用 \`:value\` 把資料「放進去」
+2.  用 \`@input\` 在使用者打字時把新值「拿回來」  
+    那放到組件上呢？Vue 一樣會幫你展開，只是名字換了：
+
+\`\`\`js
+<MyInput v-model="text" />
+ 
+<!-- 實際上等於 -->
+<MyInput
+  :modelValue="text"
+  @update:modelValue="newValue => text = newValue"
+/>
+\`\`\`
+
+用白話說就是：
+
+> 父層把值透過一個叫 \`modelValue\` 的 prop 交給子組件，同時留一支「改值專線」叫 \`update:modelValue\`。  
+> 子組件想改值時，**不能自己動手改**，而是打這支專線通知父層：「請幫我改成這個值」，由父層自己去改。
+
+為什麼子組件不能自己改？因為 Vue 的規則是**單向資料流**：資料往下傳（props），事件往上報（emit）。資料的主人是父層，只有主人能改它。這樣資料出問題時，你永遠知道要去哪裡找。
+
+---
+
+## 3.4 以前：自己把專線接好
+
+在沒有 \`defineModel\` 的時候，子組件要自己宣告「我會收 \`modelValue\`」，也要自己宣告「我會打 \`update:modelValue\` 這支專線」：
+
+\`\`\`js
+<!-- MyInput.vue -->
+<script setup>
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+<\/script>
+ 
+<template>
+  <input
+    :value="props.modelValue"
+    @input="emit('update:modelValue', $event.target.value)"
+  />
+</template>
+\`\`\`
+
+這樣可以動，但有兩個麻煩。
+
+**麻煩一：想在子組件裡也寫 \`v-model\`，會被擋下來。**
+
+\`\`\`js
+<!-- ❌ 這樣寫 Vue 會警告：props 是唯讀的 -->
+<input v-model="props.modelValue" />
+\`\`\`
+
+因為這等於子組件自己動手改父層的資料，違反了上面說的規則。
+
+**麻煩二：要繞過去，得再包一層 \`computed\`。**
+
+\`\`\`js
+<script setup>
+import { computed } from 'vue'
+ 
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+ 
+const value = computed({
+  get: () => props.modelValue,
+  set: (val) => emit('update:modelValue', val)
+})
+<\/script>
+ 
+<template>
+  <input v-model="value" />
+</template>
+\`\`\`
+
+讀的時候拿 props，寫的時候改成 emit。邏輯是對的，但為了「雙向綁定一個值」要寫三段程式碼，而且每個組件都要重來一次。
+
+---
+
+## 3.4 之後：defineModel 一行搞定
+
+Vue 3.4 在 2023 年底發布，其中一個重點就是把 \`defineModel\` 從「實驗功能」轉為正式功能。
+
+如果你的專案是最近用 \`npm create vue@latest\` 建的，版本早就超過 3.4，可以直接用。不確定的話，打開 \`package.json\` 看 \`"vue"\` 後面的版本號就知道了。
+
+剛剛那一大段，現在變成這樣：
+
+\`\`\`js
+<!-- MyInput.vue -->
+<script setup>
+const model = defineModel()
+<\/script>
+ 
+<template>
+  <input v-model="model" />
+</template>
+\`\`\`
+
+父層的寫法完全不用改：
+
+\`\`\`js
+<MyInput v-model="text" />
+\`\`\`
+
+白話理解 \`defineModel()\`：
+
+> 它回傳一個 ref。  
+> **讀它**，就是讀父層傳下來的值。  
+> **改它**，就會自動幫你打專線通知父層。
+
+所以在 script 裡也可以直接改：
+
+\`\`\`js
+<script setup>
+const model = defineModel()
+ 
+function clear() {
+  model.value = '' // 自動 emit('update:modelValue', '')
+}
+<\/script>
+\`\`\`
+
+---
+
+## 拆開來看：底層其實還是 props + emit
+
+\`defineModel\` 看起來像是「子組件終於可以直接改父層的資料了」，其實不是。
+
+還記得 Day 2 用過的 SFC Playground 嗎？把上面的 \`MyInput.vue\` 貼進去，切到 JS 分頁看編譯結果，會看到類似這樣的東西：
+
+\`\`\`js
+props: {
+  "modelValue": {},
+  "modelModifiers": {}
+},
+emits: ["update:modelValue"],
+setup(__props) {
+  const model = _useModel(__props, "modelValue")
+  // ...
+}
+\`\`\`
+
+\`modelValue\` prop 還在，\`update:modelValue\` emit 也還在。
+
+\`defineModel\` 是一個「編譯器巨集」，意思是它不是執行時才跑的函式，而是 Vue 在編譯時幫你把那三段樣板程式碼寫好。**單向資料流的規則一點都沒變，只是不用你親手寫了。**
+
+### 小彩蛋：父層沒傳 v-model 也能用
+
+如果父層只寫 \`<MyInput />\`，沒有綁 \`v-model\`，\`model\` 就會像一個普通的本地 ref，在組件內部自己存值，不會壞掉。
+
+---
+
+## 進階一：幫 v-model 取名字，一次綁好幾個
+
+預設的 \`v-model\` 只能綁一個值。如果一個組件要同時編輯「姓」和「名」，可以給 \`defineModel\` 一個名字：
+
+\`\`\`js
+<!-- UserName.vue -->
+<script setup>
+const firstName = defineModel('firstName')
+const lastName = defineModel('lastName')
+<\/script>
+ 
+<template>
+  <input v-model="lastName" placeholder="姓" />
+  <input v-model="firstName" placeholder="名" />
+</template>
+\`\`\`
+
+父層用 \`v-model:名字\` 來對應：
+
+\`\`\`js
+<UserName
+  v-model:first-name="first"
+  v-model:last-name="last"
+/>
+\`\`\`
+
+有名字的 model，背後對應的就是 \`firstName\` prop 和 \`update:firstName\` 事件，道理跟預設的一樣。
+
+---
+
+## 進階二：設定型別、必填、預設值
+
+\`defineModel\` 可以接受跟 \`defineProps\` 一樣的選項：
+
+\`\`\`js
+// 預設的 v-model
+const model = defineModel({ type: String, required: true })
+ 
+// 有名字的 v-model
+const count = defineModel('count', { type: Number, default: 0 })
+\`\`\`
+
+### ⚠️ 小心 default 的坑
+
+假設父層這樣寫：
+
+\`\`\`js
+const count = ref() // 沒給初始值，是 undefined
+\`\`\`
+
+\`\`\`js
+<Counter v-model:count="count" />
+\`\`\`
+
+子組件設了 \`default: 0\`，畫面會顯示 0；但父層的 \`count\` 其實還是 \`undefined\`。兩邊的值不一樣了。
+
+原因是：\`default\` 只是「父層沒給值時，子組件自己先用這個」，它**不會**回頭幫父層設定初始值。
+
+最簡單的解法：**資料的初始值交給父層決定**，子組件的 \`default\` 只當作保險。
+
+---
+
+## 進階三：修飾符
+
+Day 13 學過 \`.trim\`、\`.number\` 這些修飾符，好消息是它們綁在組件上也能用：
+
+\`\`\`js
+<MyInput v-model.trim="text" />
+\`\`\`
+
+如果想做自己的修飾符，例如 \`.capitalize\`（首字大寫），可以把 \`defineModel\` 的回傳值拆成兩個，第二個就是父層用了哪些修飾符：
+
+\`\`\`js
+<!-- MyInput.vue -->
+<script setup>
+const [model, modifiers] = defineModel({
+  set(value) {
+    if (modifiers.capitalize) {
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+    return value
+  }
+})
+<\/script>
+ 
+<template>
+  <input v-model="model" />
+</template>
+\`\`\`
+
+\`\`\`js
+<MyInput v-model.capitalize="text" />
+\`\`\`
+
+\`set\` 的意思是「在通知父層之前，先把值加工一下」。回傳什麼，父層就收到什麼。
+
+---
+
+## 最容易踩的坑：當 model 是一個物件
+
+這是新手最常出事的地方。假設父層傳下來的是一整個表單物件：
+
+\`\`\`js
+// 父層
+const form = ref({ name: '', email: '' })
+\`\`\`
+
+\`\`\`js
+<UserForm v-model="form" />
+\`\`\`
+
+子組件裡這樣寫：
+
+\`\`\`js
+const form = defineModel()
+ 
+function updateName(name) {
+  form.value.name = name // ❌ 看起來能動，但其實出事了
+}
+\`\`\`
+
+畫面會更新，也不會有任何警告，看起來一切正常。問題在哪？
+
+前面說過，\`defineModel\` 只有在**你重新指定 \`.value\`** 的時候才會打專線。\`form.value.name = name\` 沒有重新指定 \`.value\`，只是改了物件裡面的某個屬性，所以**根本沒有 emit**。
+
+那為什麼父層的資料還是變了？因為物件傳下來的是同一個參考，子組件等於拿著父層的物件直接改內容。
+
+用白話比喻：父層請你幫忙看家，你沒打電話問一聲就直接把家具搬走了。結果是一樣的，但父層完全不知道是誰、在什麼時候動的。專案一大，這種資料就很難追。
+
+正確的做法是**整個換掉，而不是改裡面**：
+
+\`\`\`js
+function updateName(name) {
+  form.value = { ...form.value, name } // ✅ 重新指定 .value，會 emit
+}
+\`\`\`
+
+或者乾脆換個設計：把物件拆成好幾個有名字的 v-model（像前面的 \`first-name\`、\`last-name\`），每個欄位各自綁定，就不會有這個問題。
+
+---
+
+## 實作：做一個開關 Toggle
+
+最後用一個簡單的開關組件把今天的東西串起來：
+
+\`\`\`js
+<!-- ToggleSwitch.vue -->
+<script setup>
+const checked = defineModel({ type: Boolean, default: false })
+<\/script>
+ 
+<template>
+  <button
+    type="button"
+    class="toggle"
+    :class="{ 'is-on': checked }"
+    @click="checked = !checked"
+  >
+    {{ checked ? 'ON' : 'OFF' }}
+  </button>
+</template>
+\`\`\`
+
+\`\`\`js
+<!-- App.vue -->
+<script setup>
+import { ref } from 'vue'
+import ToggleSwitch from './ToggleSwitch.vue'
+ 
+const darkMode = ref(false) // 初始值由父層決定
+<\/script>
+ 
+<template>
+  <ToggleSwitch v-model="darkMode" />
+  <p>深色模式：{{ darkMode }}</p>
+</template>
+\`\`\`
+
+點按鈕時，\`checked = !checked\` 會觸發 emit，父層的 \`darkMode\` 跟著改，下面的文字也一起更新。
+
+同樣的寫法也很適合 Day 14 提過的 Modal：用 \`v-model:open\` 控制開關，父層一行就能決定 Modal 要不要顯示。
+
+---
+
+## 什麼時候不該用 v-model？
+
+\`v-model\` 適合的情境是：**這個組件的工作就是「編輯某一個值」**，例如輸入框、開關、評分星星、日期選擇器。
+
+如果子組件只是要通知父層「發生了某件事」，例如「按了刪除」、「按了送出」，那就不是雙向綁定的情境，用一般的 \`emit\` 會清楚很多：
+
+\`\`\`js
+<TodoItem @delete="removeTodo(item.id)" />
+\`\`\`
+
+不要因為 \`defineModel\` 好寫，就什麼都塞進 v-model。
+
+---
+
+## 小結
+
+-   組件上的 \`v-model\`，展開後就是 \`modelValue\` prop + \`update:modelValue\` 事件
+-   3.4 以前要自己寫 props、emit，想在內部用 v-model 還要再包 computed
+-   \`defineModel()\` 回傳一個 ref：讀它是讀 prop，改它會自動 emit
+-   它是編譯器巨集，底層還是 props + emit，**單向資料流沒有改變**
+-   可以取名字綁多個 v-model，也能設定 \`type\`、\`required\`、\`default\` 和自訂修飾符
+-   兩個要小心的地方：\`default\` 不會同步回父層；物件型 model 要整個重新指定，不要直接改內部屬性
+`,S=`---
+title: "Vue 走過路過不要錯過 Day19 - slots：插槽其實是一個函式"
+subtitle: "slots：插槽其實是一個函式"
+day: 19
+date: "2026-10-04"
+excerpt: "做專案一定寫過共用按鈕：樣式統一、圓角統一、hover 效果統一，每個頁面只要放上不同的文字就好。 這種「外框是固定的，內容由使用的人決定」的需求，Vue 給的答案就是 slot（插槽）。 今天會用一顆按鈕，從最簡單的用法一路長大，最後打開…"
+source: "https://ithelp.ithome.com.tw/articles/10420693"
+series: "ithome-ironman-2026"
+---
+
+做專案一定寫過共用按鈕：樣式統一、圓角統一、hover 效果統一，每個頁面只要放上不同的文字就好。
+
+這種「外框是固定的，內容由使用的人決定」的需求，Vue 給的答案就是 slot（插槽）。
+
+今天會用一顆按鈕，從最簡單的用法一路長大，最後打開編譯結果，看看標題那句話是什麼意思：**slot 其實是一個函式**。
+
+---
+
+## 先從一顆共用按鈕開始
+
+最直覺的寫法，可能是用 prop 把文字傳進去：
+
+\`\`\`js
+<!-- BaseButton.vue -->
+<script setup>
+defineProps({ text: String })
+<\/script>
+ 
+<template>
+  <button class="btn">{{ text }}</button>
+</template>
+\`\`\`
+
+\`\`\`js
+<BaseButton text="送出" />
+\`\`\`
+
+這樣完全能用。那換成 slot 版本：
+
+\`\`\`js
+<!-- BaseButton.vue -->
+<template>
+  <button class="btn">
+    <slot />
+  </button>
+</template>
+\`\`\`
+
+\`\`\`js
+<BaseButton>送出</BaseButton>
+\`\`\`
+
+\`<slot />\` 就像在組件裡挖了一個洞，父組件寫在標籤中間的內容會被放進這個洞裡。
+
+看起來只是換個寫法，那 slot 到底贏在哪？
+
+---
+
+## prop 傳的是值，slot 傳的是畫面
+
+假設下週設計稿改了：送出按鈕左邊要加一個 icon，刪除按鈕的筆數要粗體。
+
+用 prop 的版本會開始頭痛：加一個 \`icon\` prop？那粗體呢？再加一個 \`boldText\`？每多一種需求，就得回去改一次 BaseButton。
+
+用 slot 的版本，BaseButton 一行都不用動：
+
+\`\`\`js
+<BaseButton>
+  <IconSend /> 送出
+</BaseButton>
+ 
+<BaseButton>
+  刪除 <strong>3</strong> 筆資料
+</BaseButton>
+\`\`\`
+
+差別在於：**prop 傳的是一個值，slot 傳的是一段畫面。** 畫面裡要放文字、HTML 還是其他組件，由使用的人決定。
+
+### 沒給內容時的預設值
+
+slot 標籤中間可以放預設內容，父組件什麼都沒傳時就顯示它：
+
+\`\`\`js
+<button class="btn">
+  <slot>按鈕</slot>
+</button>
+\`\`\`
+
+\`\`\`js
+<BaseButton />        <!-- 顯示「按鈕」 -->
+<BaseButton>送出</BaseButton>  <!-- 顯示「送出」 -->
+\`\`\`
+
+---
+
+## 加一個需求：loading 時把內容換掉
+
+按鈕送出後要顯示 loading，loading 期間原本的內容要被轉圈圖示取代。
+
+\`\`\`js
+<!-- BaseButton.vue -->
+<script setup>
+defineProps({
+  loading: Boolean,
+  variant: { type: String, default: 'primary' }
+})
+<\/script>
+ 
+<template>
+  <button
+    :class="['btn', \`btn-\${variant}\`]"
+    :disabled="loading"
+  >
+    <span v-if="loading" class="spinner" />
+    <slot v-else />
+  </button>
+</template>
+\`\`\`
+
+\`\`\`js
+<BaseButton :loading="isSubmitting" @click="submit">
+  <IconSend /> 送出
+</BaseButton>
+\`\`\`
+
+這裡先停一下，想一個問題：
+
+\`<IconSend /> 送出\` 這段內容，是**父組件先做好、整包交給子組件**，還是**子組件需要的時候才叫它做出來**？
+
+如果是前者，loading 的時候這段內容其實已經做好了，只是沒擺上去。如果是後者，loading 的時候它根本不會被做出來。
+
+答案是後者，原因要打開編譯結果才看得到。
+
+---
+
+## 打開 SFC Playground 看一下
+
+Day 2 用過的 [SFC Playground](https://play.vuejs.org/) 又派上用場了。把父組件的這段貼進去：
+
+\`\`\`js
+<BaseButton>送出</BaseButton>
+\`\`\`
+
+切到 JS 分頁，會看到類似這樣的東西：
+
+\`\`\`js
+_createVNode($setup["BaseButton"], null, {
+  default: _withCtx(() => [
+    _createTextVNode("送出")
+  ])
+})
+\`\`\`
+
+注意第三個參數，它是一個物件：
+
+-   key 是 \`default\`，也就是插槽的名字
+-   value 是一個**箭頭函式**，執行它才會產生「送出」這段 VNode  
+    再看子組件 BaseButton，\`<slot />\` 會被編譯成類似這樣：
+
+\`\`\`js
+_renderSlot(_ctx.$slots, "default")
+\`\`\`
+
+意思是：從 \`$slots\` 裡拿出 \`default\` 這個函式，**呼叫它**。
+
+所以整件事是這樣運作的：
+
+1.  父組件把「怎麼做出這段畫面」寫成一個函式，交給子組件
+2.  子組件在自己的模板裡，決定什麼時候、要不要呼叫這個函式  
+    這就是標題說的：**slot 其實是一個函式。**
+
+回到剛剛的 loading 按鈕：\`<slot v-else />\` 在 loading 時根本不會執行，函式沒被呼叫，\`<IconSend /> 送出\` 就不會被建立。
+
+---
+
+## 既然是函式，那可以傳參數嗎？
+
+可以，而且這是 slot 最實用的地方。
+
+接著上面的按鈕：如果父組件想自己決定 loading 時的文字，例如顯示「送出中…」，它需要知道現在是不是 loading。
+
+子組件只要在呼叫 slot 時把資料傳出去：
+
+\`\`\`js
+<!-- BaseButton.vue -->
+<template>
+  <button
+    :class="['btn', \`btn-\${variant}\`]"
+    :disabled="loading"
+  >
+    <slot :loading="loading" />
+  </button>
+</template>
+\`\`\`
+
+父組件用 \`v-slot\` 接住：
+
+\`\`\`js
+<BaseButton :loading="isSubmitting" v-slot="{ loading }">
+  {{ loading ? '送出中…' : '送出' }}
+</BaseButton>
+\`\`\`
+
+這種會傳資料出來的 slot，叫作**作用域插槽**（scoped slot）。
+
+再去 Playground 看編譯結果，父組件那邊會變成：
+
+\`\`\`js
+{
+  default: _withCtx(({ loading }) => [
+    _createTextVNode(_toDisplayString(loading ? '送出中…' : '送出'))
+  ])
+}
+\`\`\`
+
+子組件那邊則變成：
+
+\`\`\`js
+_renderSlot(_ctx.$slots, "default", { loading: $props.loading })
+\`\`\`
+
+\`v-slot="{ loading }"\` 其實就是**函式的參數解構**，而 \`<slot :loading="loading" />\` 就是**呼叫函式時傳入的引數**。
+
+所以作用域插槽並不是什麼特別的新功能，它只是「呼叫函式時順便傳參數」而已。
+
+---
+
+## slot 裡的變數，是誰的？
+
+再想一個問題。父組件有一個 \`count\`，子組件也有一個 \`count\`：
+
+\`\`\`js
+<!-- 父組件 -->
+<script setup>
+import { ref } from 'vue'
+const count = ref(10)
+<\/script>
+ 
+<template>
+  <BaseButton>點了 {{ count }} 次</BaseButton>
+</template>
+\`\`\`
+
+畫面上顯示的是父組件的 \`count\`，還是子組件的？
+
+答案是**父組件的**。
+
+用「函式」的角度就很好理解：這個函式是在父組件的模板裡寫出來的，它能看到的變數自然是父組件的，就跟一般 JS 函式只看得到自己被定義的地方的變數一樣。子組件只負責呼叫它，看不到也碰不到子組件的變數。
+
+那子組件的資料要怎麼讓 slot 用到？**只能透過參數傳進去**，也就是上一段的作用域插槽。
+
+Vue 官方文件把這件事說成一句規則：父組件模板裡的東西只能存取父組件的作用域，子組件模板裡的東西只能存取子組件的作用域。
+
+### 順帶一提：效能上的好處
+
+因為 slot 函式是在子組件渲染時才被呼叫，slot 內容用到的資料，會被記在子組件的依賴裡。
+
+以上面的例子來說，\`count\` 改變時，需要重新渲染的是 BaseButton，父組件本身不一定要跟著重跑。slot 內容多、父組件又很大的時候，這個差別就會出現。
+
+---
+
+## 具名插槽：一個組件挖好幾個洞
+
+按鈕只需要一個洞，但卡片通常有標題、內容、底部三塊。這時可以幫 slot 取名字：
+
+\`\`\`js
+<!-- BaseCard.vue -->
+<template>
+  <div class="card">
+    <header class="card-header">
+      <slot name="header" />
+    </header>
+ 
+    <div class="card-body">
+      <slot />
+    </div>
+ 
+    <footer class="card-footer">
+      <slot name="footer" />
+    </footer>
+  </div>
+</template>
+\`\`\`
+
+父組件用 \`<template #名字>\` 對應：
+
+\`\`\`js
+<BaseCard>
+  <template #header>會員資料</template>
+ 
+  <p>這裡是內容，沒寫 template 的就會進 default</p>
+ 
+  <template #footer>
+    <BaseButton>儲存</BaseButton>
+  </template>
+</BaseCard>
+\`\`\`
+
+\`#header\` 是 \`v-slot:header\` 的縮寫。
+
+對照編譯結果，\`$slots\` 就是一個裝著好幾個函式的物件：
+
+\`\`\`js
+{
+  header: () => [...],
+  default: () => [...],
+  footer: () => [...]
+}
+\`\`\`
+
+### 沒傳的 slot，就不要畫外框
+
+既然 \`$slots\` 是一個物件，子組件就可以先檢查某個函式存不存在：
+
+\`\`\`js
+<!-- BaseCard.vue -->
+<template>
+  <div class="card">
+    <header v-if="$slots.header" class="card-header">
+      <slot name="header" />
+    </header>
+ 
+    <div class="card-body">
+      <slot />
+    </div>
+ 
+    <footer v-if="$slots.footer" class="card-footer">
+      <slot name="footer" />
+    </footer>
+  </div>
+</template>
+\`\`\`
+
+父組件沒傳 footer，就不會留下一個空的 \`<footer>\` 和它的 padding、border。這在切版上很實用，可以省掉一堆 \`showHeader\`、\`showFooter\` 這種 props。
+
+在 \`<script setup>\` 裡要用的話，可以用 \`useSlots()\`：
+
+\`\`\`js
+<script setup>
+import { useSlots } from 'vue'
+ 
+const slots = useSlots()
+console.log(!!slots.header) // 父組件有沒有傳 header
+<\/script>
+\`\`\`
+
+---
+
+## 實戰：讓表格的每一格都能客製
+
+把前面學到的全部組合起來，做一個實際專案裡很常見的東西：共用表格。
+
+需求是這樣的：大部分欄位直接顯示文字就好，但有些頁面的「狀態」欄要顯示彩色標籤，「操作」欄要放編輯、刪除按鈕。
+
+表格的處境是：**它知道每一列的資料，但不知道每一格該長什麼樣子。** 頁面的處境剛好相反。這正是作用域插槽的用武之地。
+
+\`\`\`js
+<!-- DataTable.vue -->
+<script setup>
+defineProps({
+  columns: Array, // [{ key: 'name', label: '名稱' }, ...]
+  rows: Array
+})
+<\/script>
+ 
+<template>
+  <table>
+    <thead>
+      <tr>
+        <th v-for="col in columns" :key="col.key">{{ col.label }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="row in rows" :key="row.id">
+        <td v-for="col in columns" :key="col.key">
+          <slot
+            :name="\`cell-\${col.key}\`"
+            :row="row"
+            :value="row[col.key]"
+          >
+            {{ row[col.key] }}
+          </slot>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>
+\`\`\`
+
+這裡用到三個技巧：
+
+1.  **動態插槽名稱**：\`:name="\`cell-\${col.key}\`"\`，每個欄位自動有一個對應的插槽
+2.  **傳參數**：把整列資料 \`row\` 和這一格的值 \`value\` 交給父組件
+3.  **預設內容**：父組件沒客製的欄位，就直接顯示原始文字  
+    使用的頁面只要處理需要客製的欄位：
+
+\`\`\`js
+<script setup>
+const columns = [
+  { key: 'title', label: '案件名稱' },
+  { key: 'status', label: '狀態' },
+  { key: 'actions', label: '操作' }
+]
+<\/script>
+ 
+<template>
+  <DataTable :columns="columns" :rows="cases">
+    <template #cell-status="{ value }">
+      <span :class="['badge', \`badge-\${value}\`]">{{ value }}</span>
+    </template>
+ 
+    <template #cell-actions="{ row }">
+      <BaseButton @click="edit(row)">編輯</BaseButton>
+      <BaseButton variant="danger" @click="remove(row.id)">刪除</BaseButton>
+    </template>
+  </DataTable>
+</template>
+\`\`\`
+
+\`title\` 欄沒寫任何 template，自動走預設內容。之後哪個頁面要多一種欄位樣式，只要在那個頁面多寫一個 template，DataTable 完全不用改。
+
+---
+
+## 什麼時候不該用 slot？
+
+slot 很好用，但不是所有「共用」都該交給它。
+
+如果你想共用的**只有邏輯**，例如抓資料的 loading 狀態、滑鼠座標、視窗寬度，在 Vue 3 應該寫成 composable：
+
+\`\`\`js
+// useFetch.js
+import { ref } from 'vue'
+ 
+export function useFetch(url) {
+  const data = ref(null)
+  const loading = ref(true)
+ 
+  fetch(url)
+    .then(res => res.json())
+    .then(json => { data.value = json })
+    .finally(() => { loading.value = false })
+ 
+  return { data, loading }
+}
+\`\`\`
+
+slot 適合的情況是：**組件要掌控整體結構，但把其中幾塊的長相交給外部決定。** 按鈕、卡片、表格、Modal、下拉選單都屬於這一類。
+
+簡單判斷方式：
+
+| 想共用的東西 | 用什麼 |
+| --- | --- |
+| 只有邏輯和狀態 | composable |
+| 固定的外框，內容由外部決定 | slot |
+| 固定的外框，內容由外部決定，還需要組件內的資料 | 作用域插槽 |
+
+---
+
+## 小結
+
+-   slot 讓組件「外框固定，內容由使用的人決定」，傳的是畫面而不是值
+-   在編譯結果裡，父組件傳給子組件的 slot 是一個**函式**，子組件的 \`<slot />\` 就是**呼叫這個函式**
+-   因為是函式，子組件可以決定**要不要呼叫**（loading 時不渲染、\`$slots.xxx\` 判斷有沒有傳）
+-   因為是函式，子組件呼叫時可以**傳參數**，這就是作用域插槽
+-   因為函式寫在父組件，slot 內容只看得到**父組件的變數**，子組件的資料只能透過參數拿到
+-   只想共用邏輯時，用 composable 會比 slot 更簡單  
+    下次寫共用組件，發現 props 越加越多的時候，可以停下來想一下：這裡是不是挖一個洞，交給使用的人決定就好？
+
+---
+`,P=`---
+title: "Vue 走過路過不要錯過 Day20 - provide / inject：不想再一層一層傳 props"
+subtitle: "provide / inject：不想再一層一層傳 props"
+day: 20
+date: "2026-10-05"
+excerpt: "Day 19 做了一顆共用按鈕 BaseButton 。實際專案裡，按鈕很少單獨出現：表單底部有「取消／儲存」，列表上方有一整排工具列按鈕。設計稿通常會要求 同一組按鈕的尺寸一致 。 最直覺的寫法是每顆都寫一次 size ： 三顆還好，十顆…"
+source: "https://ithelp.ithome.com.tw/articles/10420696"
+series: "ithome-ironman-2026"
+---
+
+Day 19 做了一顆共用按鈕 \`BaseButton\`。實際專案裡，按鈕很少單獨出現：表單底部有「取消／儲存」，列表上方有一整排工具列按鈕。設計稿通常會要求**同一組按鈕的尺寸一致**。
+
+最直覺的寫法是每顆都寫一次 \`size\`：
+
+\`\`\`js
+<div class="toolbar">
+  <BaseButton size="small">新增</BaseButton>
+  <BaseButton size="small">匯出</BaseButton>
+  <BaseButton size="small">刪除</BaseButton>
+</div>
+\`\`\`
+
+三顆還好，十顆就很煩，而且哪天設計改成 \`medium\`，要一顆一顆改。比較理想的寫法是讓外層決定，裡面的按鈕自己跟著變：
+
+\`\`\`js
+<ButtonGroup size="small">
+  <BaseButton>新增</BaseButton>
+  <BaseButton>匯出</BaseButton>
+  <BaseButton>刪除</BaseButton>
+</ButtonGroup>
+\`\`\`
+
+問題來了：\`ButtonGroup\` 要怎麼把 \`size\` 交給裡面的按鈕？
+
+還記得 Day 19 說的嗎？這幾顆 \`BaseButton\` 是**父組件寫在 slot 裡的**，\`ButtonGroup\` 只負責呼叫 slot 函式，沒辦法替它們加上 props。就算不用 slot，如果按鈕被包在更深的地方，例如外面又套了一層 \`ToolbarSection\`，props 也得一層一層往下傳。
+
+---
+
+## 一層一層傳 props 會怎樣
+
+假設結構長這樣：
+
+\`\`\`js
+Page
+ └─ Toolbar          ← 決定 size
+     └─ ToolbarSection
+         └─ ActionArea
+             └─ BaseButton   ← 真正要用 size
+\`\`\`
+
+只靠 props 的話，\`ToolbarSection\` 和 \`ActionArea\` 明明用不到 \`size\`，卻都要寫 \`defineProps\` 接住，再傳給下一層。這種情況叫 **prop drilling**（props 鑽洞）。
+
+麻煩不只是寫起來囉嗦：
+
+-   **中間層被迫認識跟自己無關的資料**，\`ActionArea\` 的 props 清單裡多了一個它根本不在乎的 \`size\`。
+-   **改一個名字要改一整串**，\`size\` 想改成 \`buttonSize\`，路徑上每一層都要動。
+-   **組件變得不好重用**，換個地方用 \`ActionArea\`，還得記得幫它傳一個跟它無關的 prop。  
+    provide / inject 就是用來跳過中間層的：**上層提供（provide），下層不管隔幾層，直接拿（inject）**。
+
+---
+
+## 基本用法
+
+\`ButtonGroup\` 提供尺寸：
+
+\`\`\`js
+<!-- ButtonGroup.vue -->
+<script setup>
+import { provide } from 'vue'
+ 
+const props = defineProps({
+  size: { type: String, default: 'medium' }
+})
+ 
+provide('buttonSize', props.size)
+<\/script>
+ 
+<template>
+  <div class="btn-group">
+    <slot />
+  </div>
+</template>
+\`\`\`
+
+\`BaseButton\` 往上拿：
+
+\`\`\`js
+<!-- BaseButton.vue -->
+<script setup>
+import { inject, computed } from 'vue'
+ 
+const props = defineProps({
+  size: String
+})
+ 
+// 第二個參數是預設值：沒被任何 ButtonGroup 包住時用它
+const groupSize = inject('buttonSize', 'medium')
+ 
+// 自己有傳 size 就用自己的，沒有就跟著 group
+const finalSize = computed(() => props.size ?? groupSize)
+<\/script>
+ 
+<template>
+  <button :class="['btn', \`btn-\${finalSize}\`]">
+    <slot />
+  </button>
+</template>
+\`\`\`
+
+這樣同一頁放兩組也沒問題，各自的按鈕會跟著各自的 group：
+
+\`\`\`js
+<ButtonGroup size="small">
+  <BaseButton>新增</BaseButton>
+  <BaseButton>匯出</BaseButton>
+</ButtonGroup>
+ 
+<ButtonGroup size="large">
+  <BaseButton>取消</BaseButton>
+  <BaseButton size="medium">儲存</BaseButton> <!-- 自己指定的優先 -->
+</ButtonGroup>
+\`\`\`
+
+\`provide(key, value)\` 只做一件事：在「這個組件底下」放一個鍵值。\`inject(key)\` 則是往上找，找到最近一個提供這個 key 的祖先。
+
+---
+
+## 陷阱：傳出去的是值，還是盒子？
+
+上面的寫法有個問題。假設 \`size\` 會變，例如手機版要自動切成 \`small\`：
+
+\`\`\`js
+<ButtonGroup :size="isMobile ? 'small' : 'large'">
+  ...
+</ButtonGroup>
+\`\`\`
+
+縮放視窗之後你會發現：**按鈕尺寸沒有跟著變**。
+
+原因跟 Vue 無關，是 JS 本身的特性。\`provide('buttonSize', props.size)\` 執行的當下，\`props.size\` 是一個字串，例如 \`'large'\`。字串是原始型別，放進去的就是一份**複製出來的值**，之後 \`props.size\` 怎麼變，都跟已經放進去的那個 \`'large'\` 沒關係。
+
+跟這段 JS 是一樣的道理：
+
+\`\`\`js
+let size = 'large'
+const box = { buttonSize: size }
+ 
+size = 'small'
+console.log(box.buttonSize) // 'large'，不會跟著變
+\`\`\`
+
+要讓下層跟著變，就要傳一個**會被追蹤的東西**，也就是 ref 或 computed：
+
+\`\`\`js
+<!-- ButtonGroup.vue -->
+<script setup>
+import { provide, toRef } from 'vue'
+ 
+const props = defineProps({
+  size: { type: String, default: 'medium' }
+})
+ 
+// 傳的是「盒子」，不是盒子裡的值
+provide('buttonSize', toRef(props, 'size'))
+<\/script>
+\`\`\`
+
+\`BaseButton\` 那邊拿到的就是一個 ref，用 \`unref\` 統一處理（沒被包住時拿到的預設值是字串，被包住時是 ref）：
+
+\`\`\`js
+<!-- BaseButton.vue -->
+<script setup>
+import { inject, computed, unref } from 'vue'
+ 
+const props = defineProps({ size: String })
+const groupSize = inject('buttonSize', 'medium')
+ 
+const finalSize = computed(() => props.size ?? unref(groupSize))
+<\/script>
+\`\`\`
+
+記一個原則就好：**provide 一個 ref，不要 provide \`ref.value\`**。Day 4 講 ref 的時候提過，\`.value\` 一取出來就只是個普通的值，響應式就斷了，這裡是同一件事。
+
+---
+
+## 子孫可以直接改嗎？
+
+換一個常見的例子：整個 App 共用的主題色。
+
+\`\`\`js
+<!-- App.vue -->
+<script setup>
+import { ref, provide } from 'vue'
+ 
+const theme = ref('light')
+provide('theme', theme)
+<\/script>
+\`\`\`
+
+這樣寫，任何一個子孫組件拿到 \`theme\` 之後都能直接 \`theme.value = 'dark'\`。看起來很方便，但專案一大，主題突然被改掉時，你會找不到是誰改的，因為**每一個 inject 它的組件都有可能**。
+
+Vue 官方建議的做法是：**資料放在哪裡，就在哪裡改**。往下傳的時候給一份唯讀的，再另外提供一個修改用的函式：
+
+\`\`\`js
+<!-- App.vue -->
+<script setup>
+import { ref, readonly, provide } from 'vue'
+ 
+const theme = ref('light')
+ 
+function toggleTheme() {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+}
+ 
+provide('theme', {
+  theme: readonly(theme),
+  toggleTheme
+})
+<\/script>
+\`\`\`
+
+\`\`\`js
+<!-- 很深的某個 ThemeSwitch.vue -->
+<script setup>
+import { inject } from 'vue'
+ 
+const { theme, toggleTheme } = inject('theme')
+<\/script>
+ 
+<template>
+  <button @click="toggleTheme">目前：{{ theme }}</button>
+</template>
+\`\`\`
+
+子孫如果硬要寫 \`theme.value = 'dark'\`，Vue 會在開發模式下跳警告，而且不會生效。要改，只能透過 \`toggleTheme\`，所有修改都集中在 App.vue 一個地方。
+
+這跟 props 的單向資料流是同一個精神：**資料往下流，修改的請求往上送**。
+
+---
+
+## 用 Symbol 當 key
+
+目前的 key 都是字串，例如 \`'buttonSize'\`、\`'theme'\`。專案小的時候沒事，但如果你用的某個 UI 套件剛好也 provide 了一個 \`'theme'\`，兩邊就會撞名，近的會把遠的蓋掉。
+
+比較保險的做法是用 \`Symbol\`，因為**每一個 Symbol 都是獨一無二的**，就算描述文字一樣也不會相等：
+
+\`\`\`js
+console.log(Symbol('theme') === Symbol('theme')) // false
+\`\`\`
+
+把 key 集中放在一個檔案：
+
+\`\`\`js
+// injectionKeys.js
+export const buttonGroupKey = Symbol('buttonGroup')
+export const themeKey = Symbol('theme')
+\`\`\`
+
+provide 和 inject 都 import 同一個 key：
+
+\`\`\`js
+// ButtonGroup.vue
+import { buttonGroupKey } from '@/injectionKeys'
+provide(buttonGroupKey, toRef(props, 'size'))
+ 
+// BaseButton.vue
+import { buttonGroupKey } from '@/injectionKeys'
+const groupSize = inject(buttonGroupKey, 'medium')
+\`\`\`
+
+這樣還有一個好處：想知道「誰提供、誰在用」，直接在編輯器搜尋 \`buttonGroupKey\` 就找得到。有用 TypeScript 的話，Vue 也提供 \`InjectionKey<T>\` 型別，可以讓 inject 拿到的值自動帶型別。
+
+---
+
+## inject 是怎麼「往上找」的？
+
+講到這裡，你可能會好奇：inject 說「往上找最近的祖先」，難道每次都要一層一層 parent 往上爬嗎？
+
+翻 Vue 的原始碼（\`runtime-core/src/apiInject.ts\`），provide 的核心只有幾行：
+
+\`\`\`js
+// 簡化過的 provide
+function provide(key, value) {
+  let provides = currentInstance.provides
+  const parentProvides = currentInstance.parent && currentInstance.parent.provides
+ 
+  // 預設情況下，組件直接沿用父組件的 provides 物件
+  // 第一次自己呼叫 provide 時，才建立一個「以父組件 provides 為原型」的新物件
+  if (parentProvides === provides) {
+    provides = currentInstance.provides = Object.create(parentProvides)
+  }
+ 
+  provides[key] = value
+}
+\`\`\`
+
+inject 則是：
+
+\`\`\`js
+// 簡化過的 inject
+function inject(key, defaultValue) {
+  const provides = instance.parent.provides
+ 
+  if (key in provides) {
+    return provides[key]
+  }
+  return defaultValue
+}
+\`\`\`
+
+看到 \`Object.create\` 和 \`in\` 了嗎？**inject 的「往上找」，其實就是 JS 的原型鏈。**
+
+\`Object.create(parent)\` 會建立一個新物件，並把 \`parent\` 設成它的原型。讀取屬性時，自己身上沒有，JS 就會自動沿著原型往上找。\`in\` 運算子也一樣，會連原型鏈上的屬性一起檢查。
+
+用純 JS 模擬一下：
+
+\`\`\`js
+// App 層
+const appProvides = { theme: 'light' }
+ 
+// Toolbar 呼叫了 provide → 以 App 的 provides 為原型
+const toolbarProvides = Object.create(appProvides)
+toolbarProvides.buttonSize = 'large'
+ 
+// 裡面又包了一層 ButtonGroup，也呼叫了 provide
+const groupProvides = Object.create(toolbarProvides)
+groupProvides.buttonSize = 'small'
+ 
+console.log(groupProvides.buttonSize) // 'small'，自己就有
+console.log(groupProvides.theme)      // 'light'，沿原型鏈往上找到 App 的
+console.log('theme' in groupProvides) // true
+console.log('theme' in {})            // false
+\`\`\`
+
+這個設計解釋了 provide / inject 的幾個行為：
+
+-   **近的優先**：巢狀的 \`ButtonGroup\` 會蓋掉外層的 \`buttonSize\`，因為原型鏈上先找到誰就用誰，跟原型鏈的屬性遮蔽（shadowing）一樣。
+-   **沒呼叫 provide 的組件幾乎沒有成本**：它們直接共用父組件的 provides 物件，不會額外建立新物件。
+-   **自己 provide 的東西，自己 inject 不到**：注意 inject 讀的是 \`instance.parent.provides\`，是從父組件開始找，不包含自己。
+-   **找不到才用預設值**：原型鏈走到底都沒有，就回傳第二個參數；連預設值都沒給，開發模式會跳 \`injection "xxx" not found\` 的警告。
+
+---
+
+## 都有 Pinia 了，為什麼還要 provide / inject？
+
+這大概是看到這裡最常冒出來的問題。Pinia 也能讓任何組件直接拿資料、不用傳 props，那 ButtonGroup 改用 Pinia 會怎樣？
+
+\`\`\`js
+// stores/button.js
+export const useButtonStore = defineStore('button', () => {
+  const size = ref('medium')
+  return { size }
+})
+\`\`\`
+
+\`\`\`js
+<!-- ButtonGroup.vue -->
+<script setup>
+const props = defineProps({ size: String })
+const buttonStore = useButtonStore()
+buttonStore.size = props.size
+<\/script>
+\`\`\`
+
+只放一組的時候看起來沒問題。但回到前面那個例子，同一頁放一組 \`small\`、一組 \`large\`：
+
+\`\`\`js
+<ButtonGroup size="small">...</ButtonGroup>
+<ButtonGroup size="large">...</ButtonGroup>
+\`\`\`
+
+**兩組會變成一樣大**。因為 \`useButtonStore()\` 在整個 App 裡只有一份，後面那組把 \`size\` 改成 \`large\`，前面那組也跟著變。
+
+差別就在這裡：
+
+|  | provide / inject | Pinia |
+| --- | --- | --- |
+| 範圍 | 只有提供者底下那棵子樹看得到 | 整個 App 都看得到 |
+| 有幾份 | 每個提供者實例各一份 | 同一個 store 全 App 只有一份 |
+| 活多久 | 跟著提供者組件，組件卸載就沒了 | 跟著 App，重新整理前都在 |
+| 依賴 | Vue 內建 | 要另外安裝 |
+| 除錯 | Vue Devtools 看得到，但沒有時間軸 | 有專屬面板，可以看 state 變化 |
+
+所以判斷方式很簡單，問自己：**這份資料是「整個 App 共享一份」，還是「每一組各自一份」？**
+
+-   登入使用者、購物車、全站設定：整個 App 一份，用 **Pinia**。
+-   ButtonGroup 的尺寸、Tabs 目前選中哪一頁、Form 底下每個欄位的驗證狀態：每一組各自一份，用 **provide / inject**。  
+    還有兩個情境也偏向 provide / inject：
+
+**資料應該跟著組件一起消失。** 例如一個多步驟表單精靈，使用者填到一半離開頁面，再回來時應該是空白的。放 Pinia 的話，資料會一直留著，你得記得手動 \`$reset()\`；放在精靈組件裡 provide 給每個步驟，組件一卸載，資料自然就沒了。
+
+**你在寫給別人用的組件。** 如果 \`ButtonGroup\` 要包成套件給其他專案用，你不能要求使用者一定要裝 Pinia。很多 UI 套件的 \`Form\` / \`FormItem\`、\`Tabs\` / \`TabPane\` 這類「父子成對」的組件，內部都是用 provide / inject 溝通的。
+
+### 其實 Pinia 自己就在用 provide
+
+最後來看一個有趣的地方。\`app.use(pinia)\` 之後，為什麼任何組件呼叫 \`useStore()\` 都拿得到同一個 pinia？
+
+打開 Pinia 的原始碼 \`createPinia.ts\`，install 裡有這一行：
+
+\`\`\`js
+install(app) {
+  setActivePinia(pinia)
+  pinia._a = app
+  app.provide(piniaSymbol, pinia)   // ← 就是它
+  app.config.globalProperties.$pinia = pinia
+  // ...
+}
+\`\`\`
+
+\`app.provide\` 是**掛在 App 最上層的 provide**，也就是前面原型鏈模擬裡的 \`appProvides\`，所有組件的原型鏈最後都會走到這裡。而 \`useStore()\` 裡面做的事，就是用 \`inject(piniaSymbol)\` 把這個 pinia 實例拿出來，再從裡面找對應 id 的 store。
+
+所以 Pinia 和 provide / inject 不是二選一的競爭關係。**Pinia 是蓋在 provide / inject 上面的一層**：它在 App 最頂端 provide 一個 pinia，再用 store id 讓全 App 共用同一份資料。Vue Router 的 \`useRoute()\`、\`useRouter()\` 也是同樣的做法。
+
+會用 Pinia，其實早就在用 provide / inject 了，只是它幫你包起來了。
+
+---
+
+## 幾個使用上的注意事項
+
+**inject 要在 setup 期間呼叫。** 跟 Day 15 的生命週期 hook 一樣，\`inject()\` 要知道「現在是哪個組件」才能往上找，所以要寫在 \`<script setup>\` 的頂層，不能放在點擊事件或 \`setTimeout\` 裡。
+
+\`\`\`js
+// ✅
+const groupSize = inject(buttonGroupKey, 'medium')
+ 
+// ❌ 點擊時已經不在 setup 期間了
+function onClick() {
+  const groupSize = inject(buttonGroupKey)
+}
+\`\`\`
+
+**預設值是物件時，用工廠函式。** 第三個參數傳 \`true\`，代表第二個參數是一個「產生預設值的函式」，每次需要預設值時才建立，避免多個組件共用同一個物件：
+
+\`\`\`js
+const config = inject(configKey, () => ({ size: 'medium', rounded: true }), true)
+\`\`\`
+
+**只能往下，不能往上。** provide 只對子孫有效，父組件和兄弟組件拿不到。如果需要「旁邊的組件也知道」，代表提供者應該往上移一層，或是這份資料其實該放 Pinia。
+
+**不要什麼都用 provide。** 它跳過了中間層，也代表在子組件的 props 上**看不出它依賴了什麼**。一般父子之間的資料傳遞還是用 props；只有在真的要跨好幾層、或是像 ButtonGroup 這種「父子成對」的組件，才拿出 provide / inject。
+
+---
+
+## 小結
+
+-   provide / inject 讓上層組件提供資料，子孫組件不管隔幾層都能直接拿，解決 prop drilling。
+-   要保留響應式，就 provide ref 或 computed，不要 provide \`.value\`。
+-   不想讓子孫亂改，就 provide \`readonly\` 的資料加上修改函式。
+-   key 用 Symbol 集中管理，避免撞名。
+-   inject 往上找的方式，就是 JS 的原型鏈：\`Object.create\` 加上 \`in\`。
+-   跟 Pinia 的差別在「範圍、份數、壽命」：整個 App 一份用 Pinia，每一組各自一份用 provide / inject。而 Pinia 本身就是用 \`app.provide\` 實作的。
+
+---
+`,B=`---
+title: "Vue 走過路過不要錯過 Day21 - Composables：把重複邏輯抽成 useXxx"
+subtitle: "Composables：把重複邏輯抽成 useXxx"
+day: 21
+date: "2026-10-06"
+excerpt: "寫 Vue 寫久了，一定會遇到這種情況：A 組件寫了一段邏輯，過兩天 B 組件也要一模一樣的東西。 最直覺的做法就是複製貼上。能動，但接下來的事大家應該都經歷過：某天發現那段邏輯有 bug，修了 A 忘了 B；或是想加個功能，要記得每個地方…"
+source: "https://ithelp.ithome.com.tw/articles/10421567"
+series: "ithome-ironman-2026"
+---
+
+寫 Vue 寫久了，一定會遇到這種情況：A 組件寫了一段邏輯，過兩天 B 組件也要一模一樣的東西。
+
+最直覺的做法就是複製貼上。能動，但接下來的事大家應該都經歷過：某天發現那段邏輯有 bug，修了 A 忘了 B；或是想加個功能，要記得每個地方都改一次。複製的次數越多，維護的地雷就越多。
+
+還記得 Day 14 寫過的 \`useModal\` 嗎？當時重點放在模板 ref，沒有細講為什麼它要叫 \`use\` 開頭、為什麼可以獨立成一個檔案。今天就來把這件事講清楚：**Composables（組合式函式）**。
+
+## 先看一段會被複製的邏輯
+
+用官方文件也拿來當例子的「追蹤滑鼠座標」來說明，直接寫在組件裡長這樣：
+
+\`\`\`js
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+ 
+const x = ref(0)
+const y = ref(0)
+ 
+function update(e) {
+  x.value = e.pageX
+  y.value = e.pageY
+}
+ 
+onMounted(() => window.addEventListener('mousemove', update))
+onUnmounted(() => window.removeEventListener('mousemove', update))
+<\/script>
+ 
+<template>
+  <p>滑鼠位置：{{ x }}, {{ y }}</p>
+</template>
+\`\`\`
+
+這段本身沒什麼問題。問題是當第二個、第三個組件也想要滑鼠座標時，這十幾行就會跟著到處跑。
+
+## 把它抽出去
+
+既然是重複的邏輯，那就抽成一個函式：
+
+\`\`\`js
+// composables/useMouse.js
+import { ref, onMounted, onUnmounted } from 'vue'
+ 
+export function useMouse() {
+  const x = ref(0)
+  const y = ref(0)
+ 
+  function update(e) {
+    x.value = e.pageX
+    y.value = e.pageY
+  }
+ 
+  onMounted(() => window.addEventListener('mousemove', update))
+  onUnmounted(() => window.removeEventListener('mousemove', update))
+ 
+  return { x, y }
+}
+\`\`\`
+
+組件裡只剩一行：
+
+\`\`\`js
+<script setup>
+import { useMouse } from './composables/useMouse'
+ 
+const { x, y } = useMouse()
+<\/script>
+ 
+<template>
+  <p>滑鼠位置：{{ x }}, {{ y }}</p>
+</template>
+\`\`\`
+
+看起來很簡單，就是把程式碼搬到另一個檔案而已。但這裡面其實藏了三個值得想一想的問題：
+
+1.  抽出去的函式那麼多，為什麼這個叫 composable，\`formatDate()\` 就不算？
+2.  \`ref\` 和 \`onMounted\` 不是組件的東西嗎？為什麼可以寫在組件外面？
+3.  為什麼回傳的是 \`x\`，而不是 \`x.value\`？
+
+## 一、跟一般的 utils 差在哪？
+
+先想想 \`formatDate(date)\` 這種工具函式：給它一個日期，它還你一個字串，然後就結束了。呼叫完之後，它不會「記得」任何事情，也不會再做任何事情。
+
+但滑鼠座標不一樣。\`useMouse()\` 呼叫完之後，座標還要**持續更新**，組件卸載時還要**記得把監聽拆掉**。要做到這兩件事，它需要 utils 沒有的東西：
+
+-   **會變的狀態**：\`x\`、\`y\` 這兩個 \`ref\`
+-   **跟著組件生命週期走的副作用**：\`onMounted\` 綁事件、\`onUnmounted\` 拆事件  
+    所以 composable 和 utils 的分界線，不在於「有沒有抽成函式」，而在於**有沒有狀態或生命週期**。官方文件的說法是：composable 封裝的是「有狀態的邏輯（stateful logic）」。
+
+命名上的慣例是用 \`use\` 開頭，例如 \`useMouse\`、\`useFetch\`、\`useModal\`，看到名字就知道「這裡面有響應式狀態，而且要在 setup 裡呼叫」。檔案通常會集中放在 \`composables/\` 資料夾。
+
+## 二、為什麼 ref 和 onMounted 能寫在組件外？
+
+這題要拆成兩半講，因為 \`ref\` 和 \`onMounted\` 能搬出去的**原因不一樣**。
+
+### ref：響應式本來就不需要組件
+
+回想 Day 3 自己用 Proxy 寫的迷你 reactive，那段程式碼裡有出現任何組件嗎？沒有。它就是 Proxy 攔截讀寫、收集依賴、觸發更新，純粹的 JavaScript。
+
+Vue 的響應式系統也是一樣，它是一個獨立的模組（\`@vue/reactivity\`），跟組件沒有綁在一起。所以 \`ref\` 寫在 \`.vue\` 檔裡可以動，寫在一般的 \`.js\` 檔裡也可以動。
+
+### onMounted：靠的是「目前正在 setup 的組件」
+
+\`onMounted\` 就沒那麼單純了。仔細看它的用法：
+
+\`\`\`js
+onMounted(() => { ... })
+\`\`\`
+
+我們從頭到尾都沒告訴它「要掛在哪個組件上」。那 Vue 怎麼知道的？
+
+原因是 Vue 在執行某個組件的 \`setup\` 時，會先把「目前正在 setup 的組件實例」記下來。\`onMounted\` 被呼叫時，就把 callback 掛到這個實例身上。
+
+composable 說穿了只是一個普通函式，當它在 \`<script setup>\` 裡被呼叫時，那個「目前實例」還在，所以裡面的 \`onMounted\` 自然掛得上去。
+
+這也帶出了 composable 最重要的使用規則：**要在 setup 頂層同步呼叫。**
+
+\`\`\`js
+// ❌ 在事件裡才呼叫
+function handleClick() {
+  const { x, y } = useMouse()
+}
+\`\`\`
+
+按鈕被點的時候，setup 早就跑完了，「目前實例」已經不在，\`onMounted\` 找不到人可以掛，Vue 會在 console 丟出警告，事件也不會被綁上去。
+
+同樣的道理，在 \`await\` 之後才呼叫也有風險，因為 \`await\` 之後的程式碼已經是在之後的某個時間點才執行：
+
+\`\`\`js
+// ⚠️ await 之後，目前實例可能已經不在了
+const data = await fetchSomething()
+const { x, y } = useMouse()
+\`\`\`
+
+### 順帶一提：每次呼叫都是獨立的一份
+
+既然 composable 就是普通函式，每次呼叫都會重新執行一次 \`ref(0)\`，所以 A 組件和 B 組件各自呼叫 \`useMouse()\`，拿到的是**兩份互不相干的狀態**。這跟上一篇 provide / inject「大家共用同一份」是不同的情境，選哪個看需求。
+
+## 三、回傳 ref，還是回傳 .value？
+
+假設回傳時寫成這樣：
+
+\`\`\`js
+// ❌ 回傳的是快照
+return { x: x.value, y: y.value }
+\`\`\`
+
+組件拿到的 \`x\` 是什麼？是一個數字，呼叫當下的值，也就是 \`0\`。之後滑鼠怎麼移動，那個 \`0\` 都不會變，因為它已經跟 \`ref\` 斷開了。
+
+所以慣例是**回傳一個裝著 ref 的普通物件**：
+
+\`\`\`js
+return { x, y }
+\`\`\`
+
+這樣做的好處是組件可以直接解構，解構出來的 \`x\`、\`y\` 依然是 ref，響應性不會丟失，模板裡也會自動解包，不用寫 \`.value\`。
+
+那如果回傳的是 \`reactive\` 呢？
+
+\`\`\`js
+const state = reactive({ x: 0, y: 0 })
+return state
+\`\`\`
+
+組件一解構 \`const { x, y } = useMouse()\`，就會拿到兩個普通的數字。原因跟 Day 4 講過的一樣：解構等於把屬性的值讀出來，而讀出來的是值本身，不再經過 Proxy。
+
+真的想用 \`reactive\` 管理內部狀態的話，回傳時包一層 \`toRefs\`，把每個屬性轉成 ref：
+
+\`\`\`js
+const state = reactive({ x: 0, y: 0 })
+return toRefs(state)
+\`\`\`
+
+不過比起每次都要記得 \`toRefs\`，直接用 \`ref\` 組成普通物件回傳，會是比較不容易出錯的寫法。
+
+## 小結
+
+composable 看起來只是「把程式碼搬到另一個檔案」，但能這樣搬，背後其實是 Vue 3 的設計：
+
+-   響應式系統本身就獨立於組件之外，所以 \`ref\` 可以到處寫
+-   生命週期 hook 靠的是「目前正在 setup 的組件實例」，所以 composable 要在 setup 頂層同步呼叫
+-   回傳一個裝著 ref 的物件，組件解構後才不會丟掉響應性  
+    判斷要不要抽成 composable，可以先問自己一句：**這段邏輯有沒有狀態或生命週期？** 沒有的話，寫成一般的 utils 就好；有的話，就是 \`useXxx\` 登場的時候了。
+`,D=`---
+title: "Vue 走過路過不要錯過 Day22 - 串接 API：loading、error、資料三種狀態怎麼管"
+subtitle: "串接 API：loading、error、資料三種狀態怎麼管"
+day: 22
+date: "2026-10-08"
+excerpt: "打 API 的那一行程式碼本身不難， fetch(url) 一行就結束了。真正花時間的是它周圍的狀態：資料還沒回來時畫面要顯示什麼？失敗了要顯示什麼？使用者切換條件後，舊資料要不要先清掉？ Day 21 講 composable 的時候提過…"
+source: "https://ithelp.ithome.com.tw/articles/10422295"
+series: "ithome-ironman-2026"
+---
+
+打 API 的那一行程式碼本身不難，\`fetch(url)\` 一行就結束了。真正花時間的是它周圍的狀態：資料還沒回來時畫面要顯示什麼？失敗了要顯示什麼？使用者切換條件後，舊資料要不要先清掉？
+
+Day 21 講 composable 的時候提過 \`useFetch\` 是很常見的例子，這篇就把它從最陽春的版本一路改到可以放進專案用。範例使用公開的假資料 API [JSONPlaceholder](https://jsonplaceholder.typicode.com/)，情境是一個「選擇使用者，列出他的文章」的頁面。
+
+## 一個請求，畫面至少有四種樣子
+
+先不寫程式，想一下這個頁面會出現哪些畫面：
+
+| 狀態 | 畫面 |
+| --- | --- |
+| 還沒開始 | 通常不會停在這裡太久，一進頁面就打 API |
+| 載入中 | 轉圈圈或骨架屏 |
+| 失敗 | 錯誤訊息，最好附一個「重試」按鈕 |
+| 成功 | 文章列表 |
+
+成功裡面還藏了一種：**成功了，但是空的**。API 回傳 \`[]\` 並不是錯誤，可是直接渲染出一個空的 \`<ul>\`，使用者會以為畫面壞掉了。
+
+所以「三種狀態」其實是個簡化的說法。我們用 \`loading\`、\`error\`、\`data\` 三個變數去表示這幾種畫面，接下來的問題都出在「三個變數要怎麼表示四、五種畫面」。
+
+## 最直覺的寫法
+
+\`\`\`js
+<script setup>
+import { ref, onMounted } from 'vue'
+ 
+const posts = ref(null)
+const error = ref(null)
+const isLoading = ref(false)
+ 
+async function getPosts() {
+  isLoading.value = true
+  try {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
+    posts.value = await res.json()
+  } catch (err) {
+    error.value = err
+  } finally {
+    isLoading.value = false
+  }
+}
+ 
+onMounted(getPosts)
+<\/script>
+\`\`\`
+
+把 \`isLoading.value = false\` 放進 \`finally\`，就不用在 \`try\` 和 \`catch\` 各寫一次。看起來很完整，但它有三個問題，我們一個一個看。
+
+## 坑一：fetch 遇到 404 不會進 catch
+
+這是 JS 本身的行為，跟 Vue 無關。\`fetch\` 回傳的 Promise **只有在網路層失敗時才會 reject**，例如斷網、DNS 解析失敗、CORS 被擋。只要伺服器有回應，就算是 404 或 500，Promise 都會正常 resolve。
+
+我在本機開了一個會回 404 的假 server 實際測試：
+
+\`\`\`js
+const res = await fetch('/missing')
+console.log(res.ok, res.status) // false 404，而且完全沒有進 catch
+\`\`\`
+
+如果你用過 axios，可能會覺得奇怪，因為 axios 預設遇到 4xx、5xx 會直接 reject。換成 \`fetch\` 時就要自己檢查 \`res.ok\`（狀態碼在 200–299 之間才會是 \`true\`）：
+
+\`\`\`js
+const res = await fetch(url)
+if (!res.ok) throw new Error(\`HTTP \${res.status}\`)
+posts.value = await res.json()
+\`\`\`
+
+主動 \`throw\` 之後，錯誤就會流進同一個 \`catch\`，處理錯誤的地方只需要一個。
+
+## 先抽成 useFetch
+
+接下來的問題都跟「重打」有關，先照 Day 21 的做法抽成 composable，比較好討論：
+
+\`\`\`js
+// composables/useFetch.js
+import { ref } from 'vue'
+ 
+export function useFetch(url) {
+  const data = ref(null)
+  const error = ref(null)
+  const isLoading = ref(false)
+ 
+  async function execute() {
+    isLoading.value = true
+    try {
+      const res = await fetch(url)
+      if (!res.ok) throw new Error(\`HTTP \${res.status}\`)
+      data.value = await res.json()
+    } catch (err) {
+      error.value = err
+    } finally {
+      isLoading.value = false
+    }
+  }
+ 
+  execute()
+ 
+  return { data, error, isLoading, refetch: execute }
+}
+\`\`\`
+
+回傳的是裝著 ref 的普通物件，使用的人解構也不會失去響應性，這是 Day 21 談過的原則。
+
+## 坑二：重打時沒清掉上一次的狀態
+
+假設第一次請求失敗，\`error\` 有值了。使用者按下「重試」，這次成功，\`data\` 也有值了。
+
+但是 \`error\` 從頭到尾沒被清掉。這時候 \`error\` 和 \`data\` 同時有值，模板要顯示哪一個？答案取決於你 \`v-if\` 寫的順序，也就是說畫面對不對要看運氣。
+
+所以每次發請求前要先重設：
+
+\`\`\`js
+async function execute() {
+  isLoading.value = true
+  error.value = null
+  data.value = null
+  // ...
+}
+\`\`\`
+
+\`error\` 一定要清掉。\`data\` 要不要清，就是設計上的選擇了：
+
+-   **清掉**：切換條件時畫面會先回到載入中。不會出現「標題寫使用者 2，列表卻還是使用者 1 的文章」這種錯位，最安全。
+-   **保留舊資料**：重新整理同一份資料時，畫面不會閃一下，可以在舊資料上蓋一層半透明的 loading。  
+    這篇用「清掉」的做法，因為下一段要讓 URL 可以變動，換條件時保留舊資料反而容易誤導使用者。
+
+## 三個變數會組出不可能的狀態
+
+回頭看 \`isLoading\`、\`error\`、\`data\` 這三個變數，排列組合有很多種，但真正合理的只有幾種。像「\`isLoading\` 是 \`true\`，\`error\` 也有值」這種組合是不合理的，而程式一旦漏掉某一行重設，它就可能出現。
+
+與其靠三個布林值互相配合，不如直接用一個變數說清楚「現在是哪一種狀態」：
+
+\`\`\`js
+const status = ref('idle') // 'idle' | 'pending' | 'success' | 'error'
+\`\`\`
+
+\`status\` 同一時間只會有一個值，不可能既是 \`pending\` 又是 \`error\`。\`isLoading\` 也不用自己維護，從 \`status\` 算出來就好：
+
+\`\`\`js
+const isLoading = computed(() => status.value === 'pending')
+\`\`\`
+
+\`data\` 和 \`error\` 還是保留，它們負責存放「內容」；\`status\` 負責說明「現在是哪一種情況」。下一個坑會看到，\`status\` 不只是寫起來比較整齊，它還真的能幫我們避開一個 bug。
+
+## 讓網址可以變
+
+實際的頁面通常會讓使用者切換條件，例如下拉選單選使用者，網址從 \`?userId=1\` 變成 \`?userId=2\`，\`useFetch\` 就要自動重打。
+
+最直覺的寫法是把網址的值傳進去：
+
+\`\`\`js
+const url = ref('/posts?userId=1')
+const { data } = useFetch(url.value) // ❌ 傳進去的只是一個字串
+\`\`\`
+
+這就是 Day 21 說的「參數也要傳盒子」。\`url.value\` 傳進去的那一刻，就只是一個普通字串，跟 \`url\` 這個 ref 已經沒有關係。我實際測過：之後把 \`url.value\` 改成 \`userId=2\`，\`data\` 還是使用者 1 的資料。
+
+正確的做法是讓 \`useFetch\` 接受 ref 或 getter，然後在內部用 \`toValue()\`（Vue 3.3 加入）把它們統一取出值：
+
+-   傳 ref → 取 \`.value\`
+-   傳 getter 函式 → 呼叫它，拿回傳值
+-   傳普通字串 → 原樣回傳  
+    再用 \`watch\` 監聽它，網址一變就重打：
+
+\`\`\`js
+import { ref, watch, toValue } from 'vue'
+ 
+export function useFetch(url) {
+  // ...
+  async function execute() {
+    // ...
+    const res = await fetch(toValue(url))
+    // ...
+  }
+ 
+  watch(() => toValue(url), execute, { immediate: true })
+  // ...
+}
+\`\`\`
+
+使用的地方可以這樣寫：
+
+\`\`\`js
+const userId = ref(1)
+const { data } = useFetch(() => \`https://jsonplaceholder.typicode.com/posts?userId=\${userId.value}\`)
+\`\`\`
+
+官方文件的範例是用 \`watchEffect\` 包住 \`fetchData()\`。這裡改用 \`watch\` 搭配 getter，是因為 \`execute\` 是 async 函式，而 \`watchEffect\` 只會追蹤**第一個 \`await\` 之前**讀到的響應式資料。依賴寫在 \`watch\` 的第一個參數，一眼就能看出「什麼改變了會重打」，比較不容易踩到這個限制。
+
+## 坑三：誰最後回來，誰就贏
+
+網址會變之後，新的問題就出現了。
+
+使用者先選了使用者 1，馬上又改選使用者 2。兩個請求同時在路上，如果使用者 1 的回應比較慢，就會發生這種事：
+
+1.  發出請求 A（userId=1）
+2.  發出請求 B（userId=2）
+3.  B 先回來，\`data\` = 使用者 2 的文章 ✅
+4.  A 後回來，\`data\` = 使用者 1 的文章 ❌  
+    下拉選單顯示使用者 2，列表卻是使用者 1 的文章。我用假 server 把 userId=1 的回應延遲 300ms、userId=2 延遲 50ms，結果跟上面描述的一模一樣，最後留在畫面上的是使用者 1 的資料。
+
+這種情況叫做 **race condition（競態條件）**。網路回應的順序不一定等於送出的順序，你沒辦法控制哪一個先回來。
+
+### 用 AbortController 取消舊請求
+
+解法是：發新請求之前，把還在路上的舊請求取消掉。\`fetch\` 可以搭配 \`AbortController\`：
+
+\`\`\`js
+const controller = new AbortController()
+fetch(url, { signal: controller.signal })
+ 
+controller.abort() // 這個 fetch 會 reject，錯誤的 name 是 'AbortError'
+\`\`\`
+
+Vue 3.5 的 \`onWatcherCleanup\` 正好用在這裡。watcher 準備重新執行前，會先呼叫你註冊的清理函式：
+
+\`\`\`js
+watch(() => toValue(url), async () => {
+  const controller = new AbortController()
+  onWatcherCleanup(() => controller.abort())
+ 
+  isLoading.value = true
+  try {
+    const res = await fetch(toValue(url), { signal: controller.signal })
+    data.value = await res.json()
+  } catch (err) {
+    if (err.name !== 'AbortError') error.value = err
+  } finally {
+    isLoading.value = false
+  }
+}, { immediate: true })
+\`\`\`
+
+兩個要注意的地方：
+
+-   \`onWatcherCleanup\` 一定要在第一個 \`await\` **之前**呼叫，跟 Day 21 講 \`onMounted\` 要同步呼叫是同樣的道理。如果要在 \`await\` 之後註冊，可以改用 watch callback 的第三個參數 \`onCleanup\`。
+-   被取消的請求也會進 \`catch\`，但這不是真正的錯誤，要用 \`err.name === 'AbortError'\` 把它排除。
+
+### finally 在這裡反而會出事
+
+上面這段已經解決了資料錯位，但我測試時發現另一個問題：
+
+\`\`\`
+切換到 userId=2，新請求還在跑
+isLoading = false  ← ？？？
+\`\`\`
+
+新請求明明還沒回來，\`isLoading\` 卻變成 \`false\` 了。
+
+原因是舊請求被 abort 之後，雖然在 \`catch\` 裡被我們排除了，但它還是會走到 \`finally\`，把 \`isLoading\` 改成 \`false\`。這時候新請求剛把它設成 \`true\`，就被舊請求蓋掉了。畫面的結果是載入動畫閃一下就消失，列表區塊空白一段時間，然後資料才突然出現。
+
+這就是前面說 \`status\` 能幫忙避開的 bug。不用 \`finally\`，改成在成功和失敗時各自設定 \`status\`，被取消的請求直接 \`return\`，什麼狀態都不動：
+
+\`\`\`js
+try {
+  // ...
+  status.value = 'success'
+} catch (err) {
+  if (err.name === 'AbortError') return // 被取消的請求，什麼都不碰
+  error.value = err
+  status.value = 'error'
+}
+\`\`\`
+
+這時候 \`status\` 還是新請求設定的 \`'pending'\`，畫面也就正確地停留在載入中。
+
+## 完整的 useFetch
+
+把上面的修正整合起來，再加上兩個實用的功能：
+
+-   **重試**：「重試」按鈕會呼叫 \`refetch\`，它不經過 watcher，所以 \`onWatcherCleanup\` 管不到它。這裡改成把 \`controller\` 放在閉包裡，每次執行 \`execute\` 都先取消上一個請求，不管是誰觸發的都能處理。
+-   **組件卸載**：使用者在請求還沒回來時就離開頁面，用 \`onScopeDispose\` 把它取消。
+
+\`\`\`js
+// composables/useFetch.js
+import { ref, computed, watch, toValue, onScopeDispose } from 'vue'
+ 
+export function useFetch(url) {
+  const data = ref(null)
+  const error = ref(null)
+  const status = ref('idle') // 'idle' | 'pending' | 'success' | 'error'
+  const isLoading = computed(() => status.value === 'pending')
+ 
+  let controller = null
+ 
+  async function execute() {
+    controller?.abort() // 不管是 watcher 還是手動重試，先取消上一個請求
+    controller = new AbortController()
+    const { signal } = controller
+ 
+    status.value = 'pending'
+    error.value = null
+    data.value = null
+ 
+    try {
+      const res = await fetch(toValue(url), { signal })
+      if (!res.ok) throw new Error(\`HTTP \${res.status}\`)
+      data.value = await res.json()
+      status.value = 'success'
+    } catch (err) {
+      if (err.name === 'AbortError') return
+      error.value = err
+      status.value = 'error'
+    }
+  }
+ 
+  watch(() => toValue(url), execute, { immediate: true })
+  onScopeDispose(() => controller?.abort())
+ 
+  return { data, error, status, isLoading, refetch: execute }
+}
+\`\`\`
+
+\`onScopeDispose\` 和 \`onUnmounted\` 很像，差別是它綁定的是目前的 effect scope，而不只是組件。在組件的 \`setup\` 裡呼叫時，組件卸載就會觸發；如果有人在 \`effectScope()\` 裡使用這個 composable，它也能正常運作。寫 composable 時用它會比較通用。
+
+上面每一段程式碼我都用本機的假 server 跑過，包括 404、慢回應被取消、切換時的 \`status\`、空陣列，以及卸載後不會再寫入狀態。
+
+## 組件裡怎麼用
+
+\`\`\`js
+<script setup>
+import { ref } from 'vue'
+import { useFetch } from '@/composables/useFetch'
+ 
+const userId = ref(1)
+const { data: posts, error, status, refetch } = useFetch(
+  () => \`https://jsonplaceholder.typicode.com/posts?userId=\${userId.value}\`
+)
+<\/script>
+ 
+<template>
+  <select v-model.number="userId">
+    <option v-for="n in 3" :key="n" :value="n">使用者 {{ n }}</option>
+    <option :value="999">不存在的使用者</option>
+  </select>
+ 
+  <p v-if="status === 'pending'">載入中…</p>
+ 
+  <div v-else-if="status === 'error'">
+    <p>載入失敗：{{ error.message }}</p>
+    <button @click="refetch">重試</button>
+  </div>
+ 
+  <p v-else-if="status === 'success' && posts.length === 0">這位使用者還沒有文章</p>
+ 
+  <ul v-else-if="status === 'success'">
+    <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
+  </ul>
+</template>
+\`\`\`
+
+JSONPlaceholder 只有 userId 1–10 有資料，選「不存在的使用者」時 API 會回傳 \`[]\`，剛好可以看到空資料的畫面。
+
+模板的判斷都是看 \`status\`，而不是看 \`data\` 有沒有值，所以順序比較不容易寫錯。如果是用三個變數判斷，例如先寫 \`v-if="data"\`，再寫 \`v-else-if="isLoading"\`，那「保留舊資料」的版本在重新載入時就永遠不會顯示 loading。用 \`status\` 判斷時，每個分支都對應一個明確的狀態，就不會出現這種問題。
+
+\`posts.length === 0\` 前面加上 \`status === 'success'\` 的條件，是為了確保 \`posts\` 一定已經有值，不會在 \`null\` 上讀 \`length\`。
+
+## 什麼時候不用自己寫
+
+自己寫一次 \`useFetch\` 的價值，在於搞清楚這些狀態是怎麼來的。實際專案中，通常會直接使用現成的工具：
+
+-   **VueUse 的 \`useFetch\`**：用法跟這篇的版本很接近，還多了自動中斷、攔截器、逾時等功能。
+-   **TanStack Query（Vue Query）**：如果需要快取、多個組件共用同一份資料、背景自動重新整理，自己寫的版本就不夠用了，交給它比較實在。  
+    不過不管用哪一個，它們回傳的東西都長得差不多：\`data\`、\`error\`、\`isLoading\` 或 \`status\`。讀懂這篇之後，再去看它們的文件就會很快上手。
+`,E=`---
+title: "Vue 走過路過不要錯過 Day 23 - Vue Router 基礎，路由設定、動態參數與查詢參數"
+subtitle: "Vue Router 基礎，路由設定、動態參數與查詢參數"
+day: 23
+date: "2026-10-09"
+excerpt: "瀏覽器發請求時，會把網址的哪一部分傳給伺服器？ http://example.com/user/1#profile 裡，你覺得 #profile 會被傳出去嗎？ 如果網址是 /user/1 ，使用者直接在瀏覽器按重新整理，伺服器會收到什麼？…"
+source: "https://ithelp.ithome.com.tw/articles/10422775"
+series: "ithome-ironman-2026"
+---
+
+## 先想一想
+
+1.  瀏覽器發請求時，會把網址的哪一部分傳給伺服器？\`http://example.com/user/1#profile\` 裡，你覺得 \`#profile\` 會被傳出去嗎？
+2.  如果網址是 \`/user/1\`，使用者直接在瀏覽器按重新整理，伺服器會收到什麼？它找得到對應的檔案嗎？
+3.  商品列表的篩選條件，應該存在元件的 \`ref\` 裡，還是網址裡？如果把網址分享給朋友，畫面要能還原，這會影響你的選擇。
+
+## 設定路由與動態參數
+
+Vue Router 讓不同網址對應到不同元件。\`/user/:id\` 裡的 \`:id\` 是動態參數，\`/user/1\`、\`/user/2\` 會使用同一個元件，只有資料不同。
+
+\`\`\`js
+// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+import UserDetail from '../views/UserDetail.vue'
+ 
+const routes = [
+  { path: '/', component: Home },
+  { path: '/user/:id', component: UserDetail }, // :id 是動態參數
+]
+ 
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+ 
+export default router
+\`\`\`
+
+\`\`\`js
+// src/main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+ 
+createApp(App).use(router).mount('#app')
+\`\`\`
+
+導覽連結用 \`RouterLink\`，對應的元件顯示在 \`RouterView\` 裡。這部分寫在 \`App.vue\` 的 template 中：
+
+\`\`\`js
+// App.vue 的 template 部分，寫成 template 字串示意
+// <nav>
+//   <RouterLink to="/">首頁</RouterLink>
+//   <RouterLink to="/user/1">使用者 1</RouterLink>
+// </nav>
+// <RouterView />
+\`\`\`
+
+在 \`UserDetail.vue\` 裡用 \`useRoute()\` 讀取參數：
+
+\`\`\`js
+// UserDetail.vue 的 script setup 部分
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+ 
+const route = useRoute()
+ 
+// route.params.id 是字串，例如 '1'
+// 用 computed 包起來，從 /user/1 切到 /user/2 時會自動更新
+const userId = computed(() => route.params.id)
+\`\`\`
+
+這裡有一個容易忽略的地方：路由參數的值都是字串。需要數字時用 \`Number(route.params.id)\` 轉換。另外，從 \`/user/1\` 切到 \`/user/2\` 時，元件不會重新建立，所以要用 \`computed\` 或 \`watch\` 來響應變化。
+
+## Hash 模式與 Web 模式
+
+兩種模式都能讓網址改變時頁面不重新載入，差別在網址長相，以及伺服器要做的事。
+
+|  | Hash 模式 | Web（History）模式 |
+| --- | --- | --- |
+| 網址範例 | \`/#/user/1\` | \`/user/1\` |
+| 建立方式 | \`createWebHashHistory()\` | \`createWebHistory()\` |
+| 伺服器設定 | 不需要 | 需要 |
+| SEO | 較不利 | 較有利 |
+
+**Hash 模式**：\`#\` 後面的內容瀏覽器不會傳給伺服器，伺服器只會收到 \`/\`，因此直接回傳 \`index.html\`。之後由 Vue Router 讀取 \`#\` 後面的路徑，決定顯示哪個元件。
+
+\`\`\`js
+import { createRouter, createWebHashHistory } from 'vue-router'
+ 
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+})
+\`\`\`
+
+**Web 模式**：網址是乾淨的 \`/user/1\`，但它是真的路徑。使用者直接輸入網址或重新整理時，瀏覽器會向伺服器請求 \`/user/1\`。如果伺服器找不到對應檔案，就會回傳 404，所以部署時要設定：不管路徑是什麼，都回傳 \`index.html\`。
+
+\`\`\`js
+import { createRouter, createWebHistory } from 'vue-router'
+ 
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+\`\`\`
+
+**怎麼選？**
+
+-   部署在 GitHub Pages 這類靜態主機，又不方便改伺服器設定：用 Hash 模式。
+-   正式專案、需要乾淨網址與 SEO：用 Web 模式，並設定伺服器回傳 \`index.html\`。
+-   開發時用 Vite 的本地伺服器，Web 模式通常直接可用，問題多半出現在部署之後。
+
+## 查詢參數：用網址記錄篩選與分頁
+
+\`?page=0&sortBy=ctime\` 叫做**查詢參數（query string）**。它不影響使用哪個路由，只是附加在網址後面的資料。
+
+-   \`?\` 之後開始是查詢參數
+-   \`&\` 分隔多組參數
+-   \`=\` 左邊是 key，右邊是 value，value 永遠是字串  
+    原生 JS 可以用 \`URLSearchParams\` 解析：
+
+\`\`\`js
+const params = new URLSearchParams('page=0&sortBy=ctime')
+params.get('page')   // '0'
+params.get('sortBy') // 'ctime'
+\`\`\`
+
+把篩選條件放在網址裡的好處是，網址就是唯一的資料來源。使用者重新整理頁面，或把網址分享給別人，畫面都能還原。
+
+下面是商品列表的範例，過濾條件和分頁都從 \`route.query\` 讀取，修改時則用 \`router.push\`：
+
+\`\`\`js
+// ProductList.vue 的 script setup 部分
+import { computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+ 
+const route = useRoute()
+const router = useRouter()
+ 
+// 從網址讀取，值都是字串，需要轉換
+const page = computed(() => Number(route.query.page ?? 0))
+const sortBy = computed(() => route.query.sortBy ?? 'ctime')
+ 
+// 改變排序：改網址，頁數重設為 0
+function changeSort(value) {
+  router.push({
+    query: { ...route.query, sortBy: value, page: 0 },
+  })
+}
+ 
+// 換頁：只改 page，保留其他條件
+function changePage(p) {
+  router.push({
+    query: { ...route.query, page: p },
+  })
+}
+ 
+function fetchProducts() {
+  // 這裡換成你的 API，用 page.value 和 sortBy.value 帶參數
+  console.log('取得商品', page.value, sortBy.value)
+}
+ 
+// 網址變化時重新取資料，immediate 讓進入頁面時先執行一次
+watch(() => route.query, fetchProducts, { immediate: true })
+\`\`\`
+
+模板部分的寫法一樣直接，綁定 \`sortBy\` 與分頁按鈕即可。
+
+這裡有幾個重點：
+
+-   網址是資料來源，元件只負責讀取與修改它。
+-   改過濾條件時，通常把 \`page\` 重設為 0，避免停在不存在的頁數。
+-   若不希望每次篩選都增加一筆瀏覽歷史，可以把 \`router.push\` 換成 \`router.replace\`。
+
+## 小結
+
+-   動態參數 \`:id\` 讓同一個元件對應多個網址，參數是字串，變化時要用 \`computed\` 或 \`watch\` 響應。
+-   Hash 模式不需要伺服器設定，Web 模式網址更乾淨，但部署時要讓伺服器回傳 \`index.html\`。
+-   查詢參數適合存放篩選與分頁狀態，讓網址成為唯一的資料來源，重新整理與分享都能還原畫面。
+`,C=`---
+title: "Vue 走過路過不要錯過 Day24 - Vue Router 進階實作，導航守衛與路由懶載入"
+subtitle: "Vue Router 進階實作，導航守衛與路由懶載入"
+day: 24
+date: "2026-10-12"
+excerpt: "想像你在做一個線上課程平台。學員可以先看課程列表，但購買後才能進入章節內容；管理員則有一個學員名單頁面。這些頁面都在同一個網站，卻需要不同的規則。 Day 23 我們學會了怎麼設定路由與讀取參數，今天要處理的是另一個問題： 使用者切換頁面的…"
+source: "https://ithelp.ithome.com.tw/articles/10423558"
+series: "ithome-ironman-2026"
+---
+
+## 前言
+
+想像你在做一個線上課程平台。學員可以先看課程列表，但購買後才能進入章節內容；管理員則有一個學員名單頁面。這些頁面都在同一個網站，卻需要不同的規則。
+
+Day 23 我們學會了怎麼設定路由與讀取參數，今天要處理的是另一個問題：**使用者切換頁面的時候，誰來決定能不能進去？還有，這個頁面的程式碼什麼時候才需要下載？**
+
+## 先想一想
+
+1.  使用者直接在網址列輸入 \`/courses/1/chapters\`，你覺得應該在哪一層檢查他有沒有購買？元件裡、路由裡，還是 API 裡？
+2.  如果網站有 50 個頁面，使用者只進首頁，所有頁面的 JavaScript 都要一次下載嗎？
+
+## 實作一：用全域守衛擋住未登入的使用者
+
+全域守衛 \`router.beforeEach\` 會在每次路由切換前執行。我們在需要登入的路由上加一個 \`meta\` 標記：
+
+\`\`\`js
+// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router'
+import CourseList from '../views/CourseList.vue'
+import Chapters from '../views/Chapters.vue'
+import Login from '../views/Login.vue'
+import { isLoggedIn } from '../stores/auth'
+ 
+const routes = [
+  { path: '/', component: CourseList },
+  { path: '/login', component: Login },
+  {
+    path: '/courses/:id/chapters',
+    component: Chapters,
+    meta: { requiresAuth: true },
+  },
+]
+ 
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+ 
+router.beforeEach((to) => {
+  // 目標頁面需要登入，而且目前沒有登入
+  if (to.meta.requiresAuth && !isLoggedIn.value) {
+    return { path: '/login' }
+  }
+  // 沒有回傳值（或回傳 true）代表放行
+})
+ 
+export default router
+\`\`\`
+
+這裡的登入狀態用一個簡單的 \`ref\` 模擬：
+
+\`\`\`js
+// src/stores/auth.js
+import { ref } from 'vue'
+ 
+export const isLoggedIn = ref(false)
+ 
+export function login() {
+  isLoggedIn.value = true
+}
+\`\`\`
+
+守衛的回傳值決定結果：
+
+-   不回傳或回傳 \`true\`：放行。
+-   回傳一個路由位置（例如 \`{ path: '/login' }\`）：導向那個頁面。  
+    常見的陷阱有兩個。第一，如果寫成 \`if\` 判斷卻忘了在導向時 \`return\`，程式會繼續執行，有可能造成無限跳轉。第二，這個守衛只存在於前端，使用者可以直接修改前端程式碼繞過它，所以真正的權限檢查仍要在後端的 API 完成。
+
+## 實作二：用路由獨享守衛處理單一頁面
+
+如果某個規則只針對一個路由，可以直接寫在路由設定裡的 \`beforeEnter\`。例如學員名單只能給管理員看：
+
+\`\`\`js
+// src/router/index.js 的 routes 片段
+import Students from '../views/Students.vue'
+import { currentUser } from '../stores/auth'
+ 
+const routes = [
+  // ...其他路由
+  {
+    path: '/admin/students',
+    component: Students,
+    beforeEnter: () => {
+      if (currentUser.value?.role !== 'admin') {
+        return { path: '/' }
+      }
+    },
+  },
+]
+\`\`\`
+
+\`beforeEnter\` 只在進入這條路由時觸發。如果同一個路由的參數變化（例如 \`/courses/1\` 切到 \`/courses/2\`），它不會再執行一次。規則單純時，用它比全域守衛更容易閱讀。
+
+## 實作三：用元件內守衛防止遺失資料
+
+假設章節頁面有一個筆記輸入框。使用者寫了一半想離開，我們希望跳出確認。這種情況適合用 \`onBeforeRouteLeave\`，它寫在元件裡，只在離開這個元件時觸發：
+
+\`\`\`js
+// Chapters.vue 的 script setup 部分
+import { ref } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
+ 
+const note = ref('')
+const saved = ref(false)
+ 
+onBeforeRouteLeave(() => {
+  // 有內容但還沒儲存，詢問使用者
+  if (note.value && !saved.value) {
+    const ok = window.confirm('筆記尚未儲存，確定要離開嗎？')
+    if (!ok) return false // 回傳 false 會取消這次導覽
+  }
+})
+\`\`\`
+
+這裡要注意執行時機：\`onBeforeRouteLeave\` 是在元件層級，只有離開這個元件才會觸發；全域的 \`beforeEach\` 則是每次切換都會觸發。兩者的差別，寫的時候要分清楚。
+
+## 實作四：路由懶載入
+
+先看靜態 \`import\` 的寫法：
+
+\`\`\`js
+import Students from '../views/Students.vue'
+\`\`\`
+
+這行會讓 \`Students.vue\` 被打包進主要的 JavaScript 檔案，使用者一打開網站就會下載。改成動態 \`import()\` 的寫法：
+
+\`\`\`js
+const routes = [
+  { path: '/', component: CourseList },
+  {
+    path: '/admin/students',
+    component: () => import('../views/Students.vue'),
+  },
+]
+\`\`\`
+
+\`() => import(...)\` 會回傳一個 Promise，Vue Router 會在進入這個路由時才去下載對應的檔案。
+
+用 Vite 打包後，執行 \`npm run build\`，你會看到 \`dist/assets\` 裡多出幾個 chunk 檔案，主檔案的體積也變小。要確認它真的是在進入頁面時才下載，可以打開瀏覽器的 DevTools，切到 Network 面板，清空紀錄後從首頁點進學員名單，就會看到一個新的 JavaScript 檔案被請求。
+
+適合懶載入的頁面通常是後台、報表這類不是每個人都會用到的頁面。首頁如果一打開就會用到的元件，就不必懶載入，否則反而會多一次請求，讓首頁變慢。
+
+## 實作五：把守衛與懶載入組合起來
+
+實際的專案通常會同時有公開頁面、需要登入的頁面，以及需要管理員權限的頁面。下面是一個完整的路由設定：
+
+\`\`\`js
+// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router'
+import { isLoggedIn, currentUser } from '../stores/auth'
+ 
+const routes = [
+  // 公開頁面：直接載入，因為首頁每次都會用到
+  { path: '/', component: () => import('../views/CourseList.vue') },
+  { path: '/login', component: () => import('../views/Login.vue') },
+ 
+  // 需要登入的頁面：懶載入，登入後才下載
+  {
+    path: '/courses/:id/chapters',
+    component: () => import('../views/Chapters.vue'),
+    meta: { requiresAuth: true },
+  },
+ 
+  // 需要管理員權限的頁面
+  {
+    path: '/admin/students',
+    component: () => import('../views/Students.vue'),
+    meta: { requiresAuth: true, requiresAdmin: true },
+  },
+]
+ 
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+ 
+router.beforeEach((to) => {
+  if (to.meta.requiresAuth && !isLoggedIn.value) {
+    return { path: '/login' }
+  }
+  if (to.meta.requiresAdmin && currentUser.value?.role !== 'admin') {
+    return { path: '/' }
+  }
+})
+ 
+export default router
+\`\`\`
+
+這樣設定後，使用者沒登入時，連需要權限的頁面的 JavaScript 都不會下載，只會被導向登入頁。
+
+## 小結
+
+-   守衛決定能不能進入頁面：全域守衛適合通用規則，\`beforeEnter\` 適合單一路由，\`onBeforeRouteLeave\` 適合離開前的確認。
+-   懶載入決定什麼時候下載頁面：用 \`() => import(...)\` 把不常用的頁面拆開，首頁則保持靜態載入。
+-   前端守衛只改善使用體驗，真正的權限檢查仍必須在後端完成。
+`,T=Object.assign({"../content/posts/10410930.md":u,"../content/posts/10411646.md":l,"../content/posts/10412683.md":c,"../content/posts/10413220.md":p,"../content/posts/10413838.md":d,"../content/posts/10414399.md":m,"../content/posts/10414857.md":v,"../content/posts/10415533.md":f,"../content/posts/10416002.md":h,"../content/posts/10416006.md":y,"../content/posts/10417078.md":g,"../content/posts/10417556.md":b,"../content/posts/10417957.md":j,"../content/posts/10418397.md":w,"../content/posts/10418840.md":k,"../content/posts/10419275.md":x,"../content/posts/10419711.md":V,"../content/posts/10420134.md":M,"../content/posts/10420693.md":S,"../content/posts/10420696.md":P,"../content/posts/10421567.md":B,"../content/posts/10422295.md":D,"../content/posts/10422775.md":E,"../content/posts/10423558.md":C}),R=/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/,_=n=>{try{return JSON.parse(n)}catch{return n}},A=(n,e)=>{const[,o="",a=e]=e.match(R)??[],i=Object.fromEntries(o.split(/\r?\n/).filter(t=>t.includes(":")).map(t=>{const r=t.indexOf(":");return[t.slice(0,r).trim(),_(t.slice(r+1).trim())]}));return{slug:n.split("/").pop().replace(/\.md$/,""),...i,body:a}},s=Object.entries(T).map(([n,e])=>A(n,e)).sort((n,e)=>n.date.localeCompare(e.date)||(n.day??0)-(e.day??0));function O(){return{posts:s,getPostIndex:e=>s.findIndex(o=>o.slug===e)}}export{O as u};
