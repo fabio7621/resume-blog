@@ -144,8 +144,10 @@ const localIds = readdirSync(POSTS_DIR)
 const knownIds = [...new Set([...rssArticles.keys(), ...localIds])].sort((a, b) => a - b)
 if (knownIds.length === 0) throw new Error('RSS 抓不到文章，本機也沒有既有文章可當起點')
 
-// 一般模式只需從最新一篇往後找新文章；--force 從第一篇開始全部重抓
-let currentId = force ? knownIds[0] : knownIds.at(-1)
+// 一般模式從本機最新一篇往後找新文章（不能用 RSS 的最新一篇，否則中間的文章會被跳過）；
+// --force 或本機沒有文章時從第一篇開始全部重抓
+const latestLocalId = localIds.sort((a, b) => a - b).at(-1)
+let currentId = force || !latestLocalId ? knownIds[0] : latestLocalId
 let written = 0
 const visited = new Set()
 
