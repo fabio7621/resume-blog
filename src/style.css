@@ -7,6 +7,34 @@
   --font-mono:
     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
+  /* 字級：全站最小 18px、內文 20px，標題跟著放大維持層級 */
+  --text-xs: 1.125rem;
+  --text-xs--line-height: 1.6;
+  --text-sm: 1.1875rem;
+  --text-sm--line-height: 1.6;
+  --text-base: 1.25rem;
+  --text-base--line-height: 1.7;
+  --text-lg: 1.375rem;
+  --text-lg--line-height: 1.5;
+  --text-xl: 1.5rem;
+  --text-xl--line-height: 1.45;
+  --text-2xl: 1.75rem;
+  --text-2xl--line-height: 1.35;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 1.3;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 3.25rem;
+  --text-5xl--line-height: 1.1;
+
+  /* 作品集卡片內容比較密，例外放寬到 14–16px，標題 18px */
+  --text-card-meta: 0.875rem;
+  --text-card-meta--line-height: 1.5;
+  --text-card-body: 1rem;
+  --text-card-body--line-height: 1.7;
+  --text-card-title: 1.125rem;
+  --text-card-title--line-height: 1.4;
+
   --color-bg: #ffffff;
   --color-surface: #f8fafc;
   --color-text: #0f172a;
@@ -59,6 +87,8 @@
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition:
@@ -86,7 +116,7 @@
 
   code {
     padding: 2px 6px;
-    font-size: 0.9em;
+    font-size: max(0.9em, var(--text-xs));
   }
 
   a {
@@ -116,7 +146,7 @@
   /* 部落格文章內文（Markdown 轉出的 HTML） */
   .post-content {
     max-width: 48rem;
-    font-size: 1rem;
+    font-size: var(--text-base);
     line-height: 1.85;
     overflow-wrap: anywhere;
 
@@ -126,17 +156,17 @@
 
     & h2 {
       margin-top: 2.2em;
-      font-size: 1.4rem;
+      font-size: var(--text-2xl);
     }
 
     & h3 {
       margin-top: 1.8em;
-      font-size: 1.15rem;
+      font-size: var(--text-xl);
     }
 
     & h4 {
       margin-top: 1.5em;
-      font-size: 1rem;
+      font-size: var(--text-lg);
     }
 
     & ul,
@@ -192,7 +222,7 @@
       padding: 1em 1.25em;
       border: 1px solid var(--color-border);
       border-radius: 8px;
-      font-size: 0.85rem;
+      font-size: var(--text-xs);
       line-height: 1.65;
     }
 
@@ -206,7 +236,7 @@
       display: block;
       overflow-x: auto;
       border-collapse: collapse;
-      font-size: 0.9rem;
+      font-size: var(--text-xs);
     }
 
     & th,

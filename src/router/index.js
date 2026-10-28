@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../pages/SinglePage.vue'),
   },
   {
+    path: '/ai-works',
+    name: 'ai-works',
+    component: () => import('../pages/AiWorksPage.vue'),
+  },
+  {
     path: '/blog',
     name: 'blog',
     component: () => import('../pages/BlogPage.vue'),
@@ -32,7 +37,8 @@ export default createRouter({
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
-    if (!to.hash) return { top: 0 }
+    // 全站開了 scroll-behavior: smooth，換頁時要直接跳頂，不然捲到一半舊頁就被換掉了
+    if (!to.hash) return { top: 0, behavior: 'instant' }
 
     const isCrossPage = from.matched.length > 0 && to.path !== from.path
     return new Promise((resolve) => {

@@ -13,7 +13,8 @@ defineProps({
   link: { type: String, default: '' },
   image: { type: String, default: '' },
   // 同一組 gallery 的圖片在燈箱裡可以左右切換
-  gallery: { type: String, default: 'portfolio' },
+  // 不要跟頁面錨點同名：Fancybox 會把網址 #xxx 當成要開啟的 gallery
+  gallery: { type: String, default: 'project-gallery' },
 })
 </script>
 
@@ -51,7 +52,7 @@ defineProps({
       </a>
       <div
         v-else
-        class="flex h-full w-full flex-col items-center justify-center gap-1 font-mono text-xs"
+        class="flex h-full w-full flex-col items-center justify-center gap-1 font-mono text-card-meta"
         :style="{ color: 'var(--color-muted)' }"
       >
         <span aria-hidden="true">[ 16 : 9 ]</span>
@@ -61,7 +62,7 @@ defineProps({
 
     <div class="flex flex-1 flex-col gap-4 p-6">
       <header class="flex items-center justify-between gap-2">
-        <h3 class="text-lg">
+        <h3 class="text-card-title">
           <span
             aria-hidden="true"
             :style="{ color: 'var(--color-accent)' }"
@@ -70,7 +71,7 @@ defineProps({
           {{ name }}
         </h3>
         <div
-          class="flex gap-2 font-mono text-xs"
+          class="flex gap-2 font-mono text-card-meta"
           :style="{ color: 'var(--color-muted)' }"
         >
           <a
@@ -93,7 +94,7 @@ defineProps({
       </header>
       <p
         v-if="role || duration"
-        class="-mt-2 font-mono text-xs"
+        class="-mt-2 font-mono text-card-meta"
         :style="{ color: 'var(--color-muted)' }"
       >
         <span v-if="role">{{ role }}</span>
@@ -101,14 +102,14 @@ defineProps({
         <span v-if="duration">{{ duration }}</span>
       </p>
       <p
-        class="text-sm leading-relaxed"
+        class="text-card-body"
         :style="{ color: 'var(--color-muted)' }"
       >
         {{ description }}
       </p>
       <p
         v-if="highlight"
-        class="rounded-md p-3 text-sm leading-relaxed"
+        class="rounded-md p-3 text-card-body"
         :style="{
           borderLeft: '2px solid var(--color-accent)',
           backgroundColor: 'var(--color-code-bg)',
@@ -116,7 +117,7 @@ defineProps({
         }"
       >
         <span
-          class="font-mono text-xs"
+          class="font-mono text-card-meta"
           :style="{ color: 'var(--color-accent)' }"
           >// highlight</span
         >
@@ -131,6 +132,7 @@ defineProps({
           v-for="tag in tags"
           :key="tag"
           :label="tag"
+          size="sm"
         />
       </footer>
     </div>
