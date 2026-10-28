@@ -212,6 +212,25 @@ const projects = [
     image: "music.jpg",
   },
   {
+    name: "捷運懶人導航(AI-assisted development)",
+    description:
+      "Vue 3(Composition API)+ Vite · Vitest + Vue Test Utils · Geolocation API · 部署於 GitHub Pages",
+    role: "AI協作開發",
+    duration: "2026.10",
+    highlight:
+      "給不熟台北捷運的人用的逐步導航：選好起訖站，畫面一次只告訴你「現在該做的那一件事」——進站搭車、坐幾站、在哪轉乘、往哪個方向。 路線用 Dijkstra 演算法計算,節點設計成「車站 + 正在搭的列車」,把轉乘算成額外成本(轉一次約等於多坐 3.5 站),也能正確處理中和新蘆線、新北投等分支; 卡片底色直接換成該路線顏色,對應站內指標,主要按鈕固定在拇指按得到的底部; 支援定位找最近的站、站名模糊搜尋(臺/台、車站代碼),導航進度存在本機,重新整理也能接續。",
+    tags: [
+      "Vue 3",
+      "Dijkstra 路徑演算法",
+      "Geolocation API",
+      "Vitest 測試",
+      "RWD / 行動優先",
+    ],
+    repo: "https://github.com/fabio7621/mrt-lazy-nav-vue",
+    link: "https://fabio7621.github.io/mrt-lazy-nav-vue/",
+    image: "mrt.jpg",
+  },
+  {
     name: "升空計畫 Ascent(AI-assisted development)",
     description:
       "Vue 3 + Vite · Three.js / WebGL · GLSL · Web Audio API · 捲動驅動動畫",
