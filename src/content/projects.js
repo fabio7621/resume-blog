@@ -117,6 +117,26 @@ export const FEATURED_AI_PROJECTS = [
 // 偏畫面表現的 AI 協作作品，獨立放在 /ai-works
 export const AI_SHOWCASE_PROJECTS = [
   {
+    name: '暴風雨之夜 Storm Night(AI-assisted development)',
+    description:
+      '原生 JavaScript(ES Modules)· Vite · Three.js / WebGL · GLSL · Web Audio API',
+    role: 'AI協作開發',
+    duration: '2026.10',
+    highlight:
+      '暴風雨夜晚,北歐拖網漁船在燈塔岬角外乘風破浪的即時 3D 場景。 海面以 JONSWAP 頻譜 + GPU 逆 FFT(3 層 cascade)生成,再疊 Gerstner 長湧浪; 波函數同一份參數同時產生 GLSL 與 CPU 取樣,船的多點浮力與俯仰翻滾才會和畫面上的浪一致; 白沫覆蓋率用 Monahan 公式依風速回授控制,整段留在 GPU 上算、不讀回 CPU,避免規律卡頓; 船尾旗子是 XPBD 布料,風場與陣風跟風雨雷聲音效共用,音效全由 Web Audio 即時合成、不載入音檔。',
+    tags: [
+      'JavaScript (ES6+)',
+      'Three.js 渲染技術',
+      'GLSL Shader',
+      'FFT 海洋模擬',
+      '物理運動模擬',
+      'Web Audio API',
+    ],
+    repo: 'https://github.com/fabio7621/ship',
+    link: 'https://fabio7621.github.io/ship/',
+    image: 'ship.jpg',
+  },
+  {
     name: '升空計畫 Ascent(AI-assisted development)',
     description:
       'Vue 3 + Vite · Three.js / WebGL · GLSL · Web Audio API · 捲動驅動動畫',

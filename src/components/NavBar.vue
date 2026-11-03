@@ -8,6 +8,7 @@ const links = [
   { to: { path: '/', hash: '#about' }, label: 'about' },
   { to: { path: '/', hash: '#skills' }, label: 'skills' },
   { to: { path: '/', hash: '#portfolio' }, label: 'portfolio' },
+  { to: { name: 'ai-works' }, label: 'ai-works' },
   { to: { name: 'blog' }, label: 'blog' },
   { to: { path: '/', hash: '#contact' }, label: 'contact' },
 ]
@@ -15,7 +16,8 @@ const links = [
 const route = useRoute()
 const menuOpen = ref(false)
 
-const isActive = (link) => link.to.name === 'blog' && route.path.startsWith('/blog')
+// 獨立頁面（blog、ai-works）的路由名稱與路徑同名，子路由（/blog/:slug）也算在內
+const isActive = (link) => Boolean(link.to.name) && route.path.startsWith(`/${link.to.name}`)
 
 // 已在首頁且 hash 沒變時 router 不會觸發導航，手動捲到該區塊
 function handleNavClick(link) {
@@ -44,12 +46,12 @@ function handleNavClick(link) {
         <span :style="{ color: 'var(--color-accent)' }">~/</span>fabio
       </RouterLink>
 
-      <nav class="hidden items-center gap-1 md:flex">
+      <nav class="hidden items-center lg:flex xl:gap-1">
         <RouterLink
           v-for="link in links"
           :key="link.label"
           :to="link.to"
-          class="nav-link rounded-md px-3 py-1.5 font-mono text-sm transition-colors"
+          class="nav-link rounded-md px-2 py-1.5 font-mono text-sm whitespace-nowrap transition-colors xl:px-3"
           :style="{
             color: isActive(link) ? 'var(--color-accent)' : 'var(--color-muted)',
           }"
@@ -63,7 +65,7 @@ function handleNavClick(link) {
         <ThemeToggle />
         <button
           type="button"
-          class="inline-flex h-9 w-9 items-center justify-center rounded-md border font-mono md:hidden"
+          class="inline-flex h-9 w-9 items-center justify-center rounded-md border font-mono lg:hidden"
           :style="{
             borderColor: 'var(--color-border)',
             color: 'var(--color-text)',
@@ -80,7 +82,7 @@ function handleNavClick(link) {
 
     <nav
       v-if="menuOpen"
-      class="md:hidden"
+      class="lg:hidden"
       :style="{ borderTop: '1px solid var(--color-border)' }"
     >
       <div class="page-container flex flex-col py-2">
