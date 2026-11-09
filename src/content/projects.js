@@ -117,6 +117,26 @@ export const FEATURED_AI_PROJECTS = [
 // 偏畫面表現的 AI 協作作品，獨立放在 /ai-works
 export const AI_SHOWCASE_PROJECTS = [
   {
+    name: '廟口石獅 雨夜 Temple Guardian(AI-assisted development)',
+    description:
+      '原生 JavaScript(ES Modules)· Three.js / WebGL · GLSL · Web Audio API · 零建置(importmap + CDN)',
+    role: 'AI協作開發',
+    duration: '2026.11',
+    highlight:
+      '賽博龐克雨夜風格的台灣廟口石獅捲動導覽：含珠、項鈴、繡球、捲鬃、獅尾、石座等 8 個章節,捲動時石獅轉身、鏡頭對準該章節介紹的部位。 雨完全在 GPU 上計算,濕石板地面有漣漪與燈光倒影,後製疊上 Bloom、色散、掃描線、故障與閃電; 滑過石獅會觸發溶解成粒子的效果; 先載入石獅、背景廟宇隨後才從霧中浮現,縮短開場等待; 窄螢幕會自動拉遠特寫鏡頭; 環境音與石磨、銅鐘音效全由 Web Audio 即時合成、不載入音檔。',
+    tags: [
+      'JavaScript (ES6+)',
+      'Three.js 渲染技術',
+      'GLSL Shader',
+      '後製光暈 (Bloom)',
+      '捲動驅動動畫',
+      'Web Audio API',
+    ],
+    repo: 'https://github.com/fabio7621/temple-lion-rain',
+    link: 'https://fabio7621.github.io/temple-lion-rain/',
+    image: 'lion.jpg',
+  },
+  {
     name: '暴風雨之夜 Storm Night(AI-assisted development)',
     description:
       '原生 JavaScript(ES Modules)· Vite · Three.js / WebGL · GLSL · Web Audio API',
