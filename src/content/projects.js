@@ -117,6 +117,25 @@ export const FEATURED_AI_PROJECTS = [
 // 偏畫面表現的 AI 協作作品，獨立放在 /ai-works
 export const AI_SHOWCASE_PROJECTS = [
   {
+    name: 'おもちゃ屋01 月面ドライブ・ログ(AI-assisted development)',
+    description:
+      'Vue 3 + Vite · Three.js / WebGL · GLSL · Fancybox · 3D 場景 + 2D 海報排版',
+    role: 'AI協作開發',
+    duration: '2026.11',
+    highlight:
+      '以日系漫畫印刷風格呈現的月面海報網頁：地球懸在月平線上,一台老車停在月海中,點擊太空站鎖定框打開本店紹介。 岩石、地面投影與後製全用自寫 shader 畫出網點、版畫排線、錯版與顆粒,描邊用反轉外殼並固定螢幕粗細; 地球以一張貼圖的 RGB 通道分別存高程、陸地遮罩與雲圖; 車子與太空站是去背圖,當成永遠面向相機的 2D 立牌,著地點由相機射線反推; 相機構圖對齊海報安全框比例,依寬螢幕／窄螢幕／手機切換版面; three.js 場景為純 JS 模組,Vue 只負責生命週期與 UI。',
+    tags: [
+      'Vue 3',
+      'Three.js 渲染技術',
+      'GLSL Shader',
+      '網點／排線風格化渲染',
+      'RWD / 響應式構圖',
+    ],
+    repo: 'https://github.com/fabio7621/omochaya01',
+    link: 'https://fabio7621.github.io/omochaya01/',
+    image: 'moon.jpg',
+  },
+  {
     name: '廟口石獅 雨夜 Temple Guardian(AI-assisted development)',
     description:
       '原生 JavaScript(ES Modules)· Three.js / WebGL · GLSL · Web Audio API · 零建置(importmap + CDN)',
