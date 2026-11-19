@@ -117,6 +117,25 @@ export const FEATURED_AI_PROJECTS = [
 // 偏畫面表現的 AI 協作作品，獨立放在 /ai-works
 export const AI_SHOWCASE_PROJECTS = [
   {
+    name: 'Web Portfolio 宣傳單 玻璃瓶竹筏(AI-assisted development)',
+    description:
+      'Vue 3 + Vite · Three.js / WebGL · GLSL · 3D 場景 + 2D 海報排版',
+    role: 'AI協作開發',
+    duration: '2026.11',
+    highlight:
+      '以插畫海報為版型的作品集宣傳單：玻璃瓶裡插著花、底下鋪著石頭,一艘小竹筏浮在瓶內水面上。 竹筏開場從空中落水濺起水花,之後用彈簧浮力跟著波浪坡度傾斜、緩慢漂移; 點水面會產生漣漪推動竹筏,漣漪以環狀緩衝區存成 shader uniform,水面高度在 GLSL 與 JS 用同一個公式計算,物理與畫面才會一致; 水面漣漪畫成固定螢幕粗細的墨線圈,玻璃瓶疊上插畫風墨線與手繪高光; 桌板樹影拆成獨立遮罩,能在風裡晃動,點瓶外會吹起一陣強風; 海報以 1008×1560 設計稿等比縮放,three.js 場景為純 JS 模組,Vue 只負責版面與 UI。',
+    tags: [
+      'Vue 3',
+      'Three.js 渲染技術',
+      'GLSL Shader',
+      '插畫風格化渲染',
+      '互動物理(浮力／漣漪)',
+    ],
+    repo: 'https://github.com/fabio7621/web-portfolio-flyer',
+    link: 'https://fabio7621.github.io/web-portfolio-flyer/',
+    image: 'flyer.jpg',
+  },
+  {
     name: 'おもちゃ屋01 月面ドライブ・ログ(AI-assisted development)',
     description:
       'Vue 3 + Vite · Three.js / WebGL · GLSL · Fancybox · 3D 場景 + 2D 海報排版',
